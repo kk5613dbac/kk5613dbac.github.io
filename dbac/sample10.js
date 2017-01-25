@@ -94,7 +94,7 @@ function AddAreaTypeList()
 				optGrp.setAttribute('label', 'グループ');
 				optGrp.setAttribute('disabled', '');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				optGrp.style.display = "none";
+				// optGrp.style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
 			}
 		});
