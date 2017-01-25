@@ -93,9 +93,9 @@ function AddAreaTypeList()
 				var optGrp=document.createElement('optgroup');
 				// → setAttributeの第2引数は必須
 				optGrp.setAttribute('disabled', '');
-				select1.insertBefore(optGrp, select1.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				optGrp.style.display = "none";
+				select1.insertBefore(optGrp, select1.firstChild);
 			}
 		});
 }
