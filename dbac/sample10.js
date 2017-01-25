@@ -87,16 +87,16 @@ function AddAreaTypeList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
-				optGrp.setAttribute('label', 'グループ');
+				// optGrp.setAttribute('label', 'グループ');
 				// optGrp.setAttribute('disabled', '');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// optGrp.style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
-			// }
+			}
 		});
 }
 
