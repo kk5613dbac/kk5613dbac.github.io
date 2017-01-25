@@ -94,7 +94,7 @@ function AddAreaTypeList()
 				// → setAttributeの第2引数は必須
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select1.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select1.getElementsByTagName("optgroup")[0].style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
 			}
 		});
@@ -127,7 +127,7 @@ function AddPlanetList()
 				// → setAttributeの第2引数は必須
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select4.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select4.getElementsByTagName("optgroup")[0].style.display = "none";
 				select4.insertBefore(optGrp, select4.firstChild);
 			}
 		});
@@ -158,7 +158,7 @@ function AddShipList()
 				// → setAttributeの第2引数は必須
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select5.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select5.getElementsByTagName("optgroup")[0].style.display = "none";
 				select5.insertBefore(optGrp, select5.firstChild);
 			}
 		});
@@ -189,7 +189,7 @@ function AddRuleList()
 				// → setAttributeの第2引数は必須
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select6.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select6.getElementsByTagName("optgroup")[0].style.display = "none";
 				select6.insertBefore(optGrp, select6.firstChild);
 			}
 		});
