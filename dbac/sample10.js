@@ -125,7 +125,7 @@ function AddPlanetList()
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
 				// → setAttributeの第2引数は必須
-				optGrp.setAttribute('disabled', 'disabled');
+				optGrp.setAttribute('hidden', 'hidden');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// select4.getElementsByTagName("optgroup")[0].style.display = "none";
 				select4.insertBefore(optGrp, select4.firstChild);
