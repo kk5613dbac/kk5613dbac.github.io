@@ -92,7 +92,7 @@ function AddAreaTypeList()
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
 				optGrp.setAttribute('label', 'グループ');
-				// optGrp.setAttribute('disabled', '');
+				optGrp.setAttribute('disabled', '');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// optGrp.style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
