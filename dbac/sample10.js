@@ -86,6 +86,16 @@ function AddAreaTypeList()
 			}
 
 			xmldoc = null;
+
+			if(osVer == "smartPhone"){
+				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
+				// → disable属性で全項目選択不可になる
+				var optGrp=document.createElement('optgroup');
+				optGrp.setAttribute('disabled', '');
+				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
+				select1.getElementsByTagName("optgroup")[0].style.display = "none";
+				select1.insertBefore(optGrp, select1.firstChild);
+			}
 		});
 }
 
@@ -108,6 +118,16 @@ function AddPlanetList()
 			}
 
 			xmldoc = null;
+
+			if(osVer == "smartPhone"){
+				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
+				// → disable属性で全項目選択不可になる
+				var optGrp=document.createElement('optgroup');
+				optGrp.setAttribute('disabled', '');
+				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
+				select4.getElementsByTagName("optgroup")[0].style.display = "none";
+				select4.insertBefore(optGrp, select4.firstChild);
+			}
 		});
 }
 
@@ -128,6 +148,16 @@ function AddShipList()
 			}
 
 			xmldoc = null;
+
+			if(osVer == "smartPhone"){
+				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
+				// → disable属性で全項目選択不可になる
+				var optGrp=document.createElement('optgroup');
+				optGrp.setAttribute('disabled', '');
+				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
+				select5.getElementsByTagName("optgroup")[0].style.display = "none";
+				select5.insertBefore(optGrp, select5.firstChild);
+			}
 		});
 }
 
@@ -148,6 +178,16 @@ function AddRuleList()
 			}
 
 			xmldoc = null;
+
+			if(osVer == "smartPhone"){
+				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
+				// → disable属性で全項目選択不可になる
+				var optGrp=document.createElement('optgroup');
+				optGrp.setAttribute('disabled', '');
+				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
+				select6.getElementsByTagName("optgroup")[0].style.display = "none";
+				select6.insertBefore(optGrp, select6.firstChild);
+			}
 		});
 }
 
