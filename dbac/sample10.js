@@ -91,10 +91,9 @@ function AddAreaTypeList()
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
-				// → setAttributeの第2引数は必須
-				optGrp.setAttribute('disabled', '');
+				document.getElementsByTagName("optgroup")[0].setAttribute('disabled', '');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				optGrp.style.display = "none";
+				document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
 			}
 		});
