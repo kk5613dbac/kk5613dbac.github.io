@@ -92,11 +92,10 @@ function AddAreaTypeList()
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
 				// → setAttributeの第2引数は必須
-				optGrp.setAttribute('label', '');
-				optGrp.setAttribute('disabled', 'disabled');
+				optGrp.setAttribute('disabled', '');
 				select1.insertBefore(optGrp, select1.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select1.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select1.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
@@ -126,11 +125,10 @@ function AddPlanetList()
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
 				// → setAttributeの第2引数は必須
-				optGrp.setAttribute('label', '');
-				optGrp.setAttribute('disabled', 'disabled');
+				optGrp.setAttribute('disabled', '');
 				select4.insertBefore(optGrp, select4.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select4.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select4.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
@@ -158,11 +156,10 @@ function AddShipList()
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
 				// → setAttributeの第2引数は必須
-				optGrp.setAttribute('label', '');
-				optGrp.setAttribute('disabled', 'disabled');
+				optGrp.setAttribute('disabled', '');
 				select5.insertBefore(optGrp, select5.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select5.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select5.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
@@ -190,11 +187,10 @@ function AddRuleList()
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
 				// → setAttributeの第2引数は必須
-				optGrp.setAttribute('label', '');
-				optGrp.setAttribute('disabled', 'disabled');
+				optGrp.setAttribute('disabled', '');
 				select6.insertBefore(optGrp, select6.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				select6.getElementsByTagName("optgroup")[0].style.display = "none";
+				// select6.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
