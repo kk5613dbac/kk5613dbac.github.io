@@ -93,7 +93,7 @@ function AddAreaTypeList()
 				var optGrp=document.createElement('optgroup');
 				document.getElementsByTagName("optgroup")[0].setAttribute('disabled', '');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				document.getElementsByTagName("optgroup")[0].style.display = "none";
+				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
 			}
 		});
