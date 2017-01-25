@@ -1,0 +1,26 @@
+﻿ol#showArea table{
+	overflow:scroll;
+	font-size:12px;
+}
+
+ol {
+	padding: 0;
+}
+
+ol tr:first-child{
+	background-color:#4f81bd;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+ol tr:nth-child(even){
+	background-color:#dce6f1;
+}
+
+ol td{
+	white-space:nowrap;
+}
+
+ol td#planetName, ol td#area {
+	font-weight:bold;
+}

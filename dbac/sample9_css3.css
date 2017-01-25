@@ -1,0 +1,25 @@
+﻿body {
+	-webkit-text-size-adjust: 100%;
+	font-size: 13px;
+}
+
+p#selectName4, p#selectName5, p#selectName6, p#selectName1, p#selectName2 {
+	border-bottom: 1px solid;
+
+}
+
+span {
+
+	display: table;
+}
+
+label {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+p#selectName4 button, p#selectName5 button, p#selectName6 button, p#selectName1 button {
+	font-size: 13px;
+	position: relative;
+	bottom: 1.25em;
+}

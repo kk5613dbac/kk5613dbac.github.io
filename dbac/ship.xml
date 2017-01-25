@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CONST>
+	<SHIP>
+		<DATA>
+			<ID>0</ID>
+			<NAME>レジェンド</NAME>
+		</DATA>
+		<DATA>
+			<ID>1</ID>
+			<NAME>ネクスト</NAME>
+		</DATA>
+		<DATA>
+			<ID>2</ID>
+			<NAME>オリジン</NAME>
+		</DATA>
+		<DATA>
+			<ID>3</ID>
+			<NAME>フォーミュラ</NAME>
+		</DATA>
+		<DATA>
+			<ID>4</ID>
+			<NAME>外伝</NAME>
+		</DATA>
+		<DATA>
+			<ID>5</ID>
+			<NAME>セカンド</NAME>
+		</DATA>
+		<DATA>
+			<ID>6</ID>
+			<NAME>アサルト</NAME>
+		</DATA>
+		<DATA>
+			<ID>7</ID>
+			<NAME>ジェネシス</NAME>
+		</DATA>
+	</SHIP>
+</CONST>

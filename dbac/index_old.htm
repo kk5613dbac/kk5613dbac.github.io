@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>サンプル</title>
+  <script type="text/javascript" src="sample10.js"></script>
+</head>
+<body onLoad=AddAreaTypeList();PlatformCheck();AddPlanetList();AddShipList();AddRuleList()>
+  <form name="formName">
+    <p id="selectName4">
+      <span>
+        <label>星系名</label>
+        <select id="selectName4" name = "selectName4" multiple onChange=EnableSearchButton()></select>
+        <button type="button" name="button2" onClick=ClearSelection(this)>クリア</button>
+      </span>
+    </p>
+    <p id="selectName5">
+      <span>
+        <label>使用可能機体</label>
+        <select name = "selectName5" multiple onChange=EnableSearchButton()></select>
+        <button type="button" name="button3" onClick=ClearSelection(this)>クリア</button>
+      </span>
+    </p>
+    <p id="selectName6">
+      <span>
+        <label>ルール</label>
+        <select name = "selectName6" multiple onChange=EnableSearchButton()></select>
+        <button type="button" name="button4" onClick=ClearSelection(this)>クリア</button>
+      </span>
+    </p>
+    <p id="selectName1">
+      <span>
+        <label>エリア構成</label>
+        <select name = "selectName1" multiple onChange=EnableSearchButton()></select>
+        <button type="button" name="button5" onClick=ClearSelection(this)>クリア</button>
+      </span>
+    </p>
+    <p id="selectName2">
+      <span>
+        <label>表示件数／ページ</label>
+        <select name = "selectName2" size=1 onChange=ChangeMaxDisplayNum()>
+          <option>50</option>
+          <option>100</option>
+        </select>
+        <select name="selectName3" size=1 onChange=ControlDispStatus()></select>
+        <button type="button" name="button1" onClick=Search()>検索</button>
+      </span>
+    </p>
+  </form>
+  <ol>
+	<p id="showArea"></p>
+	<p id="debugArea"></p>
+  </ol>
+</body>
+</html>

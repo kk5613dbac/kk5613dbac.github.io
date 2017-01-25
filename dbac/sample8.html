@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>サンプル</title>
+
+<script type="text/javascript" src="sample8.js"></script>
+
+</head>
+
+<body onLoad=AddAreaTypeList();AddPlanetList();AddShipList();AddRuleList()>
+<form name="formName">
+<!-- 星系名 -->
+<select name = "selectName4" size=3 multiple onChange=EnableSearchButton()></select>
+<!-- 使用可能機体 -->
+<select name = "selectName5" size=3 multiple onChange=EnableSearchButton()></select>
+<!-- ルール -->
+<select name = "selectName6" size=3 multiple onChange=EnableSearchButton()></select>
+<!-- エリア構成 -->
+<select name = "selectName1" size=7 multiple onChange=EnableSearchButton()></select>
+<select name = "selectName2" size=1 onChange=ChangeMaxDisplayNum()>
+<option>50</option>
+<option>100</option>
+</select>
+<select name="selectName3" size=1 onChange=ControlDispStatus()></select>
+<input type="button" name="button1" value="検索" onClick=Search()>
+</form>
+<ol>
+	<div id="showArea"></div>
+</ol>
+</body>
+</html>

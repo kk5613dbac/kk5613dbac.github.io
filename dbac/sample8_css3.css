@@ -1,0 +1,12 @@
+﻿section {
+	border-bottom: 1px solid;
+
+}
+
+section span#planetName, section p#area {
+	font-weight:bold;
+}
+
+ol {
+	padding: 0;
+}
