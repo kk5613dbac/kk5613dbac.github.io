@@ -95,7 +95,7 @@ function AddAreaTypeList()
 				optGrp.setAttribute('disabled', '');
 				select1.insertBefore(optGrp, select1.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// select1.getElementsByTagName("optgroup")[0].style.display = "none";
+				select1.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
@@ -128,7 +128,7 @@ function AddPlanetList()
 				optGrp.setAttribute('disabled', '');
 				select4.insertBefore(optGrp, select4.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// select4.getElementsByTagName("optgroup")[0].style.display = "none";
+				select4.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
@@ -159,7 +159,7 @@ function AddShipList()
 				optGrp.setAttribute('disabled', '');
 				select5.insertBefore(optGrp, select5.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// select5.getElementsByTagName("optgroup")[0].style.display = "none";
+				select5.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
@@ -190,7 +190,7 @@ function AddRuleList()
 				optGrp.setAttribute('disabled', '');
 				select6.insertBefore(optGrp, select6.firstChild);
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// select6.getElementsByTagName("optgroup")[0].style.display = "none";
+				select6.getElementsByTagName("optgroup")[0].style.display = "none";
 			}
 		});
 }
