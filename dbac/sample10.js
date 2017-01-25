@@ -95,7 +95,7 @@ function AddAreaTypeList()
 				optGrp.setAttribute('label', '');
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				document.getElementsByTagName("optgroup")[0].style.display = "none";
+				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
 			}
 		});
@@ -129,7 +129,7 @@ function AddPlanetList()
 				optGrp.setAttribute('label', '');
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				document.getElementsByTagName("optgroup")[0].style.display = "none";
+				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select4.insertBefore(optGrp, select4.firstChild);
 			}
 		});
@@ -161,7 +161,7 @@ function AddShipList()
 				optGrp.setAttribute('label', '');
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				document.getElementsByTagName("optgroup")[0].style.display = "none";
+				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select5.insertBefore(optGrp, select5.firstChild);
 			}
 		});
@@ -193,7 +193,7 @@ function AddRuleList()
 				optGrp.setAttribute('label', '');
 				optGrp.setAttribute('disabled', 'disabled');
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				document.getElementsByTagName("optgroup")[0].style.display = "none";
+				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select6.insertBefore(optGrp, select6.firstChild);
 			}
 		});
