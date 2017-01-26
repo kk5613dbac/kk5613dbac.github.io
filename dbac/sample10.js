@@ -529,10 +529,11 @@ function addStyleSheet(href)
 	hd.appendChild(lnk);
 }
 
-function EnableSearchButton()
+function EnableSearchButton(obj)
 {
-alert('変更された');
 	document.getElementsByName("button1")[0].disabled="";
+
+	DummyOptionGroup(obj);
 }
 
 function ChangeMaxDisplayNum()
@@ -757,5 +758,13 @@ function ClearSelection(obj)
 {
 	obj.parentNode.parentNode.getElementsByTagName("select")[0].selectedIndex = -1;
 
-	EnableSearchButton();
+	EnableSearchButton(obj);
+}
+
+function DummyOptionGroup(obj)
+{
+	var optGrp=document.createElement('optgroup');
+	optGrp.setAttribute('label', 'dummy');
+	obj.insertBefore(optGrp, obj.firstChild);
+	obj.removeChild(optGrp);
 }
