@@ -101,7 +101,7 @@ function AddAreaTypeList()
 
 function AddPlanetList()
 {
-	GetXMLResponse("http://darius.jp/dbac/xml/chronicle/map.xml",function(xmldoc)
+	GetXMLResponse("map.xml",function(xmldoc)
 		{
 			planetList = new Array();
 
