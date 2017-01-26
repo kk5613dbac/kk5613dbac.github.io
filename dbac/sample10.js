@@ -531,6 +531,7 @@ function addStyleSheet(href)
 
 function EnableSearchButton()
 {
+alert('変更された');
 	document.getElementsByName("button1")[0].disabled="";
 }
 
