@@ -74,7 +74,7 @@ function XMLHttpRequestCreate()
 
 function AddAreaTypeList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/map_areainfo.xml",function(xmldoc)
+	GetXMLResponse("map_areainfo.xml",function(xmldoc)
 		{
 			var hinmeiNode=xmldoc.getElementsByTagName("NAME");
 			var select1 = document.getElementsByName("selectName1")[0]; //変数select1を宣言
@@ -87,7 +87,7 @@ function AddAreaTypeList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
@@ -96,13 +96,13 @@ function AddAreaTypeList()
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
-			// }
+			}
 		});
 }
 
 function AddPlanetList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/map.xml",function(xmldoc)
+	GetXMLResponse("map.xml",function(xmldoc)
 		{
 			planetList = new Array();
 
@@ -120,7 +120,7 @@ function AddPlanetList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
@@ -129,13 +129,13 @@ function AddPlanetList()
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select4.insertBefore(optGrp, select4.firstChild);
-			// }
+			}
 		});
 }
 
 function AddShipList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/ship.xml",function(xmldoc)
+	GetXMLResponse("ship.xml",function(xmldoc)
 		{
 			shipList = new Array();
 
@@ -151,7 +151,7 @@ function AddShipList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
@@ -160,13 +160,13 @@ function AddShipList()
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select5.insertBefore(optGrp, select5.firstChild);
-			// }
+			}
 		});
 }
 
 function AddRuleList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/rule.xml",function(xmldoc)
+	GetXMLResponse("rule.xml",function(xmldoc)
 		{
 			ruleList = new Array();
 
@@ -182,7 +182,7 @@ function AddRuleList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
@@ -191,7 +191,7 @@ function AddRuleList()
 				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
 				// document.getElementsByTagName("optgroup")[0].style.display = "none";
 				select6.insertBefore(optGrp, select6.firstChild);
-			// }
+			}
 		});
 }
 
@@ -214,13 +214,13 @@ function Search()
 				document.getElementsByName("selectName6")[0],
 				document.getElementsByName("selectName1")[0]]);
 
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/map.xml",function(xmldoc)
+	GetXMLResponse("map.xml",function(xmldoc)
 		{
 			var xmldoc1 = xmldoc;
-			GetXMLResponse("https://kk5613dbac.github.io/dbac/map_custom_master160707.xml",function(xmldoc)
+			GetXMLResponse("map_custom_master160707.xml",function(xmldoc)
 				{
 					var xmldoc2 = xmldoc;
-					GetXMLResponse("https://kk5613dbac.github.io/dbac/map_areainfo.xml",function(xmldoc)
+					GetXMLResponse("map_areainfo.xml",function(xmldoc)
 						{
 							var xmldoc3 = xmldoc;
 
@@ -576,7 +576,6 @@ function addStyleSheet(href)
 function EnableSearchButton()
 {
 	document.getElementsByName("button1")[0].disabled="";
-	document.getElementsByTagName("optgroup")[0].style.display = "none";
 }
 
 function ChangeMaxDisplayNum()
