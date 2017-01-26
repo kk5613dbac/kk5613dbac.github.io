@@ -74,7 +74,7 @@ function XMLHttpRequestCreate()
 
 function AddAreaTypeList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/map_areainfo.xml",function(xmldoc)
+	GetXMLResponse("map_areainfo.xml",function(xmldoc)
 		{
 			var hinmeiNode=xmldoc.getElementsByTagName("NAME");
 			var select1 = document.getElementsByName("selectName1")[0]; //変数select1を宣言
@@ -133,7 +133,7 @@ function AddPlanetList()
 
 function AddShipList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/ship.xml",function(xmldoc)
+	GetXMLResponse("ship.xml",function(xmldoc)
 		{
 			shipList = new Array();
 
@@ -163,7 +163,7 @@ function AddShipList()
 
 function AddRuleList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/rule.xml",function(xmldoc)
+	GetXMLResponse("rule.xml",function(xmldoc)
 		{
 			ruleList = new Array();
 
@@ -213,10 +213,10 @@ function Search()
 	GetXMLResponse("http://darius.jp/dbac/xml/chronicle/map.xml",function(xmldoc)
 		{
 			var xmldoc1 = xmldoc;
-			GetXMLResponse("https://kk5613dbac.github.io/dbac/map_custom_master160707.xml",function(xmldoc)
+			GetXMLResponse("map_custom_master160707.xml",function(xmldoc)
 				{
 					var xmldoc2 = xmldoc;
-					GetXMLResponse("https://kk5613dbac.github.io/dbac/map_areainfo.xml",function(xmldoc)
+					GetXMLResponse("map_areainfo.xml",function(xmldoc)
 						{
 							var xmldoc3 = xmldoc;
 
