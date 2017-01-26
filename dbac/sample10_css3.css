@@ -15,3 +15,7 @@ p#selectName1 select {
 p#selectName4 button, p#selectName5 button, p#selectName6 button, p#selectName1 button, p#selectName2 button {
 	font-size: 12px;
 }
+
+optgroup {
+	display: none;
+}
