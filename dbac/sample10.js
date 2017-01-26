@@ -101,7 +101,7 @@ function AddAreaTypeList()
 
 function AddPlanetList()
 {
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/map.xml",function(xmldoc)
+	GetXMLResponse("http://darius.jp/dbac/xml/chronicle/map.xml",function(xmldoc)
 		{
 			planetList = new Array();
 
@@ -210,7 +210,7 @@ function Search()
 				document.getElementsByName("selectName6")[0],
 				document.getElementsByName("selectName1")[0]]);
 
-	GetXMLResponse("https://kk5613dbac.github.io/dbac/map.xml",function(xmldoc)
+	GetXMLResponse("http://darius.jp/dbac/xml/chronicle/map.xml",function(xmldoc)
 		{
 			var xmldoc1 = xmldoc;
 			GetXMLResponse("https://kk5613dbac.github.io/dbac/map_custom_master160707.xml",function(xmldoc)
