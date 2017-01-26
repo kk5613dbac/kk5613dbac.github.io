@@ -87,17 +87,15 @@ function AddAreaTypeList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
-				optGrp.setAttribute('label', 'AreaType');
+				optGrp.setAttribute('label', 'エリア構成');
 				optGrp.setAttribute('disabled', '');
-				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// document.getElementsByTagName("optgroup")[0].style.display = "none";
+				optGrp.style.display = "none";
 				select1.insertBefore(optGrp, select1.firstChild);
-optGrp.style.display = "none";
-			// }
+			}
 		});
 }
 
@@ -121,17 +119,15 @@ function AddPlanetList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
-				optGrp.setAttribute('label', 'Planet');
+				optGrp.setAttribute('label', '星系名');
 				optGrp.setAttribute('disabled', '');
-				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// document.getElementsByTagName("optgroup")[0].style.display = "none";
+				optGrp.style.display = "none";
 				select4.insertBefore(optGrp, select4.firstChild);
-optGrp.style.display = "none";
-			// }
+			}
 		});
 }
 
@@ -153,17 +149,15 @@ function AddShipList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
-				optGrp.setAttribute('label', 'Ship');
+				optGrp.setAttribute('label', '使用可能機体');
 				optGrp.setAttribute('disabled', '');
-				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// document.getElementsByTagName("optgroup")[0].style.display = "none";
+				optGrp.style.display = "none";
 				select5.insertBefore(optGrp, select5.firstChild);
-optGrp.style.display = "none";
-			// }
+			}
 		});
 }
 
@@ -185,17 +179,15 @@ function AddRuleList()
 
 			xmldoc = null;
 
-			// if(osVer == "smartPhone"){
+			if(osVer == "smartPhone"){
 				// 項目が空の状態で先にグループを追加すると、以降で追加した項目は強制的にグループに属するものとして扱われる
 				// → disable属性で全項目選択不可になる
 				var optGrp=document.createElement('optgroup');
-				optGrp.setAttribute('label', 'Rule');
+				optGrp.setAttribute('label', 'ルール');
 				optGrp.setAttribute('disabled', '');
-				// style属性はgetElementsByTagName経由でアクセスしないと適用されない
-				// document.getElementsByTagName("optgroup")[0].style.display = "none";
+				optGrp.style.display = "none";
 				select6.insertBefore(optGrp, select6.firstChild);
-optGrp.style.display = "none";
-			// }
+			}
 		});
 }
 
