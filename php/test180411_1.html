@@ -2,11 +2,15 @@
 <style type="text/css">
 <!--
 html {
-width: 320px;
+width: 320px;	/* デバイス幅 = 物理デバイス幅 ÷ device-pixel-ratio(retinaに寄る) */
+/* iPhone5: 640px ÷ 2 = 320px */
+/* iPhone6: 750px ÷ 2 = 375px */
 }
 body {
-/* margin-left: 0px;	default: 8px */
-/* margin-right: 0px;	default: 8px */
+margin-left: 0px;	/* default: 8px */
+margin-right: 0px;	/* default: 8px */
+margin-right: 0px;	/* default: 8px */
+margin-bottom: 0px;	/* default: 8px */
 }
 table {
 }
@@ -15,7 +19,7 @@ table {
 <html>
 <head>
 <title>SMARTPHONE TEST</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
 </head>
 <body>
 <table>
@@ -29,6 +33,6 @@ table {
 </table>
 </body>
 <form>
-<input type=button onclick="alert(document.body.clientWidth);">
+<input type=button onclick="alert('viewport width: ' + document.body.clientWidth + '\nviewport height: ' + document.body.clientHeight);">
 </form>
 </html>
