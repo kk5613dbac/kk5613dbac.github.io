@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<style type="text/css">
+<!--
+html {
+/* デバイス幅 = 物理デバイス幅 ÷ device-pixel-ratio(retinaに寄る) */
+/* iPhone5: 640px ÷ 2 = 320px */
+/* iPhone6: 750px ÷ 2 = 375px */
+border-style: solid;
+border-width: 0.01px;
+}
+body {
+margin-left: 0px;	/* default: 8px */
+margin-right: 0px;	/* default: 8px */
+margin-right: 0px;	/* default: 8px */
+margin-bottom: 0px;	/* default: 8px */
+/* 横向き時に文字が縦時の320pxに合わせて拡大されるのを防ぎ、1行の情報量だけ増やせる */
+-webkit-text-size-adjust: 100%;
+}
+table {
+}
+-->
+</style>
+<html>
+<head>
+<title>SMARTPHONE TEST</title>
+<!-- user-scalable=noは現状無視される -->
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<img src="./logo-ja.png">
+<p>色んな素材がごった煮になった様子をお椀で表現しています。
+湯気が<strong>「てっく」</strong>に見えるのが隠し味になっています。
+「てっく煮」の右肩の「+4」 を「と、よん」と読むことで、
+ドメイン名の tech.nitoyon.com と等しくなります。</p>
+
+
+<br><br><br><br>
+<hr>
+
+<p>ブログ記事 <a href="./">これがスマートフォン向けサイトを作るときの viewport 設定３パターンだ</a> のデモページです。</p>
+<ul>
+  <li><a href="no-viewport.html">viewport なし</a></li>
+  <li>viewport あり (ピンチ可)</li>
+  <li><a href="unscalable-viewport.html">viewport あり (ピンチ不可)</a></li>
+</ul>
+<table>
+<tbody>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</tbody>
+</table>
+</body>
+<form>
+<input type=button onclick="alert('viewport width: ' + document.body.clientWidth + '\nviewport height: ' + document.body.clientHeight);">
+</form>
+</html>
