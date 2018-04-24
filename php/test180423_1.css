@@ -72,7 +72,7 @@ td:nth-child(9) { width: 165px; }
 	
 }
 
-@media screen and (max-width: 320px) {
+@media (max-width: 320px) {
 
 	#tableBody {
 		width: calc(320px + 16px);
