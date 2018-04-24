@@ -1,9 +1,67 @@
+﻿@media screen and (min-width: 768px) {
+
+.properties { white-space: nowrap; }
+
+#支出,#収入 {
+	
+	text-align: right;
+	
+}
+
+#tableBody {
+	
+	width: calc(1350px + 16px);
+	height: 950px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	
+}
+
+table { width: 1350px; }
+
+}
+
+#tableHeader tr {
+	
+	font-weight: bold;
+	background: linear-gradient(to top, #a3a5a8 0%,#e6e7e8 100%);
+	
+}
+
+#tableBody tr:nth-child(2n+1) { background: #f5f5f5; }
+
 td {
 	
 	font-family: 'ＭＳ Ｐゴシック';
 	font-size: 11pt;
 	height: 18px;
 	
+}
+
+@media screen and (min-width: 768px) {
+
+td:nth-child(1) { width: 100px; }
+td:nth-child(2) { width: 75px; }
+td:nth-child(3) { width: 600px; }
+td:nth-child(4) { width: 75px; }
+td:nth-child(5) { width: 75px; }
+td:nth-child(6) { width: 45px; }
+td:nth-child(7) { width: 90px; }
+td:nth-child(8) { width: 125px; }
+td:nth-child(9) { width: 165px; }
+
+#tableHeader td, #tableBody td:not(:nth-child(n+3)), #tableBody td:nth-child(n+6) {
+	
+	text-align: center;
+	
+}
+
+#tableBody td:nth-child(n+4):not(:nth-child(n+6)) {
+	
+	text-align: right;
+	
+}
+
 }
 
 #tableBody tr:hover {
@@ -14,6 +72,7 @@ td {
 	
 }
 
+@media screen and (max-width: 320px) {
 
 	#tableBody {
 		width: calc(320px + 16px);
@@ -34,6 +93,8 @@ td {
 	}
 
 	#tableBody td:nth-child(3) {
+
 		height: calc(18px * 3);	/* 項目名は3行分確保 */
 	}
 
+}
