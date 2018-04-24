@@ -64,7 +64,6 @@ td:nth-child(9) { width: 165px; }
 	
 }
 
-@media screen and (max-width: 320px) {
 
 	#tableBody {
 		width: calc(320px + 16px);
@@ -88,4 +87,3 @@ td:nth-child(9) { width: 165px; }
 		height: calc(18px * 3);	/* 項目名は3行分確保 */
 	}
 
-}
