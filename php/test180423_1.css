@@ -1,6 +1,4 @@
-﻿@media screen and (min-width: 768px) {
-
-.properties { white-space: nowrap; }
+﻿.properties { white-space: nowrap; }
 
 #支出,#収入 {
 	
@@ -19,8 +17,6 @@
 
 table { width: 1350px; }
 
-}
-
 #tableHeader tr {
 	
 	font-weight: bold;
@@ -37,8 +33,6 @@ td {
 	height: 18px;
 	
 }
-
-@media screen and (min-width: 768px) {
 
 td:nth-child(1) { width: 100px; }
 td:nth-child(2) { width: 75px; }
@@ -60,8 +54,6 @@ td:nth-child(9) { width: 165px; }
 	
 	text-align: right;
 	
-}
-
 }
 
 #tableBody tr:hover {
