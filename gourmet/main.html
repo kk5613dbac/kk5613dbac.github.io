@@ -8,15 +8,26 @@
 <script src="js/acd4.js"></script>
 <script>
 // 【各引数の定義】
-// idImage = 画像のID
 // imageName = 画像名
-// idLink = aタグのID
-// URL = リンク先URL
+// imgURL = 画像に付加されたURL
+// shopNameURL = 店名に付加されたURL
+// shopName = 店名のテキスト
+// shopDescription = 店の紹介文テキスト
 
-function changeImg(idImage,imageName,imgIdLink,imgURL,shopNameIdLink,shopNameURL) {
-  document.getElementById(idImage).src = "images/" + imageName + ".jpg";
-  document.getElementById(imgIdLink).href = imgURL;
-  document.getElementById(shopNameIdLink).href = shopNameURL;
+function changeContents(imageName,imgURL,shopNameURL,shopName,shopDescription) {
+  if(document.getElementById("img_link_id01").hasAttribute("href") == false) {
+    document.getElementById("img_link_id01").setAttribute("href","");
+  }
+
+  if(document.getElementById("shopName_link_id01").hasAttribute("href") == false) {
+    document.getElementById("shopName_link_id01").setAttribute("href","");
+  }
+
+  document.getElementById("image_id01").src = "images/" + imageName + ".jpg";
+  document.getElementById("img_link_id01").href = imgURL;
+  document.getElementById("shopName_link_id01").href = shopNameURL;
+  document.getElementById("shopName_id01").innerHTML = shopName;
+  document.getElementById("description_id01").innerHTML = shopDescription;
 }
 </script>
 </head>
@@ -35,7 +46,7 @@ function changeImg(idImage,imageName,imgIdLink,imgURL,shopNameIdLink,shopNameURL
 						<dt>ステーキ系</dt>
 						<dd>
 							<ul>
-								<li><a href="javascript:changeImg('image_id01','img01','img_link_id01','URL01','shopName_link_id01','URL01');">URL01</a></li>
+								<li><a href="javascript:changeContents('img01','URL01','URL01','ショップ01','【銀座】<br>銀座一丁目の路地裏にあるお洒落な和食屋さんです。旬を感じさせるお料理とお酒を堪能することが出来ます。インカのめざめのポタージュ、青のり玉子焼き、野菜せいろ、刺身、雲丹の土鍋など優しい味付けの料理は女子会にオススメ！');">URL01</a></li>
 								<li><a href="#non">メニュータイトル1-2</a></li>
 								<li><a href="#non">メニュータイトル1-3</a></li>
 							</ul>
@@ -47,7 +58,7 @@ function changeImg(idImage,imageName,imgIdLink,imgURL,shopNameIdLink,shopNameURL
 						<dt>ラーメン系</dt>
 						<dd>
 							<ul>
-								<li><a href="javascript:changeImg('image_id01','img02','img_link_id01','URL02','shopName_link_id01','URL02');">URL02</a></li>
+								<li><a href="javascript:changeContents('img02','URL02','URL02','ショップ02','紹介02');">URL02</a></li>
 								<li><a href="#non">メニュータイトル2-2</a></li>
 								<li><a href="#non">メニュータイトル2-3</a></li>
 							</ul>
@@ -59,8 +70,8 @@ function changeImg(idImage,imageName,imgIdLink,imgURL,shopNameIdLink,shopNameURL
 						<dt>海鮮丼系</dt>
 						<dd>
 							<ul>
-								<li><a href="javascript:changeImg('image_id01','img03','img_link_id01','URL03','shopName_link_id01','URL03');">URL03</a></li>
-								<li><a href="javascript:changeImg('image_id01','img04','img_link_id01','URL04','shopName_link_id01','URL04');">URL04</a></li>
+								<li><a href="javascript:changeContents('img03','URL03','URL03','ショップ03','紹介03');">URL03</a></li>
+								<li><a href="javascript:changeContents('img04','URL04','URL04','ショップ04','紹介04');">URL04</a></li>
 								<li><a href="#non">メニュータイトル3-3</a></li>
 							</ul>
 						</dd>
@@ -71,52 +82,19 @@ function changeImg(idImage,imageName,imgIdLink,imgURL,shopNameIdLink,shopNameURL
 	</div>
 </div>
 
-            <div class="cont_wrap">
-                <div class="r_ph">
-                    <a href="URL01" id="img_link_id01">
-                        <img src="images/img01.jpg" alt="" id="image_id01">
-                    </a>
-                </div>
-
-                <div class="l_text">
-                    <a href="URL01" id="shopName_link_id01">
-                        <h2 class="shop_name">銀座 茶良ら</h2>
-                    </a>
-
-                                            <p class="shop_description">銀座一丁目の路地裏にあるお洒落な和食屋さんです。旬を感じさせるお料理とお酒を堪能することが出来ます。インカのめざめのポタージュ、青のり玉子焼き、野菜せいろ、刺身、雲丹の土鍋など優しい味付けの料理は女子会にオススメ！</p>
-                                        
-                    <table class="shop_info">
-                                                    <tr>
-                                <td class="gray">営業時間</td>
-                                <td>[月~金]
-11:30〜14:30 LO14:00
-<br>[月~木・土・日]
-17:00〜24:00 LO23:00
-<br>[金・祝前]
-17:00〜29:00 LO28:00
-<br>[土・日・祝]
-16:00〜23:00 LO22:00
-<br>[祝]
-17:10〜24:00 LO23:00
-</td>
-                            </tr>
-                                                                            <tr>
-                                <td class="gray">電話番号</td>
-                                <td>03-3561-2235</td>
-                            </tr>
-                                                                            <tr>
-                                <td class="gray">予算</td>
-                                <td>
-                                                                            (ランチ)～1000円                                                                                                                <span>/</span>
-                                                                                                                (ディナー)～6000円                                                                    </td>
-                            </tr>
-                                                                            <tr>
-                                <td class="gray">住所</td>
-                                <td>東京都中央区銀座 １-６-１ 山内興産銀座ビル １F(銀座一丁目駅)</td>
-                            </tr>
-                                            </table>
-                </div>
-                            </div>
+<div class="cont_wrap">
+    <div class="r_ph">
+        <a id="img_link_id01">
+            <img src="" id="image_id01">
+        </a>
+    </div>
+    <div class="l_text">
+        <a id="shopName_link_id01">
+            <h2 class="shop_name" id="shopName_id01"></h2>
+        </a>
+        <p class="shop_description" id="description_id01"></p>
+    </div>
+</div>
 
 </body>
 </html>
