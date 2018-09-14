@@ -1,4 +1,4 @@
-function acdMenu2(){
+﻿function acdMenu2(){
 	$("#acd-menu dd").css("display", "none");
 	$("#acd-menu dt").click(function(){
 		$(".open").not(this).removeClass("open").next().slideUp("fast");
