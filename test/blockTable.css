@@ -1,8 +1,7 @@
-/*﻿@media only screen and (max-width:400px) {*/
-  td,th {
-    width: 100%;
-/*    table-layout: fixed;
-    word-break: break-word;*/
-    display: block;
+﻿/*@media only screen and (max-width:400px) {
+  .blockTable th,
+  .blockTable td{
+    display:block;
+    border:none;
   }
-/*}*/
+}*/
