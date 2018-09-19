@@ -1,10 +1,8 @@
 /*﻿@media only screen and (max-width:400px) {*/
-/*  .FixTable {
+  .FixTable {
     width: 100%;
-    table-layout: fixed;
-    word-break: break-word;
-  }*/
+/*    table-layout: fixed;
+    word-break: break-word;*/
+    display: block;
+  }
 /*}*/
-table, tbody, tr, th, td {
-  display: block;
-}
