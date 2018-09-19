@@ -1,0 +1,7 @@
+﻿@media only screen and (max-width:400px) {
+  .FixTable {
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+}
