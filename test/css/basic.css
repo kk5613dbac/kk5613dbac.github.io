@@ -1,0 +1,47 @@
+.blockTable th, td {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+
+.blockTable tr {
+	border: #3EB1C6 solid 1px;
+}
+
+.blockTable thead {
+	display: none;
+}
+
+.blockTable td:nth-child(-n+4)::before {
+	content: attr(label);
+	font-weight: bold;
+	display: block;
+}
+
+.blockTable td:nth-child(-n+4) {
+	display: block;
+}
+
+.blockTable td:nth-child(n+5) {
+	display: inline-block;
+}
+
+.blockTable td:nth-child(4) {
+	width: 160px;
+}
+
+}
+
+@media screen and (min-width: 768px) {
+
+.blockTable th, td {
+	border: #3EB1C6 solid 1px;
+}
+
+.blockTable th:nth-child(4) {
+	width: 8em;
+}
+
+}
