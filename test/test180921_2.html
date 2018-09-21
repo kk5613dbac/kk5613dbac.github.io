@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML>
+<html lang="ja-JP">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>パネルコンポーネントによるアコーディオン(Ver.3系)</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div class="panel-group" id="accordion" role="tablist">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+          アイテム1
+        </a>
+      </h4>
+    </div><!-- /.panel-heading -->
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        アイテム1のコンテンツ
+      </div><!-- /.panel-body -->
+    </div><!-- /.panel-collapse -->
+  </div><!-- /.panel -->
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+          アイテム2
+        </a>
+      </h4>
+    </div><!-- /.panel-heading -->
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        アイテム2のコンテンツ
+      </div><!-- /.panel-body -->
+    </div><!-- /.panel-collapse -->
+  </div><!-- /.panel -->
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
+          アイテム3
+        </a>
+      </h4>
+    </div><!-- /.panel-heading -->
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        アイテム3のコンテンツ
+      </div><!-- /.panel-body -->
+    </div><!-- /.panel-collapse -->
+  </div><!-- /.panel -->
+</div><!-- /#accordion -->
+</body>
+
+</html>
