@@ -1,0 +1,1 @@
+var Loading={one:function(b){var a=alreadyClicked();if(a){(new Image()).src="../images/loading.gif";if(navigator.userAgent.indexOf("MSIE")!=-1){location.href=b;Glayer.show();return false}else{Glayer.show();return true}}else{return a}},two:function(c){var a=alreadyClicked();if(a){(new Image()).src="../images/loading.gif";location.href=c;Glayer.show();}else{return a}}};
