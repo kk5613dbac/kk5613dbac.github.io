@@ -1,0 +1,90 @@
+@charset "shift_jis";
+
+/***************************************
+*   FooterCSS
+***************************************/
+
+#footer-sp {
+ position: relative;
+ clear:both;
+}
+
+#footer-sp #foot-spbox {
+ border-radius: 5px;
+ border:solid 1px #d4d2d2;
+ margin-bottom:15px;
+}
+
+#footer-sp #foot-spbox ul li {
+ border-top:solid 1px #d4d2d2;
+}
+
+#footer-sp #foot-spbox ul li:first-child {
+ border-top:none;
+}
+
+#footer-sp #foot-spbox ul li a {
+ text-decoration:none;
+ color:#5e5e5e;
+ font-weight:bold;
+ padding:15px 10px 15px 10px;
+ background:url(../../images/smartphone/ft_arrow01.png) right center no-repeat;
+ display:block;
+}
+
+/* PC/SP表示モード用 */
+#displayMode {
+	border-top: solid 1px #CCCCCC;
+	font-weight: bold;
+	line-height: 29px;
+	margin-top: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* SP表示モード用 */
+#footer-sp #displayMode {
+	border: none;
+	line-height: 1;
+	margin-top: 0;
+	margin-bottom:20px;
+}
+
+#displayMode a,
+#displayMode span {
+ text-decoration:none;
+ font-weight: normal;
+}
+
+#displayMode a:link {
+	color: #06C;
+}
+
+#ftLogo {
+	border-top: solid 3px #0066AA;
+	margin: 0px -8px 0px;
+	min-height: 33px;
+	padding: 10px 0 10px 10px;
+}
+
+/* ポップアップ画面のPC表示モード時SPスタイル無効化 */
+#netanswer02 #footer p#ftLogo {
+	border: 0;
+	margin: 0;
+	min-height: auto;
+	padding: 0;
+}
+
+/* TOP＆一般画面のPC表示モード時SPスタイル無効化 */
+#displayMode + #footer p#ftLogo,
+#displayMode + #foot-box p#ftLogo {
+	border: 0;
+	margin: 0;
+	min-height: auto;
+	padding: 0;
+}
+
+#displayMode + #footer,
+#displayMode + #foot-box {
+	margin-top: 0;
+}

@@ -1,0 +1,247 @@
+@charset "shift_jis";
+@import url("../link_adjust.css");
+
+/***************************************
+*  共通CSS
+***************************************/
+
+/***************************************
+* リセット
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+}
+a {
+	color: #0066CC;
+}
+
+/***************************************
+* 全体レイアウト
+*/
+html {
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+	background: none;
+	font-size: 12px;  /* default font-size */
+	margin: 0 8px;
+	padding: 0;
+	z-index: 0;
+}
+
+#wrapper {
+	width: 100%;
+}
+
+#cont-box {
+	margin: 10px 0 20px;
+	width: 100%;
+}
+
+#main-box {
+	background: none;
+	float: none;
+	font-size: 116.75%;
+	line-height: 133.5%;
+	margin: 0;
+	width: 100%;
+}
+
+
+/***************************************
+*  見出し
+*/
+#main-box h1 {
+	background: none;
+	font-size: 128.75%;
+	font-weight: bold;
+	height: initial;
+	line-height: 122.25%;
+	margin: 0;
+	min-height: initial;
+	padding: 0;
+	width: 100%;
+}
+
+#main-box h1 span.inner {
+	background: #CCE3FF; /* CSS3未対応用 */
+	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0, #FFFCFF), color-stop(1, #CCE3FF) ); /* webkit */
+	background: linear-gradient(-90deg, #FFFCFF 0%, #CCE3FF 100%); /* CSS3 */
+	border-radius: 4px;
+	-webkit-box-shadow: 2px 2px 4px #333333;
+	box-shadow: 2px 2px 4px #333333;
+	display: block;
+	margin: 0 0 6px;
+	padding: 10px 15px;
+}
+
+#main-box h2 {
+	background: url(../../images/h2_sp.gif) no-repeat 0 50%;
+	border-color: #CCCCCC #BBBBBB #BBBBBB #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	font-weight: bold;
+	font-size: 114.5%;
+	line-height: 125%;
+	margin: 20px 0 13px 0;
+	padding: 4px 10px;
+	min-height: initial;
+	width:auto;
+}
+
+#main-box h3 {
+	background: none;
+	border-bottom: solid 4px #0066AA;
+	font-size: 114.5%;
+	font-weight: bold;
+	line-height: 125%;
+	margin: 20px 0 13px 0;
+	padding: 0 7px 2px;
+}
+
+/***************************************
+* 遷移ボタン／戻るリンク
+*/
+/* 領域レイアウト */
+#main-box div.operate {
+	margin: 30px 0;
+	text-align: left;
+}
+
+/* ボタン／リンク間隔調整 */
+#main-box div.operate ul.row li {
+	margin: 30px 0 0 0;
+}
+#main-box div.operate ul.row li:first-child {
+	margin: 0;
+}
+
+/* 閉じる系ボタン */
+#main-box div.operate input.s1 {
+	background: #B0DEFF;	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.3, #EBF4FA), color-stop(0.8, #B0DEFF) );
+	background: linear-gradient(-90deg, #EBF4FA 30%, #B0DEFF 80%);
+	border-radius: 6px;
+	border: 1px solid #000000;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 114.5%;
+	height: 36px;
+	line-height: 133.5%;
+	text-align: center;
+	text-decoration: underline;
+	margin: 0;
+	width: 80%;
+}
+
+/* 遷移ボタンレイアウト */
+#main-box div.operate input.l1 {
+	background: #B0DEFF;
+	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.3, #EBF4FA), color-stop(0.8, #B0DEFF) );
+	background: linear-gradient(-90deg, #EBF4FA 30%, #B0DEFF 80%);
+	border-radius: 6px;
+	border: 1px solid #000000;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 114.5%;
+	height: 36px;
+	line-height: 133.5%;
+	text-decoration: underline;
+	margin: 0;
+	width: 100%;
+}
+
+/* 戻るリンク */
+#main-box div.operate input[value="<< 戻 る"] {
+	background: none;
+	border: hidden;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: normal;
+	font-size: 85.75%;
+	height: auto;
+	line-height: 133.5%;
+	text-decoration: underline;
+	margin: 0;
+	padding: 5px;
+	width: auto;}
+
+/***************************************
+* その他共通部品
+*/
+#main-box .mes01 {
+	margin: 20px 0 0 0;
+	padding: 0 0 0 20px;
+}
+
+.mes01 ul {
+	list-style: disc;
+}
+
+#main-box p.note {
+	color: #666666;
+	font-size: 85.75%;
+	line-height: 133.5%;
+	text-indent: -1.0em;
+	margin-top: 6px;
+	padding-left: 1.0em;
+}
+
+
+/***************************************
+* clearfix
+*/
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+

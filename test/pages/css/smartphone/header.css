@@ -1,0 +1,115 @@
+@charset "shift_jis";
+
+/***************************************
+*   HeaderCSS
+***************************************/
+
+#header-sp {
+ margin-bottom:7px;
+}
+
+#header-spInner {
+ position: relative;
+ left: 0;
+ top: 0;
+ width: auto;
+ background: #243a7d;
+ background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.06, #13007c ), color-stop(0.85, #0f218b ) );
+
+ margin: 0px -8px 0px;
+ color: #fff;
+ text-align: left;
+ padding:3px 0 10px 8px;
+}
+
+/* ログイン前のヘッダー
+----------------------------- */
+
+.loginA #header-spInner {
+ padding:0px 0 3px 8px !important;
+}
+
+#header-spInner #hdLogo {
+ display: inline-block;
+ background:url(../../images/smartphone/hd_logo_UC.png) left center no-repeat;
+ text-indent:-999em;
+ height:44px;
+ width: 300px;
+ background-size: 80% auto;
+}
+
+#header-spInner #rightbutton {
+ z-index: 5000;
+-webkit-box-shadow: inset 1px 1px 0px 0px #333333;
+-moz-box-shadow: inset 1px 1px 0px 0px #333333;
+box-shadow: inset 1px 1px 0px 0px #333333;
+ right:6px;
+ top:9px;
+  position:absolute;
+  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.45, #948B94),
+	color-stop(1, #BDBDBD)
+);
+}
+
+#header-spInner #rightbutton a {
+ text-decoration:none;
+ font-weight:bold;
+ color:#fff;
+ padding:4px 2px 4px 4px;
+display:block;
+text-shadow:  -1px -0px #5c5c5c;
+}
+#header-sp ul#hdNav {
+ clear:both;
+ float:none;
+ padding-bottom:2px;
+ margin-left:-7px;
+ text-align: center;
+}
+
+#header-sp ul#hdNav li {
+ float:left;
+ height:27px;
+ width:33.1%;
+ line-height:2.5em;
+ text-align:center;
+ font-size:90%;
+}
+
+#header-sp ul#hdNav li a {
+ text-decoration:none;
+ height:100%;
+ display:block;
+ color:#4e4e4e;
+ font-weight:bold;
+ text-shadow: 0px 2px 0px #fff;
+ margin:5px;
+ margin-right:2px;
+ border-radius: 4px;
+ background: #ececec;
+ padding-left:3px;
+ background-image: -webkit-gradient( linear, left bottom, left top,  color-stop(0.43, #ececec),  color-stop(0.72, #fff) );
+ background-image: linear-gradient( center bottom,  rgb(38,69,136) 43%,  rgb(74,106,171) 72% );
+}
+
+#header-sp ul#hdNav li.noticeBtn a {
+ text-decoration:none;
+ height:100%;
+ display:block;
+ color:#fff;
+ font-weight:bold;
+ text-shadow: 0px 1px 0px #e4b549;
+ margin:5px;
+ margin-right:2px;
+ border-radius: 4px;
+ background: #fdbf00;
+ background-image: -webkit-gradient( linear, left bottom, left top,  color-stop(0.43, #f7a506),  color-stop(0.72, #ffcc01) );
+ background-image: linear-gradient( center bottom,  rgb(38,69,136) 43%,  rgb(74,106,171) 72% );
+}

@@ -1,0 +1,345 @@
+@charset "shift_jis";
+
+/* 説明画面の画像幅調整 */ 
+#main-box .route img {
+	width: 300px;
+}
+
+/* 金融機関選択画面の「＜ア行＞」列幅調整 */
+#main-box div.bank-list-text {
+	width: 5em;
+}
+
+/* Net入金画面の注意書きエリアパディング調整 */
+#main-box .meinline .comment .table-st .td-04 p.note {
+	padding: 1em;
+	margin: 0;
+}
+
+/* お支払いのご案内画面の項目名幅調整 */
+#netanswer02 #main-box .table-st2 > tbody > tr > td:nth-child(2) {
+	width: 60%;
+}
+
+/* お支払いのご案内画面の支店名幅調整 */
+#netanswer02 #main-box .table-st2 .table-st2 > tbody > tr > td:nth-child(1) {
+	width: 40%;
+}
+
+/* お支払いのご案内画面の口座番号幅調整 */
+#netanswer02 #main-box .table-st2 .table-st2 > tbody > tr > td:nth-child(2) {
+	width: 30%;
+}
+
+/* 支払コース変更申込入力画面（一般会員）の支払コース選択幅調整 */ 
+#main-box .td-01 select[name="inputShoppingCourse"] {
+	margin-top: 11px;
+	margin-right: 11px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+}
+
+/* 支払コース変更申込入力画面（ゴールド会員）の支払コース選択幅調整 */
+#main-box .td-01 select[name="inputShoppingCourseGold"] {
+	margin-top: 11px;
+	margin-right: 11px;
+	margin-bottom: 11px;
+	margin-left: 0px;
+}
+
+/*支払変更メニュー画面の画像幅調整と改行調整 */
+div.operate table.usc03 tr , div.operate table.usc03 td {
+  display:block;	
+}
+
+.th_width {
+	width: 135px;
+}
+
+/* リボ説明画面（その他用）
+   リボ説明画面（りぼ２用）
+   リボ説明画面（みずほ用）閉じるボタンの色の対応 */
+#main-box p.btnTypeA {
+	color: #06C;
+}
+
+#main-box ul.brBlock02 {
+border:1px solid #666;
+padding:10px;
+margin:0 0 10px;
+}
+
+#main-box ul.brBlock02 li {
+padding:0 0 10px;
+}
+
+#main-box ul.brBlock02 li.last {
+padding:0;
+}
+
+/*ご請求内訳表のヘッドは全部中央に揃える。（*/
+#main-box .td-middle{
+	text-align: center;
+	}
+	
+/*ご請求内訳表のヘッドは全部中央に揃える。（*/
+#main-box table.basicB .td-left{
+	text-align: left;
+	}
+	
+
+
+/*******************************
+* USC0102UIZ01 画面調整
+*******************************/
+
+.section01 ul.spec_menu {
+	display:none;
+}
+
+.section01 p.spec_select a,
+.section01 p.spec_selected a {
+	display:block;
+	padding:10px 0 10px 10px;
+	border:1px solid #ccc;
+	background: rgb(230,230,230);
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.35, rgb(230,230,230)),
+    color-stop(0.79, rgb(255,255,255))
+);
+background-image: linear-gradient(
+    center bottom,
+    rgb(230,230,230) 35%,
+    rgb(255,255,255) 79%
+);
+	color:#000;
+	text-decoration:none;
+}
+
+.section01 ul.spec_menu a {
+	display:block;
+	padding:10px 0 10px 10px;
+	border:1px solid #ccc;
+	background:#f4f4f4;
+	color:#000;
+	text-decoration:none;
+}
+
+
+.section01 ul.spec_menu a {
+	border-top:none;
+}
+
+
+.section01 p.spec_select a span {
+	background:url(../../images/smartphone/address_menu_icon.gif) no-repeat right center;
+	display:block;
+	padding-right:15px;
+}
+
+.section01 p.spec_selected a span {
+	background:url(../../images/smartphone/address_menu_icon02.gif) no-repeat right center;
+	display:block;
+	padding-right:15px;
+}
+
+.section01 ul.spec_menu a span {
+	background:url(../../images/smartphone/clubtoto_icon.gif) no-repeat right center;
+	display:block;
+	padding-right:15px;
+}
+
+.section01 p.spec_select a span span.inl,
+.section01 p.spec_selected a span span.inl,
+.section01 ul.spec_menu a span span.inl {
+	background:none;
+	display:inline;
+	padding-right:0;
+}
+
+
+.ttlS {
+ margin-bottom:5px;
+ font-size:114.5%;
+ font-weight:bold;
+ color:#02528b;
+ line-height:1;
+}
+
+#main-box dl.brBlock {
+	border:1px solid #666;
+	padding:10px;
+	margin:0 0 10px;
+}
+
+#main-box dl.brBlock dt {
+	padding:0 0 10px;
+}
+
+#main-box dl.brBlock dd {
+	padding:0 0 20px;
+}
+
+#main-box dl.brBlock dd.last {
+	padding:0;
+}
+
+.btnChRevoA{
+ background: #FCB660;
+ background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.43, #FCB660), color-stop(1, #FFD9A8) );
+ background-image: linear-gradient( center bottom, #FCB660 43%, #FFD9A8 100% );
+ color:#000000;
+ width:10em;
+ padding:5px;
+ margin-bottom:10px;
+ margin-right:10px;
+ border-radius: 5px;
+ text-align:center;
+ margin:0 auto;
+ border:none;
+ border:solid 1px #e1881b;
+}
+
+.btnChRevoB{
+ background: #FCB660;
+ background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.43, #FCB660), color-stop(1, #FFD9A8) );
+ background-image: linear-gradient( center bottom, #FCB660 43%, #FFD9A8 100% );
+ color:#000000;
+ width:8em;
+ padding:8px;
+ margin-bottom:10px;
+ margin-right:3px;
+ border-radius: 5px;
+ text-align:center;
+ margin:0 auto;
+ border:none;
+ border:solid 1px #e1881b;
+}
+
+#rirekiView dl dd table.Revo {
+ width:100%;
+ margin-left:3px;
+}
+
+#rirekiView dl dd table.Revo th.Revoth {
+width:4em;
+}
+
+#rirekiView dl dt table th.Revoarw {
+ background:url(../../images/smartphone/arrow01.png) right center no-repeat;
+}
+
+#rirekiView dt.hide table th.Revoarw {
+ background:url(../../images/smartphone/arrow02.png) right center no-repeat;
+}
+
+#rirekiView dl#sellOverCa dt.select table{
+background: #FA7DBB;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #FA7DBB),
+    color-stop(1, #FAC8E1)
+) !important;
+background-image: linear-gradient(
+    center bottom,
+    #FA7DBB 0%,
+    #FAC8E1 100%
+)!important;
+}
+
+#rirekiView dl#sellOverSh dt.select table{
+background: #FA7DBB;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #FA7DBB),
+    color-stop(1, #FAC8E1)
+) !important;
+background-image: linear-gradient(
+    center bottom,
+    #FA7DBB 0%,
+    #FAC8E1 100%
+)!important;
+}
+
+/* 単語の途中改行 */
+.wordBreak_sp {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+/* 最近のカードご利用画面の右列の表示調整 */
+#main-box #rirekiView table th.alignRightAvoidIcon {
+	text-align: right;
+	padding-right: 2em;
+}
+#main-box #rirekiView table th.alignRightAvoidIcon div {
+	margin-right: -2em;
+}
+/*******************************
+* USC0103UIZ01 , USC0103UIZ07 , USC0103UIZ08 画面調整
+*******************************/
+.brBlock u {
+	text-decoration:underline !important;
+	font-weight:normal !important;
+}
+
+
+/* ポイント詳細画面 */
+#aqfPointDetail h3{
+    font-size:125%;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+#aqfPointDetail td span{
+    font-size:115%;
+    color:red;
+}
+#aqfPointDetail table{
+    width:100%;
+    margin-bottom:10px;
+}
+#aqfPointDetail table td{
+    padding:6px 6px 3px;
+}
+#aqfPointDetail table th{
+    width:45%;
+    padding:6px 0 3px;
+    background-image: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                color-stop(0, #fff ), color-stop(1, #cef ) ) ;
+    background-image: linear-gradient(-90deg, #fff) 1%, #cef 100% );
+}
+#aqfPointDetail table td.sub{
+    background-color:#eee;
+}
+#aqfPointDetail .btn_close_foot{
+    display:block;
+    width:100%;
+    margin:10px auto 0;
+    height:33px;
+    border:1px solid #666;
+    -webkit-border-radius:5px;
+    color:#ffffff;
+    text-shadow: 1px 1px 0px #333;
+    font-size:125%;
+    font-weight:bold;
+    text-align:center;
+    text-decoration:none;
+    line-height:33px;
+    background:url(../../../imgs/smartphone/wallet/bg_btn_submitArea.gif) center left repeat-x;
+    cursor:pointer;
+}
+
+#aqfPointDetail .btn_close_foot:hover,
+#aqfPointDetail .btn_close_foot:visited{
+    color:#ffffff;
+}

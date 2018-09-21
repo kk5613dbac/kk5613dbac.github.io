@@ -1,0 +1,508 @@
+@charset "shift_jis";
+
+/***************************************
+*  レイアウト調整CSS
+***************************************/
+
+/*--------------------------------------
+* 全体レイアウト調整
+*/
+table {
+	width: 100%;
+}
+
+a:link, a:visited, a:hover, a:active, a:focus {
+	color: #0066CC;
+}
+
+/*--------------------------------------
+* 部品
+*/
+/* padding */
+.pl0_sp {padding-left: 0px !important;}
+
+/*--------------------------------------
+* css/common.css
+*/
+div#wrap {
+	margin: 0 auto;
+	text-align: left;
+	width: auto;
+}
+
+div#popup_wrap div#contents {
+	background: none;
+	margin: 10px 0 20px;
+	padding: 10px;
+}
+
+div#adress_contents {
+	margin-bottom: 30px;
+}
+
+/* popup 画面サイズ指定解除 */
+div#popup_wrap{
+	margin: 0px auto;
+	text-align: left;
+	width: auto;
+}
+
+/*--------------------------------------
+* css/common2.css
+*/
+/* パンくず非表示 */
+#path-box {
+	display: none;
+}
+
+/*--------------------------------------
+* css/contbase.css
+*/
+/* 申込ボタン */
+#main-box div.operate input.l2 {	background: #B0DEFF;	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.3, #EBF4FA), color-stop(0.8, #B0DEFF) );
+	background: linear-gradient(-90deg, #EBF4FA 30%, #B0DEFF 80%);
+	border-radius: 6px;
+	border: 1px solid #000000;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 114.5%;
+	height: 36px;
+	line-height: 133.5%;
+	text-decoration: underline;
+	margin: 0;
+	width: 100%;
+}
+/* お送り主、お届け先入力画面へ進むボタン */
+#main-box div.operate input.l3 {	background: #B0DEFF;	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.3, #EBF4FA), color-stop(0.8, #B0DEFF) );
+	background: linear-gradient(-90deg, #EBF4FA 30%, #B0DEFF 80%);
+	border-radius: 6px;
+	border: 1px solid #000000;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 114.5%;
+	height: 36px;
+	line-height: 133.5%;
+	text-decoration: underline;
+	margin: 0;
+	width: 100%;
+}
+/* 各種ボタン */
+#main-box div.operatepoint input.l2 {
+	background: #B0DEFF;	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.3, #EBF4FA), color-stop(0.8, #B0DEFF) );
+	background: linear-gradient(-90deg, #EBF4FA 30%, #B0DEFF 80%);
+	border-radius: 6px;
+	border: 1px solid #000000;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 114.5%;
+	height: 36px;
+	line-height: 133.5%;
+	text-decoration: underline;
+	margin: 0;
+	width: 100%;
+}/* 各種ボタン */
+#main-box div.operatepoint input.l3 {
+	background: #B0DEFF;	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.3, #EBF4FA), color-stop(0.8, #B0DEFF) );
+	background: linear-gradient(-90deg, #EBF4FA 30%, #B0DEFF 80%);
+	border-radius: 6px;
+	border: 1px solid #000000;
+	color: #0000FF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 114.5%;
+	height: 36px;
+	line-height: 133.5%;
+	text-decoration: underline;
+	margin: 0;
+	width: 100%;
+}
+/* 進む系ボタンレイアウト調整 */
+#main-box div.operate ul.row li.next {	width: 100%;
+}
+
+/* 戻るボタンレイアウト調整 */
+#main-box div.operate ul.row li.back {
+	width: 100%;
+}
+
+/* ボタン間隔調整 */
+#main-box div.operate ul.solo li {
+	margin: 30px 0 0 0;
+}
+#main-box div.operate ul.solo li:first-child {
+	margin: 0;
+}
+
+/* 説明系画面枠CSS変更 */
+#main-box div.frame {	background : none;
+	margin: 15px auto;	border: 1px solid #E6E6E6;
+	border-color: #E6E6E6;	border-radius: 6px ;
+	width : 100%;
+}
+
+/* 説明系画面枠CSS変更 */#main-box div.frame div.clearfix {	background : none;
+	padding: 10px 0;
+}
+
+/* 説明系画面枠CSS変更 */#main-box div.frame div.clearfix {	background : none;
+	padding: 10px 0;
+}
+
+#main-box .td-09 {text-align: center;	white-space:nowrap;
+}
+/* 次へボタンマージン初期化 */
+#main-box div.operate ul.row li.next input.l1 {
+	margin: 0px;
+}
+
+/* ナビ画像非表示対応 */
+#main-box .navi-list {
+	display: none;
+}
+
+/* 会員入会・再登録、仮ID登録のナビ画像非表示対応 */
+#title_area img[src^="pages/images/gage"] {
+	display: none;
+}
+
+/* キャンペーン申込確認画面のメールマガジン配信欄改行対応 */
+#main-box table.basic dl.mailaddr dt {
+	white-space: normal;
+}
+
+/*--------------------------------------
+* css/contbase2.css
+*/
+#service h1 {
+	background: none;
+	font-size: 128.75%;
+	font-weight: bold;
+	line-height: 122.25%;
+	margin: 0;
+}
+
+#service h1 span.inner {
+	background: #CCE3FF; /* CSS3未対応用 */
+	background: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0, #FFFCFF), color-stop(1, #CCE3FF) ); /* webkit */
+	background: linear-gradient(-90deg, #FFFCFF 0%, #CCE3FF 100%); /* CSS3 */
+	border-radius: 4px;
+	-webkit-box-shadow: 2px 2px 4px #333333;
+	box-shadow: 2px 2px 4px #333333;
+	display: block;
+	margin: 0 0 6px;
+	padding: 16px 15px;
+}
+
+/* 機能・サービス一覧の左右枠の調整 */
+#service div.col-l {
+	background: none;
+	border-radius: 6px;
+	border: solid 1px #E6E6E6;
+	width: 100%;
+	padding: 0;
+	margin: 20px 0 0 0;
+}
+
+#service div.col-r {
+	background: none;
+	border-radius: 6px;
+	border: solid 1px #E6E6E6;
+	width: 100%;
+	padding: 0;
+	margin: 20px 0 0 0;
+}
+
+#service div.col-l div.inner {
+	background:none;
+	padding: 20px;
+}
+
+#service div.col-r div.inner {
+	background:none;
+	padding: 0;
+}
+
+#service div.col-l ul {
+	width: auto;
+}
+
+/* 機能・サービス一覧の小見出し部分の調整 */
+#service div.col-l p.h {
+	border-style: none none solid;
+	padding: 10px 7px 7px;
+}
+
+#service div.col-r p.h {
+	border-style: none none solid;
+	padding: 10px 7px 7px;
+}
+
+/* 2列表示の1列化 */
+.col-r {
+	float: left;
+}
+
+/*--------------------------------------
+* css/redect/side/side.css
+*/
+/* サイドバーの非表示化 */
+#sideNavWrap {
+	display: none;
+}
+
+/*--------------------------------------
+* css/wallet/cmn.css
+*/
+/* ポイントサイドバーの非表示化 */
+#sideArea {
+	display: none;
+}
+
+/*--------------------------------------
+* css/individual.css
+*/
+
+/* 利用/再登録フォーム完了画面のボタン上下間隔調整 */
+.mt20 {
+	margin: 30px 0;
+}
+
+/*  */
+div#title_area{
+	background: none;
+	padding: 15px 0 10px;
+}
+
+div#title_area span {
+	padding: 0;
+}
+
+div#title_area h2{
+	padding: 0;
+}
+
+div#contents {
+	background: none;
+	margin: 10px 0 20px;
+	padding: 0;
+}
+
+div#complete{
+	background-position: 40px 20px;
+	padding: 125px 20px 10px 20px;
+	height: auto;
+}
+
+div.operate input.s1 {	margin-top:7px;}
+/*--------------------------------------
+* popupbase.css
+*/
+body#netanswer02 {
+	background: none;
+}
+
+#netanswer02 #wrapper {
+	width: auto;
+}
+
+#netanswer02 #main {
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+
+#netanswer02 #contentsWrap {
+	padding: 0;
+	background: none;
+}
+
+#netanswer02 #contents {
+	padding: 0;
+	background: none;
+}
+
+#netanswer02 #main-box {
+	margin: 10px 0 20px;
+	padding: 0;
+	width: auto;
+}
+
+#main-box #mainWrap h2{    margin-left:0px;}
+
+#netanswer02 #main-box #mainWrap h2{	margin-top:20px;}
+/*--------------------------------------
+* pointbase.css
+*/
+#main-box div.detail div.operate ul.row li.put {
+	margin: 10px 0;
+	width: 100%;
+}
+
+#main-box div.detail div.operate {
+	background : none;
+	background-color: #F0F8FF;
+	border-radius: 6px;
+	border: 1px solid #DAEBFC;
+	margin: 10px 0 15px; 
+	font-size: 116.75%; 
+	line-height: 133.5%; 
+} 
+
+#main-box div.detail div.operate div.inner {
+	background : none;
+	padding: 10px 15px; 
+}
+#main-box div.detail div.col-l {
+	width: auto; 
+} 
+
+#main-box div.detail div.col-r {
+	width: auto; 
+}
+
+/* アフィニティポイント画像表示領域のサイズ指定解除 */
+#main-box table.teikei-point dd {
+	width: 100%;
+}
+
+/* アフィニティポイント画像表示領域のサイズ指定解除 */
+#main-box table.teikei-point dt {
+	width: auto;
+}
+
+#main-box div.detail div.operate ul.row li.num {
+	padding-top: 7px;
+	width: auto;
+	white-space: normal;
+}
+
+/*--------------------------------------
+* logoutbase.css
+*/
+body#netanswer {
+	background:none;
+}
+
+#netanswer #wrapper {
+	width : 100%;
+	margin:0 auto;
+}
+
+#netanswer #main {
+	margin-bottom: 20px;
+	padding-top: 0px;
+	background:none;
+}
+#netanswer #contentsWrap {
+	background:none;
+	padding-bottom:8px;
+}
+
+#netanswer #contents {
+	position: relative;
+	padding: 9px 0 12px 0;
+	background:none;
+}
+
+
+#logout h1 {	background: none;
+	font-size: 128.75%;
+	font-weight: bold;
+	line-height: 122.25%;
+}
+#logout h1 span.inner {	background: #CCE3FF; /* CSS3未対応用 */
+	background-image: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0, #FFFCFF), color-stop(1, #CCE3FF) ); /* webkit */
+	background-image: linear-gradient(-90deg, #FFFCFF 0%, #CCE3FF 100%); /* CSS3 */
+	border-radius: 4px;
+	-webkit-box-shadow: 2px 2px 4px #333333;
+	box-shadow: 2px 2px 4px #333333;
+	display: block;
+	margin: 0 0 6px;
+	padding: 16px 15px;
+}
+#netanswer #logout {
+	margin: 0;
+	padding-top: 0;
+	width: auto;
+}
+/*--------------------------------------
+* 独自
+*/
+/* popup画面サイズ指定解除*/
+#netanswer02 #wrapper{
+	margin: 0px auto;
+	width: auto;
+}
+
+/* 画面内規約スクロール領域調整 */
+#main-box .regulations_L,
+#main-box .regulations_S {
+	height: 230px;
+}
+
+/* エラーメッセージの表示位置調整 */
+#main-box .mes01 ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* webアンテナ、webビーコン等の高さと幅の指定 */
+img#webAntena, img#advertisingCom, img#advertisingComWebBeacon {
+	width: 1px;
+	height: 1px;
+}
+
+/* プライバシーポリシー画像まわりの枠線表示 */
+table[rules="none"][border="1"][cellpadding="3"] {
+	border: 1px solid;
+	padding: 3px;
+}
+
+/* 単語の途中改行 */
+.wordBreak_sp {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+/* 非表示にする */ 
+.displayNone_sp {
+	display: none;
+}
+
+/* 2011/11/15既存画面ATU対応  */
+#main-box #mainWrap {
+	background: none;
+	overflow: visible;
+	padding: 0;
+	width: 100%;
+}
+
+#main-box #mainWrap .section01{	width: 100%;}
+
+/* 2011/12/02既存画面ATU対応 */
+#main-box #mainWrap .info{
+	width: auto;
+}
+/* 2011/12/02ANKAN#1337対応 */
+#main-box h4 {
+	background: url(../../images/h2_sp.gif) no-repeat 0 50%;
+	border-color: #CCCCCC #BBBBBB #BBBBBB #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	font-weight: bold;
+	font-size: 114.5%;
+	line-height: 125%;
+	margin: 20px 0 13px 0;
+	padding: 4px 10px;
+	min-height: initial;
+	width:auto;
+}

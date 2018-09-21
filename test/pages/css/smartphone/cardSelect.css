@@ -1,0 +1,157 @@
+@charset "shift_jis";
+
+.loginB #tooltip {
+	display: none;
+	position: absolute;
+	margin-right: 8px;
+	z-index: 5600;
+}
+
+.loginB .tooltipInner {
+	cursor: pointer;
+	margin: -11px 0 0 -11px;
+	padding: 10px 0 10px 10px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	background: #2785D2;
+	text-decoration: none;
+}
+
+.loginB .tooltipInner p {
+	color: white;
+	padding-right: 1.5em;
+}
+
+.loginB .tooltipInner .btnClose {
+	position: absolute;
+	top: 0px;
+	right: 6px;
+}
+
+.section01 .loginB .inner {
+	display: block;
+	padding: 10px 0 10px 10px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	background: white;
+	color: #333;
+	text-decoration: none;
+}
+
+.section01 .loginB .login_selected a {
+	display: block;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.section01 .loginB .login_select a {
+	display: block;
+	color: #333;
+}
+
+.loginB a {
+	margin-right: 5px;
+}
+
+.section01 .loginB .login_select a span span.idsAmex, .section01 .loginB .login_selected a span span.idsAmex, .section01 .loginB .btnOff a span span.idsAmex, .section01 ul.login_spec_menu a span span.idsAmex {
+	padding-right: 40px;
+}
+
+.section01 ul.login_spec_menu {
+	display: none;
+}
+
+.section01 ul.login_spec_menu a {
+	display: block;
+	margin-bottom: 10px;
+	padding: 10px 0 0;
+	border-top: #CCC 1px dotted;
+	background: white;
+	color: #333;
+	text-decoration: none;
+}
+
+.section01 ul.login_spec_menu a span {
+	padding-right: 25px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.section01 ul.login_spec_menu a span.img {
+	padding-right: 25px;
+	display: table-cell !important;
+	vertical-align: middle;
+	zoom: 1;
+}
+
+.section01 p.login_select a span {
+	padding-right: 25px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.section01 p.login_select a span.img{
+	background: url(../../images/smartphone/address_menu_icon.gif) no-repeat right center;
+	padding-right: 25px;
+	display: table-cell !important;
+	vertical-align: middle;
+	zoom: 1;
+}
+
+.section01 p.login_selected a span.img {
+	background: url(../../images/smartphone/address_menu_icon02.gif) no-repeat right center;
+	display: block;
+	padding-right: 25px;
+}
+
+.section01 .loginB .login_btnOff a {
+	display: block;
+	color: #333;
+}
+
+.section01 .loginB .login_btnOff a span span.idsAmex, .section01 .loginB .login_selected a span span.idsAmex, .section01 .loginB .btnOff a span span.idsAmex, .section01 ul.login_spec_menu a span span.idsAmex {
+	padding-right: 40px;
+}
+
+
+.section01 p.login_btnOff a span {
+	padding-right: 25px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.section01 p.login_btnOff a span.img_off {
+	background: url(../../images/smartphone/address_menu_icon_off.gif) no-repeat right center;
+	padding-right: 25px;
+	display: table-cell !important;
+	vertical-align: middle;
+	zoom: 1;
+}
+
+#loginCard {
+	margin-bottom: 5px;
+	color: #836699;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+.loginB span.idsnote {
+	float: right;
+}
+
+span.img img {
+	vertical-align: middle;
+}
+.fsS-nk {
+ font-size:14px!important;
+}
+#cont-box-nk{
+margin: 10px 0;
+}
+
+#cont-box-nk .nk2{
+width: 100%;
+}
