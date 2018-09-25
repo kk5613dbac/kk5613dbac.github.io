@@ -1,0 +1,207 @@
+﻿<!DOCTYPE HTML>
+<html lang="ja-JP">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>カードコンポーネントによるアコーディオン(Ver.4系)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<style type="text/css">
+<!--
+.card .card-header a[data-toggle="collapse"] {
+  display: block;
+  padding: .75rem 1.25rem;
+  margin: -.75rem -1.25rem;
+}
+.card .card-header a[data-toggle="collapse"]:active,
+.card .card-header a[data-toggle="collapse"]:hover,
+.card .card-header a[data-toggle="collapse"]:focus {
+  text-decoration: none; //リンクテキストの下線を消す
+}
+.td-03 {
+
+  background: #ddeeff;
+}
+-->
+</style>
+
+</head>
+
+<body>
+<h5 class="mb-0">
+  <table width="100%">
+    <tr>
+      <th width="100%">1回払い</td>
+    </tr>
+  </table>
+</h5>
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="card td-03">
+    <div class="card-header">
+      <h5 class="mb-0">
+          <table class="btn01" width="100%">
+            <tr>
+              <th width="15%">ご利用日</th>
+              <th width="70%">ご利用店</th>
+              <th>ご利用金額</th>
+            </tr>
+          </table>
+      </h5>
+    </div><!-- /.card-header -->
+  </div><!-- /.card -->
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a class="text-body" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne">
+          <table width="100%">
+            <tr>
+              <td width="15%">8/6</td>
+              <td width="70%">チケットぴあ</td>
+              <th>9,612円</th>
+            </tr>
+          </table>
+        </a>
+      </h5>
+    </div><!-- /.card-header -->
+    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <table width="100%">
+          <tr>
+            <th width="25%">ご利用者区分</th>
+            <th width="5%"><p>:</p></th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>ポイント対象</th>
+            <th><p>:</p></th>
+            <td>*</td>
+          </tr>
+          <tr>
+            <th>今回回数</th>
+            <th><p>:</p></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th><font color="red">今回のお支払い金額</font></th>
+            <th><p><font color="red">:</font></p></th>
+            <td><font color="red">9,612円</font></td>
+          </tr>
+          <tr>
+            <th>備考</th>
+            <th><p>:</p></th>
+            <td></td>
+          </tr>
+        </table>
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="15%">8/10</td>
+              <td width="70%">東京電力　電気料金等　１８年０８月</td>
+              <th>9,105円</th>
+            </tr>
+          </table>
+        </a>
+      </h5>
+    </div><!-- /.card-header -->
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <table width="100%">
+          <tr>
+            <th width="25%">ご利用者区分</th>
+            <th width="5%"><p>:</p></th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>ポイント対象</th>
+            <th><p>:</p></th>
+            <td>*</td>
+          </tr>
+          <tr>
+            <th>今回回数</th>
+            <th><p>:</p></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th><font color="red">今回のお支払い金額</font></th>
+            <th><p><font color="red">:</font></p></th>
+            <td><font color="red">9,105円</font></td>
+          </tr>
+          <tr>
+            <th>備考</th>
+            <th><p>:</p></th>
+            <td></td>
+          </tr>
+        </table>
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="15%">8/15</td>
+              <td width="70%">ソフトバンクＭ（０７月分）</td>
+              <th>4,209円</th>
+            </tr>
+          </table>
+        </a>
+      </h5>
+    </div><!-- /.card-header -->
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <table width="100%">
+          <tr>
+            <th width="25%">ご利用者区分</th>
+            <th width="5%"><p>:</p></th>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th>ポイント対象</th>
+            <th><p>:</p></th>
+            <td>*</td>
+          </tr>
+          <tr>
+            <th>今回回数</th>
+            <th><p>:</p></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th><font color="red">今回のお支払い金額</font></th>
+            <th><p><font color="red">:</font></p></th>
+            <td><font color="red">4,209円</font></td>
+          </tr>
+          <tr>
+            <th>備考</th>
+            <th><p>:</p></th>
+            <td></td>
+          </tr>
+        </table>
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+
+</div><!-- /#accordion -->
+<h5 class="mb-0">
+  <table width="100%">
+    <tr align="right">
+      <th width="100%"><font color="red">今回のお支払い金額小計　　78,087円</font></td>
+    </tr>
+  </table>
+</h5>
+</body>
+
+</html>
