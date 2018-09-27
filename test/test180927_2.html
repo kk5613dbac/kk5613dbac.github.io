@@ -1,0 +1,315 @@
+﻿﻿<!DOCTYPE HTML>
+<html lang="ja-JP">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>カードコンポーネントによるアコーディオン(Ver.4系)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+  $(function(){
+    var visibleItem = $('.dropdown .dropdown-toggle');
+    var selectItem = $('.dropdown-menu .dropdown-item:first');
+    visibleItem.text(selectItem.attr('value'));
+    selectItem.hide();
+  });
+
+  $(function(){
+    $('.dropdown-menu .dropdown-item').click(function(){
+
+/* $( selector [ , context ] ) */
+/* セレクター文字列を指定して、マッチした要素群のjQueryオブジェクトを返します。 */
+/* selector 要素を特定するセレクター文字列を指定します。 */
+/* context contextにDOM要素、document、jQueryオブジェクト等を指定することで、selectorはcontexに指定されたものの中から、要素を特定するようになります。 */
+/* $('div.foo').click(function() { */
+/*   $('span', this).addClass('bar'); */
+/* }); */
+/* contextにthisを指定することで、this(div.foo)要素内のspanを対象としています。 */
+
+      $('li', $(this).closest('.dropdown')).show();
+      var visibleItem = $('.dropdown-toggle', $(this).closest('.dropdown'));
+      visibleItem.text($(this).attr('value'));
+      $(this).hide();
+    });
+  });
+</script>
+
+<style type="text/css">
+<!--
+.card .card-header a[data-toggle="collapse"] {
+  display: block;
+}
+
+.card .card-body {
+  display: block;
+}
+.card .card-body .details,
+.card .card-body .btn-grp {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.card .card-header,
+.card .card-body,
+.list-group-item {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.card .card-header a[data-toggle="collapse"]:active,
+.card .card-header a[data-toggle="collapse"]:hover,
+.card .card-header a[data-toggle="collapse"]:focus {
+  text-decoration: none; //リンクテキストの下線を消す
+}
+.td-03 {
+  background: #ddeeff;
+}
+.dropdown-toggle, td, li, .btn-grp button, .text-body {
+  font-size: 14px;
+}
+.dropdown button, .dropdown-menu {
+  width: 100%;
+}
+.dropdown button {
+  text-align: left;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+-->
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <div class="card-header" role="tab" id="collapseListGroupHeading1">
+    <div class="mb-0">
+      <a href="#collapseListGroup1" class="text-body" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1">
+        折り畳みリストグループ
+      </a>
+    </div>
+  </div>
+  <div id="collapseListGroup1" class="collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+    <ul class="list-group list-group-flush">
+      <li class="dropdown-item">リスト1</li>
+      <li class="dropdown-item">リスト2</li>
+      <li class="dropdown-item">リスト3</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mb-0">
+  <table width="100%">
+    <tr>
+      <td width="100%"><b>1回払い</b></td>
+    </tr>
+  </table>
+</div>
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="card td-03">
+    <div class="card-header">
+      <div class="mb-0">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="30%"><b>ご利用日</b></td>
+              <td width="40%"><b>ご利用店</b></td>
+              <td><b>ご利用金額</b></td>
+            </tr>
+          </table>
+      </div>
+    </div><!-- /.card-header -->
+  </div><!-- /.card -->
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <div class="mb-0">
+        <a class="text-body" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne">
+          <table width="100%">
+            <tr>
+              <td width="30%">8/6</td>
+              <td width="40%">チケットぴあ</td>
+              <td><b>9,612円</b></td>
+            </tr>
+          </table>
+        </a>
+      </div>
+    </div><!-- /.card-header -->
+    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <table class="details" width="80%">
+          <tr>
+            <td width="55%"><b>ご利用者区分</b></td>
+            <td width="10%"><b>:</b></td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td><b>ポイント対象</b></td>
+            <td><b>:</b></td>
+            <td>*</td>
+          </tr>
+          <tr>
+            <td><b>今回回数</b></td>
+            <td><b>:</b></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><font color="red"><b>今回のお支払い金額</b></font></td>
+            <td><font color="red"><b>:</b></font></td>
+            <td><font color="red">9,612円</font></td>
+          </tr>
+          <tr>
+            <td><b>備考</b></td>
+            <td><b>:</b></td>
+            <td></td>
+          </tr>
+        </table>
+        <table class="btn-grp" width="10%">
+          <tr>
+            <td label="編集"><button type="button" class="btn btn-outline-secondary text-dark">編集</button></td>
+          </tr>
+          <tr>
+            <td><br/></td>
+          </tr>
+          <tr>
+            <td label="削除"><button type="button" class="btn btn-danger">削除</button></td>
+          </tr>
+        </table>
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <div class="mb-0">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="30%">8/10</td>
+              <td width="40%">東京電力　電気料金等　１８年０８月</td>
+              <td><b>9,105円</b></td>
+            </tr>
+          </table>
+        </a>
+      </div>
+    </div><!-- /.card-header -->
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <table class="details" width="80%">
+          <tr>
+            <td width="55%"><b>ご利用者区分</b></td>
+            <td width="10%"><b>:</b></td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td><b>ポイント対象</b></td>
+            <td><b>:</b></td>
+            <td>*</td>
+          </tr>
+          <tr>
+            <td><b>今回回数</b></td>
+            <td><b>:</b></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><font color="red"><b>今回のお支払い金額</b></font></td>
+            <td><font color="red"><b>:</b></font></td>
+            <td><font color="red">9,105円</font></td>
+          </tr>
+          <tr>
+            <td><b>備考</b></td>
+            <td><b>:</b></td>
+            <td></td>
+          </tr>
+        </table>
+        <table class="btn-grp" width="10%">
+          <tr>
+            <td label="編集"><button type="button" class="btn btn-outline-secondary text-dark">編集</button></td>
+          </tr>
+          <tr>
+            <td><br/></td>
+          </tr>
+          <tr>
+            <td label="削除"><button type="button" class="btn btn-danger">削除</button></td>
+          </tr>
+        </table>
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <div class="mb-0">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="30%">8/15</td>
+              <td width="40%">ソフトバンクＭ（０７月分）</td>
+              <td><b>4,209円</b></td>
+            </tr>
+          </table>
+        </a>
+      </div>
+    </div><!-- /.card-header -->
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <table class="details" width="80%">
+          <tr>
+            <td width="55%"><b>ご利用者区分</b></td>
+            <td width="10%"><b>:</b></td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td><b>ポイント対象</b></td>
+            <td><b>:</b></td>
+            <td>*</td>
+          </tr>
+          <tr>
+            <td><b>今回回数</b></td>
+            <td><b>:</b></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><font color="red"><b>今回のお支払い金額</b></font></td>
+            <td><font color="red"><b>:</b></font></td>
+            <td><font color="red">4,209円</font></td>
+          </tr>
+          <tr>
+            <td><b>備考</b></td>
+            <td><b>:</b></td>
+            <td></td>
+          </tr>
+        </table>
+        <table class="btn-grp" width="10%">
+          <tr>
+            <td label="編集"><button type="button" class="btn btn-outline-secondary text-dark">編集</button></td>
+          </tr>
+          <tr>
+            <td><br/></td>
+          </tr>
+          <tr>
+            <td label="削除"><button type="button" class="btn btn-danger">削除</button></td>
+          </tr>
+        </table>
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+
+</div><!-- /#accordion -->
+<div class="mb-0">
+  <table width="100%">
+    <tr align="right">
+      <td width="100%"><font color="red"><b>今回のお支払い金額小計　　78,087円</b></font></td>
+    </tr>
+  </table>
+</div>
+</body>
+
+</html>
