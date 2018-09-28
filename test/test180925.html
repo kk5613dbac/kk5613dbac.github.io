@@ -10,34 +10,37 @@
 <script src="js/bootstrap.min.js"></script>
 <style type="text/css">
 <!--
-.card .card-header a[data-toggle="collapse"] {
-  display: block;
-}
 
-.card .card-header,
-.card .card-body {
+.accordion .card .card-header,
+.accordion .card .card-body {
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
 
-.card .card-header a[data-toggle="collapse"]:active,
-.card .card-header a[data-toggle="collapse"]:hover,
-.card .card-header a[data-toggle="collapse"]:focus {
-  text-decoration: none; //リンクテキストの下線を消す
-}
-.td-03 {
-  background: #ddeeff;
-}
-body {
+.accordion .card .card-header td,
+.accordion .card .card-body td,
+.category td,
+.total td {
   font-size: 14px;
 }
+
+.accordion .td-03 {
+  background: #ddeeff;
+}
+
+.accordion .card .card-header a[data-toggle="collapse"]:active,
+.accordion .card .card-header a[data-toggle="collapse"]:hover,
+.accordion .card .card-header a[data-toggle="collapse"]:focus {
+  text-decoration: none; //リンクテキストの下線を消す
+}
+
 -->
 </style>
 
 </head>
 
 <body>
-<div class="mb-0">
+<div class="mb-0 category">
   <table width="100%">
     <tr>
       <td width="100%"><b>1回払い</b></td>
@@ -76,10 +79,10 @@ body {
     </div><!-- /.card-header -->
     <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        <table width="100%">
+        <table class="details" width="80%">
           <tr>
             <td width="55%"><b>ご利用者区分</b></td>
-            <td width="15%"><b>:</b></td>
+            <td width="10%"><b>:</b></td>
             <td>0</td>
           </tr>
           <tr>
@@ -123,10 +126,10 @@ body {
     </div><!-- /.card-header -->
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        <table width="100%">
+        <table class="details" width="80%">
           <tr>
             <td width="55%"><b>ご利用者区分</b></td>
-            <td width="15%"><b>:</b></td>
+            <td width="10%"><b>:</b></td>
             <td>0</td>
           </tr>
           <tr>
@@ -170,10 +173,10 @@ body {
     </div><!-- /.card-header -->
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        <table width="100%">
+        <table class="details" width="80%">
           <tr>
             <td width="55%"><b>ご利用者区分</b></td>
-            <td width="15%"><b>:</b></td>
+            <td width="10%"><b>:</b></td>
             <td>0</td>
           </tr>
           <tr>
@@ -202,7 +205,7 @@ body {
   </div><!-- /.card -->
 
 </div><!-- /#accordion -->
-<div class="mb-0">
+<div class="mb-0 total">
   <table width="100%">
     <tr align="right">
       <td width="100%"><font color="red"><b>今回のお支払い金額小計　　78,087円</b></font></td>
