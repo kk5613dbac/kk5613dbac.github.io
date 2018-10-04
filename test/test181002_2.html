@@ -13,11 +13,83 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', function(){
+    $('.accordion #target1').load('template.html');
+    $('.accordion #target2').load('template.html');
+    $('.accordion #target3').load('template.html');
+
     var visibleItem = $('.dropdown .card-header a[data-toggle="collapse"]');
     var selectItem = $('.dropdown .list-group-item:first');
     visibleItem.text(selectItem.attr('value'));
     selectItem.hide();
 }, false);
+
+  $(document).ready(function() {
+    $('.accordion #target1 .card').attr('data-paymentsId', 'P00000001');
+    $('.accordion #target1 .card-header').attr('id', 'headingOne');
+    $('.accordion #target1 .collapse').attr('aria-labelledby', 'headingOne');
+    $('.accordion #target1 .text-body').attr('href', '#collapseOne');
+    $('.accordion #target1 .text-body').attr('aria-controls', 'collapseOne');
+    $('.accordion #target1 .collapse').attr('id', 'collapseOne');
+    $('.accordion #target1 .card-header td').eq(0).text('2017/10/10');
+    $('.accordion #target1 .card-header td').eq(1).text('バス行き（Suica）');
+    $('.accordion #target1 .card-header td').eq(2).children('b').text('-\xA5195');
+    $('.accordion #target1 .details tr').eq(0).children('td').eq(0).children('b').text('分類');
+    $('.accordion #target1 .details tr').eq(0).children('td').eq(1).children('b').text(':');
+    $('.accordion #target1 .details tr').eq(0).children('td').eq(2).text('交通費');
+    $('.accordion #target1 .details tr').eq(1).children('td').eq(0).children('b').text('種類');
+    $('.accordion #target1 .details tr').eq(1).children('td').eq(1).children('b').text(':');
+    $('.accordion #target1 .details tr').eq(1).children('td').eq(2).text('支出');
+    $('.accordion #target1 .details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+    $('.accordion #target1 .details tr').eq(2).children('td').eq(1).children('b').text(':');
+    $('.accordion #target1 .details tr').eq(2).children('td').eq(2).text('交通費／バス');
+    $('.accordion #target1 .details tr').eq(3).children('td').eq(0).children('b').text('口座');
+    $('.accordion #target1 .details tr').eq(3).children('td').eq(1).children('b').text(':');
+    $('.accordion #target1 .details tr').eq(3).children('td').eq(2).text('Suica');
+
+    $('.accordion #target2 .card').attr('data-paymentsId', 'P00000002');
+    $('.accordion #target2 .card-header').attr('id', 'headingTwo');
+    $('.accordion #target2 .collapse').attr('aria-labelledby', 'headingTwo');
+    $('.accordion #target2 .text-body').attr('href', '#collapseTwo');
+    $('.accordion #target2 .text-body').attr('aria-controls', 'collapseTwo');
+    $('.accordion #target2 .collapse').attr('id', 'collapseTwo');
+    $('.accordion #target2 .card-header td').eq(0).text('2017/10/10');
+    $('.accordion #target2 .card-header td').eq(1).text('Edyチャージ　費目:口座引出、口座:現金、品名:その他');
+    $('.accordion #target2 .card-header td').eq(2).children('b').text('-\xA51,000');
+    $('.accordion #target2 .details tr').eq(0).children('td').eq(0).children('b').text('分類');
+    $('.accordion #target2 .details tr').eq(0).children('td').eq(1).children('b').text(':');
+    $('.accordion #target2 .details tr').eq(0).children('td').eq(2).text('クレジット');
+    $('.accordion #target2 .details tr').eq(1).children('td').eq(0).children('b').text('種類');
+    $('.accordion #target2 .details tr').eq(1).children('td').eq(1).children('b').text(':');
+    $('.accordion #target2 .details tr').eq(1).children('td').eq(2).text('出金');
+    $('.accordion #target2 .details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+    $('.accordion #target2 .details tr').eq(2).children('td').eq(1).children('b').text(':');
+    $('.accordion #target2 .details tr').eq(2).children('td').eq(2).text('その他／－');
+    $('.accordion #target2 .details tr').eq(3).children('td').eq(0).children('b').text('口座');
+    $('.accordion #target2 .details tr').eq(3).children('td').eq(1).children('b').text(':');
+    $('.accordion #target2 .details tr').eq(3).children('td').eq(2).text('現金');
+
+    $('.accordion #target3 .card').attr('data-paymentsId', 'P00000003');
+    $('.accordion #target3 .card-header').attr('id', 'headingThree');
+    $('.accordion #target3 .collapse').attr('aria-labelledby', 'headingThree');
+    $('.accordion #target3 .text-body').attr('href', '#collapseThree');
+    $('.accordion #target3 .text-body').attr('aria-controls', 'collapseThree');
+    $('.accordion #target3 .collapse').attr('id', 'collapseThree');
+    $('.accordion #target3 .card-header td').eq(0).text('2017/10/10');
+    $('.accordion #target3 .card-header td').eq(1).text('Edyチャージ　費目:口座預入、口座:電子マネー、品名:その他');
+    $('.accordion #target3 .card-header td').eq(2).children('b').text('\xA51,000');
+    $('.accordion #target3 .details tr').eq(0).children('td').eq(0).children('b').text('分類');
+    $('.accordion #target3 .details tr').eq(0).children('td').eq(1).children('b').text(':');
+    $('.accordion #target3 .details tr').eq(0).children('td').eq(2).text('クレジット');
+    $('.accordion #target3 .details tr').eq(1).children('td').eq(0).children('b').text('種類');
+    $('.accordion #target3 .details tr').eq(1).children('td').eq(1).children('b').text(':');
+    $('.accordion #target3 .details tr').eq(1).children('td').eq(2).text('入金');
+    $('.accordion #target3 .details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+    $('.accordion #target3 .details tr').eq(2).children('td').eq(1).children('b').text(':');
+    $('.accordion #target3 .details tr').eq(2).children('td').eq(2).text('その他／－');
+    $('.accordion #target3 .details tr').eq(3).children('td').eq(0).children('b').text('口座');
+    $('.accordion #target3 .details tr').eq(3).children('td').eq(1).children('b').text(':');
+    $('.accordion #target3 .details tr').eq(3).children('td').eq(2).text('Edy（再購入）');
+});
 
   $(function(){
     $('.dropdown .list-group-item').click(function(){
@@ -42,6 +114,33 @@ document.addEventListener('DOMContentLoaded', function(){
     $('.dropdown .list-group-item').click(function(){
       var visibleItem = $('.collapse', $(this).closest('.dropdown'));
       visibleItem.collapse('hide');
+    });
+  });
+
+  $(function(){
+    $('.btn').click(function(){
+    /*if (confirm('ページ遷移しますか？')) {
+      window.location.href = '/';
+    }*/
+      $('.card-header tbody', $(this).closest('.card')).map(function(){
+        alert($(this).children('tr').eq(0).children('td').eq(0).text() + '\n'
+          + $(this).children('tr').eq(0).children('td').eq(1).text() + '\n'
+          + $(this).children('tr').eq(0).children('td').eq(2).text() + '\n');
+      });
+      $('.card-body .details tbody', $(this).closest('.card')).map(function(){
+        alert($(this).children('tr').eq(0).children('td').eq(0).text()
+          + $(this).children('tr').eq(0).children('td').eq(1).text()
+          + $(this).children('tr').eq(0).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(1).children('td').eq(0).text()
+          + $(this).children('tr').eq(1).children('td').eq(1).text()
+          + $(this).children('tr').eq(1).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(2).children('td').eq(0).text()
+          + $(this).children('tr').eq(2).children('td').eq(1).text()
+          + $(this).children('tr').eq(2).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(3).children('td').eq(0).text()
+          + $(this).children('tr').eq(3).children('td').eq(1).text()
+          + $(this).children('tr').eq(3).children('td').eq(2).text() + '\n');
+      });
     });
   });
 
@@ -235,168 +334,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <div id="target">
 
 <div id="target1">
-  <div class="card" data-paymentsId="【収支ID】" data-classificationId="【分類ID】" data-paymentsTypeId="【収支区分ID】" data-expenseId="【費目ID】" data-detailsId="【内訳ID】" data-accountId="【口座ID】">
-    <div class="card-header" role="tab" id="headingOne">
-      <div class="mb-0">
-        <a class="text-body" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne">
-          <table width="100%">
-            <tr>
-              <td width="30%">2017/10/10</td>
-              <td width="40%">バス行き（Suica）</td>
-              <td><b>-&yen;195</b></td>
-            </tr>
-          </table>
-        </a>
-      </div>
-    </div><!-- /.card-header -->
-    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        <table class="details" width="80%">
-          <tr>
-            <td width="55%"><b>分類</b></td>
-            <td width="10%"><b>:</b></td>
-            <td>交通費</td>
-          </tr>
-          <tr>
-            <td><b>種類</b></td>
-            <td><b>:</b></td>
-            <td>支出</td>
-          </tr>
-          <tr>
-            <td><b>費目／内訳</b></td>
-            <td><b>:</b></td>
-            <td>交通費／バス</td>
-          </tr>
-          <tr>
-            <td><b>口座</b></td>
-            <td><b>:</b></td>
-            <td>Suica</td>
-          </tr>
-        </table>
-        <table class="btn-grp" width="10%">
-          <tr>
-            <td label="編集"><button type="button" class="btn btn-outline-secondary text-dark">編集</button></td>
-          </tr>
-          <tr>
-            <td><br/></td>
-          </tr>
-          <tr>
-            <td label="削除"><button type="button" class="btn btn-danger">削除</button></td>
-          </tr>
-        </table>
-      </div><!-- /.card-body -->
-    </div><!-- /.collapse -->
-  </div><!-- /.card -->
 </div><!-- /target1 -->
 
 <div id="target2">
-  <div class="card" data-paymentsId="【収支ID】" data-classificationId="【分類ID】" data-paymentsTypeId="【収支区分ID】" data-expenseId="【費目ID】" data-detailsId="【内訳ID】" data-accountId="【口座ID】">
-    <div class="card-header" role="tab" id="headingTwo">
-      <div class="mb-0">
-        <a class="collapsed text-body" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-          <table class="btn01" width="100%">
-            <tr>
-              <td width="30%">2017/10/10</td>
-              <td width="40%">Edyチャージ　費目:口座引出、口座:現金、品名:その他</td>
-              <td><b>-&yen;1,000</b></td>
-            </tr>
-          </table>
-        </a>
-      </div>
-    </div><!-- /.card-header -->
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        <table class="details" width="80%">
-          <tr>
-            <td width="55%"><b>分類</b></td>
-            <td width="10%"><b>:</b></td>
-            <td>クレジット</td>
-          </tr>
-          <tr>
-            <td><b>種類</b></td>
-            <td><b>:</b></td>
-            <td>出金</td>
-          </tr>
-          <tr>
-            <td><b>費目／内訳</b></td>
-            <td><b>:</b></td>
-            <td>その他／－</td>
-          </tr>
-          <tr>
-            <td><b>口座</b></td>
-            <td><b>:</b></td>
-            <td>現金</td>
-          </tr>
-        </table>
-        <table class="btn-grp" width="10%">
-          <tr>
-            <td label="編集"><button type="button" class="btn btn-outline-secondary text-dark">編集</button></td>
-          </tr>
-          <tr>
-            <td><br/></td>
-          </tr>
-          <tr>
-            <td label="削除"><button type="button" class="btn btn-danger">削除</button></td>
-          </tr>
-        </table>
-      </div><!-- /.card-body -->
-    </div><!-- /.collapse -->
-  </div><!-- /.card -->
 </div><!-- /target2 -->
 
 <div id="target3">
-  <div class="card" data-paymentsId="【収支ID】" data-classificationId="【分類ID】" data-paymentsTypeId="【収支区分ID】" data-expenseId="【費目ID】" data-detailsId="【内訳ID】" data-accountId="【口座ID】">
-    <div class="card-header" role="tab" id="headingThree">
-      <div class="mb-0">
-        <a class="collapsed text-body" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
-          <table class="btn01" width="100%">
-            <tr>
-              <td width="30%">2017/10/10</td>
-              <td width="40%">Edyチャージ　費目:口座預入、口座:電子マネー、品名:その他</td>
-              <td><b>&yen;1,000</b></td>
-            </tr>
-          </table>
-        </a>
-      </div>
-    </div><!-- /.card-header -->
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        <table class="details" width="80%">
-          <tr>
-            <td width="55%"><b>分類</b></td>
-            <td width="10%"><b>:</b></td>
-            <td>クレジット</td>
-          </tr>
-          <tr>
-            <td><b>種類</b></td>
-            <td><b>:</b></td>
-            <td>入金</td>
-          </tr>
-          <tr>
-            <td><b>費目／内訳</b></td>
-            <td><b>:</b></td>
-            <td>その他／－</td>
-          </tr>
-          <tr>
-            <td><b>口座</b></td>
-            <td><b>:</b></td>
-            <td>Edy（再購入）</td>
-          </tr>
-        </table>
-        <table class="btn-grp" width="10%">
-          <tr>
-            <td label="編集"><button type="button" class="btn btn-outline-secondary text-dark">編集</button></td>
-          </tr>
-          <tr>
-            <td><br/></td>
-          </tr>
-          <tr>
-            <td label="削除"><button type="button" class="btn btn-danger">削除</button></td>
-          </tr>
-        </table>
-      </div><!-- /.card-body -->
-    </div><!-- /.collapse -->
-  </div><!-- /.card -->
 </div><!-- /target3 -->
 
 </div><!-- /target -->
@@ -410,6 +353,7 @@ document.addEventListener('DOMContentLoaded', function(){
     </tr>
   </table>
 </div>
+
 </body>
 
 </html>

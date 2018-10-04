@@ -45,6 +45,33 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
+  $(function(){
+    $('.btn').click(function(){
+    /*if (confirm('ページ遷移しますか？')) {
+      window.location.href = '/';
+    }*/
+      $('.card-header tbody', $(this).closest('.card')).map(function(){
+        alert($(this).children('tr').eq(0).children('td').eq(0).text() + '\n'
+          + $(this).children('tr').eq(0).children('td').eq(1).text() + '\n'
+          + $(this).children('tr').eq(0).children('td').eq(2).text() + '\n');
+      });
+      $('.card-body .details tbody', $(this).closest('.card')).map(function(){
+        alert($(this).children('tr').eq(0).children('td').eq(0).text()
+          + $(this).children('tr').eq(0).children('td').eq(1).text()
+          + $(this).children('tr').eq(0).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(1).children('td').eq(0).text()
+          + $(this).children('tr').eq(1).children('td').eq(1).text()
+          + $(this).children('tr').eq(1).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(2).children('td').eq(0).text()
+          + $(this).children('tr').eq(2).children('td').eq(1).text()
+          + $(this).children('tr').eq(2).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(3).children('td').eq(0).text()
+          + $(this).children('tr').eq(3).children('td').eq(1).text()
+          + $(this).children('tr').eq(3).children('td').eq(2).text() + '\n');
+      });
+    });
+  });
+
 </script>
 
 <style type="text/css">
@@ -73,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function(){
 .category td,
 .total td,
 .balance-list td,
-.balance-list th {
+.balance-list th,
+.searchForm .card .card-header {
   font-size: 14px;
 }
 
@@ -81,12 +109,22 @@ document.addEventListener('DOMContentLoaded', function(){
   background: #cfe6ff;
 }
 
+.accordion,
+.dropdown .card a[data-toggle="collapse"],
+.searchForm .card a[data-toggle="collapse"],
+.total {
+  display: block;
+}
+
 .accordion .card .card-header a[data-toggle="collapse"]:active,
 .accordion .card .card-header a[data-toggle="collapse"]:hover,
 .accordion .card .card-header a[data-toggle="collapse"]:focus,
 .dropdown .card a[data-toggle="collapse"]:active,
 .dropdown .card a[data-toggle="collapse"]:hover,
-.dropdown .card a[data-toggle="collapse"]:focus {
+.dropdown .card a[data-toggle="collapse"]:focus,
+.searchForm .card a[data-toggle="collapse"]:active,
+.searchForm .card a[data-toggle="collapse"]:hover,
+.searchForm .card a[data-toggle="collapse"]:focus {
   text-decoration: none; //リンクテキストの下線を消す
 }
 
@@ -118,6 +156,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <body>
 
+<div class="mb-0 category">
+  <table width="100%">
+    <tr>
+      <td width="100%"><b>口座</b></td>
+    </tr>
+  </table>
+</div>
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
 <div class="dropdown" id="dropdown" role="tablist" aria-multiselectable="true">
 <div class="card">
   <div class="card-header" role="tab" id="collapseListGroupHeading1">
@@ -129,29 +176,29 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
   <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item custom" value="8月分ご利用明細　【確定済み】">
+      <li class="list-group-item custom" value="みずほ普通（札幌）">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDOne" role="button" aria-expanded="false" aria-controls="collapseDDOne">
-          8月分ご利用明細　【確定済み】
+          みずほ普通（札幌）
         </a>
       </li>
-      <li class="list-group-item custom" value="9月分ご利用明細　【確定済み】">
+      <li class="list-group-item custom" value="みずほ普通（辻堂）">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDTwo" role="button" aria-expanded="false" aria-controls="collapseDDTwo">
-          9月分ご利用明細　【確定済み】
+          みずほ普通（辻堂）
         </a>
       </li>
-      <li class="list-group-item custom" value="10月分ご利用明細　【確定済み】">
+      <li class="list-group-item custom" value="みずほ定期（札幌）">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDThree" role="button" aria-expanded="false" aria-controls="collapseDDThree">
-          10月分ご利用明細　【確定済み】
+          みずほ定期（札幌）
         </a>
       </li>
-      <li class="list-group-item custom" value="11月分ご利用明細　【未確定】">
+      <li class="list-group-item custom" value="みずほ積立（札幌）">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDFour" role="button" aria-expanded="false" aria-controls="collapseDDFour">
-          11月分ご利用明細　【<font color="red">未確定</font>】
+          みずほ積立（札幌）
         </a>
       </li>
-      <li class="list-group-item custom" value="12月分ご利用明細　【未確定】">
+      <li class="list-group-item custom" value="現金">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDFive" role="button" aria-expanded="false" aria-controls="collapseDDFive">
-          12月分ご利用明細　【<font color="red">未確定</font>】
+          現金
         </a>
       </li>
     </ul>
@@ -163,35 +210,49 @@ document.addEventListener('DOMContentLoaded', function(){
  <table>
     <tbody>
     <tr>
-    <th class="td-03">お支払金融機関</th>
-    <th class="td-03">当月お支払い額合計</th>
+    <th class="td-03">現在の残高</th>
     </tr>
     <tr>
-    <td>みずほ銀行 札幌支店 </td>
-    <td align="right"><b>140,626円</b></td>
+    <td align="right"><b>&yen;140,626</b></td>
     </tr>
     </tbody>
  </table>
 
 </div>
 
+<div class="searchForm" id="searchForm" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="collapseListGroupHeading2">
+      <div class="mb-0">
+        <a href="#collapseListGroup2" class="text-body" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup2">
+          詳細検索
+        </a>
+      </div>
+    </div>
+    <div id="collapseListGroup2" class="collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+      <div class="card-body">
+        【検索フォームを置く】
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+</div>
+
 <div class="mb-0 category">
   <table width="100%">
     <tr>
-      <td width="100%"><b>1回払い</b></td>
+      <td width="100%"><b>支出一覧</b></td>
     </tr>
   </table>
 </div>
-<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
   <div class="card td-03">
     <div class="card-header">
       <div class="mb-0">
           <table class="btn01" width="100%">
             <tr>
-              <td width="30%"><b>ご利用日</b></td>
-              <td width="40%"><b>ご利用店</b></td>
-              <td><b>ご利用金額</b></td>
+              <td width="30%"><b>日付</b></td>
+              <td width="40%"><b>項目</b></td>
+              <td><b>支出／収入</b></td>
             </tr>
           </table>
       </div>
@@ -201,15 +262,15 @@ document.addEventListener('DOMContentLoaded', function(){
 <div id="target">
 
 <div id="target1">
-  <div class="card">
+  <div class="card" data-paymentsId="【収支ID】" data-classificationId="【分類ID】" data-paymentsTypeId="【収支区分ID】" data-expenseId="【費目ID】" data-detailsId="【内訳ID】" data-accountId="【口座ID】">
     <div class="card-header" role="tab" id="headingOne">
       <div class="mb-0">
         <a class="text-body" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne">
           <table width="100%">
             <tr>
-              <td width="30%">8/6</td>
-              <td width="40%">チケットぴあ</td>
-              <td><b>9,612円</b></td>
+              <td width="30%">2017/10/10</td>
+              <td width="40%">バス行き（Suica）</td>
+              <td><b>-&yen;195</b></td>
             </tr>
           </table>
         </a>
@@ -219,29 +280,24 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="card-body">
         <table class="details" width="80%">
           <tr>
-            <td width="55%"><b>ご利用者区分</b></td>
+            <td width="55%"><b>分類</b></td>
             <td width="10%"><b>:</b></td>
-            <td>0</td>
+            <td>交通費</td>
           </tr>
           <tr>
-            <td><b>ポイント対象</b></td>
+            <td><b>種類</b></td>
             <td><b>:</b></td>
-            <td>*</td>
+            <td>支出</td>
           </tr>
           <tr>
-            <td><b>今回回数</b></td>
+            <td><b>費目／内訳</b></td>
             <td><b>:</b></td>
-            <td></td>
+            <td>交通費／バス</td>
           </tr>
           <tr>
-            <td><font color="red"><b>今回のお支払い金額</b></font></td>
-            <td><font color="red"><b>:</b></font></td>
-            <td><font color="red">9,612円</font></td>
-          </tr>
-          <tr>
-            <td><b>備考</b></td>
+            <td><b>口座</b></td>
             <td><b>:</b></td>
-            <td></td>
+            <td>Suica</td>
           </tr>
         </table>
         <table class="btn-grp" width="10%">
@@ -261,15 +317,15 @@ document.addEventListener('DOMContentLoaded', function(){
 </div><!-- /target1 -->
 
 <div id="target2">
-  <div class="card">
+  <div class="card" data-paymentsId="【収支ID】" data-classificationId="【分類ID】" data-paymentsTypeId="【収支区分ID】" data-expenseId="【費目ID】" data-detailsId="【内訳ID】" data-accountId="【口座ID】">
     <div class="card-header" role="tab" id="headingTwo">
       <div class="mb-0">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
           <table class="btn01" width="100%">
             <tr>
-              <td width="30%">8/10</td>
-              <td width="40%">東京電力　電気料金等　１８年０８月</td>
-              <td><b>9,105円</b></td>
+              <td width="30%">2017/10/10</td>
+              <td width="40%">Edyチャージ　費目:口座引出、口座:現金、品名:その他</td>
+              <td><b>-&yen;1,000</b></td>
             </tr>
           </table>
         </a>
@@ -279,29 +335,24 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="card-body">
         <table class="details" width="80%">
           <tr>
-            <td width="55%"><b>ご利用者区分</b></td>
+            <td width="55%"><b>分類</b></td>
             <td width="10%"><b>:</b></td>
-            <td>0</td>
+            <td>クレジット</td>
           </tr>
           <tr>
-            <td><b>ポイント対象</b></td>
+            <td><b>種類</b></td>
             <td><b>:</b></td>
-            <td>*</td>
+            <td>出金</td>
           </tr>
           <tr>
-            <td><b>今回回数</b></td>
+            <td><b>費目／内訳</b></td>
             <td><b>:</b></td>
-            <td></td>
+            <td>その他／－</td>
           </tr>
           <tr>
-            <td><font color="red"><b>今回のお支払い金額</b></font></td>
-            <td><font color="red"><b>:</b></font></td>
-            <td><font color="red">9,105円</font></td>
-          </tr>
-          <tr>
-            <td><b>備考</b></td>
+            <td><b>口座</b></td>
             <td><b>:</b></td>
-            <td></td>
+            <td>現金</td>
           </tr>
         </table>
         <table class="btn-grp" width="10%">
@@ -321,15 +372,15 @@ document.addEventListener('DOMContentLoaded', function(){
 </div><!-- /target2 -->
 
 <div id="target3">
-  <div class="card">
+  <div class="card" data-paymentsId="【収支ID】" data-classificationId="【分類ID】" data-paymentsTypeId="【収支区分ID】" data-expenseId="【費目ID】" data-detailsId="【内訳ID】" data-accountId="【口座ID】">
     <div class="card-header" role="tab" id="headingThree">
       <div class="mb-0">
         <a class="collapsed text-body" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
           <table class="btn01" width="100%">
             <tr>
-              <td width="30%">8/15</td>
-              <td width="40%">ソフトバンクＭ（０７月分）</td>
-              <td><b>4,209円</b></td>
+              <td width="30%">2017/10/10</td>
+              <td width="40%">Edyチャージ　費目:口座預入、口座:電子マネー、品名:その他</td>
+              <td><b>&yen;1,000</b></td>
             </tr>
           </table>
         </a>
@@ -339,29 +390,24 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="card-body">
         <table class="details" width="80%">
           <tr>
-            <td width="55%"><b>ご利用者区分</b></td>
+            <td width="55%"><b>分類</b></td>
             <td width="10%"><b>:</b></td>
-            <td>0</td>
+            <td>クレジット</td>
           </tr>
           <tr>
-            <td><b>ポイント対象</b></td>
+            <td><b>種類</b></td>
             <td><b>:</b></td>
-            <td>*</td>
+            <td>入金</td>
           </tr>
           <tr>
-            <td><b>今回回数</b></td>
+            <td><b>費目／内訳</b></td>
             <td><b>:</b></td>
-            <td></td>
+            <td>その他／－</td>
           </tr>
           <tr>
-            <td><font color="red"><b>今回のお支払い金額</b></font></td>
-            <td><font color="red"><b>:</b></font></td>
-            <td><font color="red">4,209円</font></td>
-          </tr>
-          <tr>
-            <td><b>備考</b></td>
+            <td><b>口座</b></td>
             <td><b>:</b></td>
-            <td></td>
+            <td>Edy（再購入）</td>
           </tr>
         </table>
         <table class="btn-grp" width="10%">
@@ -387,10 +433,11 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="mb-0 total">
   <table width="100%">
     <tr align="right">
-      <td width="100%"><font color="red"><b>今回のお支払い金額小計　　78,087円</b></font></td>
+      <td width="100%"><font color="red"><b>支出総額　　&yen;78,087</b></font></td>
     </tr>
   </table>
 </div>
+
 </body>
 
 </html>
