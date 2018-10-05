@@ -7,22 +7,22 @@
 <title></title>
 <script>
 
-/*  console.log('1');
+/*  alert('1');
   setTimeout(function () {
-    console.log('2');
+    alert('2');
   }, 5000);
-  console.log('3');*/
+  alert('3');*/
 
 
-  console.log('1');
+  alert('1');
   function WithCallback (callback) {
     setTimeout(function () {
-      console.log('2');
+      alert('2');
     }, 5000, callback());
   }
 
   function callbackFunc() {
-    console.log('3');
+    alert('3');
   }
   
   WithCallback(callbackFunc);
