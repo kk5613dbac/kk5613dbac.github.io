@@ -5,31 +5,33 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <title></title>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="test181005.js"></script>
-
 <script>
 
-document.addEventListener('DOMContentLoaded', function(){
-detectBrowserType();
-makeTable();
-}, false);
+/*  console.log('1');
+  setTimeout(function () {
+    console.log('2');
+  }, 5000);
+  console.log('3');*/
 
-  $(function(){
-    $('.linkTest').click(function(){
-	getJSON();
-    });
-  });
+
+  console.log('1');
+  function WithCallback (callback) {
+    setTimeout(function () {
+      console.log('2'), 5000}
+      callback());
+  }
+
+  function callbackFunc() {
+    console.log('3');
+  }
+  
+  WithCallback(callbackFunc);
 
 </script>
 
 </head>
 
 <body>
-
-<div class="linkTest">
-  <a>テスト</a>
-</div>
 
 </body>
 
