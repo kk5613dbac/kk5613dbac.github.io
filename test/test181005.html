@@ -13,17 +13,20 @@
   }, 5000);
   alert('3');*/
 
-
+ function beforeFunc() {
+   alert('3');
+ }
+  
   alert('1');
 var cbFunc = alert('2');
   function WithCallback (callback) {
-    setTimeout(cbFunc, 10000);
+    setTimeout(function () {
+      alert('2');
+    }, 10000);
 callback();
 }
 
-  function beforeFunc() {
-    alert('3');
-  }
+
   
   WithCallback(beforeFunc);
 
