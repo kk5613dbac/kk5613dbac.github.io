@@ -18,7 +18,7 @@
   function WithCallback (callback) {
     setTimeout(function () {
       alert('2');
-    }, 5000, callback());
+    }, callback(), 5000);
   }
 
   function callbackFunc() {
