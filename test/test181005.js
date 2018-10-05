@@ -24,7 +24,8 @@ function makeTable() {
 				
 				// if (browserType == 'Internet Explorer') {
 					
-					parsedArray = JSON.parse(resultJSON);
+					// parsedArray = JSON.parse(resultJSON);
+					alert(resultJSON);
 
 					
 				// } else {
