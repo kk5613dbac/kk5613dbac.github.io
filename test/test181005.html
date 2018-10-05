@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="ja-JP">
 
 <head>
@@ -17,8 +17,8 @@
   console.log('1');
   function WithCallback (callback) {
     setTimeout(function () {
-      console.log('2'), 5000}
-      callback());
+      console.log('2');
+    }, 5000, callback());
   }
 
   function callbackFunc() {
