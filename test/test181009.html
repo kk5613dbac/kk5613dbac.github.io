@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./test181009.css" type="text/css">
+    <style type="text/css">
+
+    </style>
+
+    <title>デモ用アプリ</title>
+    </head>
+    <body>
+        <div id="top">
+            <div id="header">
+                <h1>hogehoge株式会社</h1>
+            </div>
+        <div id="contents">
+            <div id="main" style="width: 760px;">
+              <h2>デモ用アプリ</h2>
+              <p>ここにこのサンプルコードの説明を記載してださい。</p>
+              <h4>店舗売上データ一覧</h4>
+                <table id="table1"  border="1" cellpadding="10">
+                    <tr>
+                        <th>店舗コード</th>
+                        <th>品目</th>
+                        <th>金額(円)</th>
+                    </tr>
+                </table>
+                <div style="padding-top: 10px;">
+                    <h5>↓入力フィールド</h5>
+                    <input name="table1_cell_value" id="th_value1" type="text" placeholder="店舗コード">
+                    <input name="table1_cell_value" id="th_value2" type="text" placeholder="品目">
+                    <input name="table1_cell_value" id="th_value3" type="text" placeholder="金額(円)">
+                    <input type="button" value="行を追加" onclick="add_line()">
+                    <b><a id="download" href="#" download="test.csv" onclick="handleDownload()">csvファイルダウンロード</a></b>
+                </div>
+            </div>
+        </div>
+
+  <script>
+    //ここから表の行追加のコード
+    function add_line() {
+        for(var i = 0; i < document.getElementsByName("table1_cell_value").length; i++){
+            if(document.getElementsByName("table1_cell_value")[i].value ==""){
+                alert("未入力項目があります。");
+                return false;
+            }
+        }
+
+        var table = document.getElementById('table1');//id=table1という要素を取得
+        var row = table.insertRow(-1);//id=table1の中にtrタグを最後の子要素として追加
+        var cells = new Array();
+        for(var i = 0; i < table.rows[0].cells.length; i++){
+            cells[i] = row.insertCell(-1);//新しく作ったrowの中にtrタグを最後の子要素として追加
+            cells[i].innerText=document.getElementsByName("table1_cell_value")[i].value;
+            document.getElementsByName("table1_cell_value")[i].value="";//入力フィールドの初期化
+        }
+    }
+    //ここまで表の列追加のコード
+
+    //ここからCSV出力＆ダウンロード
+    function handleDownload() {
+        var bom = new Uint8Array([0xEF, 0xBB, 0xBF]);//文字コードをBOM付きUTF-8に指定
+        var table = document.getElementById('table1');//id=table1という要素を取得
+        var data_csv="";//ここに文字データとして値を格納していく
+
+        for(var i = 0;  i < table.rows.length; i++){
+          for(var j = 0; j < table.rows[i].cells.length; j++){
+            data_csv += table.rows[i].cells[j].innerText;//HTML中の表のセル値をdata_csvに格納
+            if(j == table.rows[i].cells.length-1) data_csv += "\n";//行終わりに改行コードを追加
+            else data_csv += ",";//セル値の区切り文字として,を追加
+          }
+        }
+
+        var blob = new Blob([ bom, data_csv], { "type" : "text/csv" });//data_csvのデータをcsvとしてダウンロードする関数
+        if (window.navigator.msSaveBlob) { //IEの場合の処理
+            window.navigator.msSaveBlob(blob, "test.csv"); 
+            //window.navigator.msSaveOrOpenBlob(blob, "test.csv");// msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+        } else {
+            document.getElementById("download").href = window.URL.createObjectURL(blob);
+        }
+
+        delete data_csv;//data_csvオブジェクトはもういらないので消去してメモリを開放
+    }
+    //ここまでCSV出力＆ダウンロード
+</script>
+  </body>
+</html>

@@ -178,8 +178,7 @@ makeTable();
 .accordion .card .card-body td .btn,
 .dropdown .card .card-header,
 .dropdown .card .list-group-item,
-.category td,
-.total td,
+.accordion .category.total td,
 .balance-list td,
 .balance-list th,
 .searchForm .card .card-header,
@@ -194,7 +193,6 @@ makeTable();
 .accordion,
 .dropdown .card a[data-toggle="collapse"],
 .searchForm .card a[data-toggle="collapse"],
-.total,
 .linkTest {
   display: block;
 }
@@ -232,12 +230,25 @@ makeTable();
   text-align:center;
 }
 
+/* 先にfixed指定がないと次が効かない */
+#target .text-body table {
+  table-layout: fixed;
+}
+
+#target .text-body td:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 -->
 </style>
 
 </head>
 
 <body>
+
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
 <div class="mb-0 category">
   <table width="100%">
@@ -246,7 +257,6 @@ makeTable();
     </tr>
   </table>
 </div>
-<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
 <div class="dropdown" id="dropdown" role="tablist" aria-multiselectable="true">
 <div class="card">
@@ -320,10 +330,11 @@ makeTable();
   </div><!-- /.card -->
 </div>
 
-<div class="mb-0 category">
+<div class="mb-0 category total">
   <table width="100%">
     <tr>
-      <td width="100%"><b>支出一覧</b></td>
+      <td width="50%"><b>支出一覧</b></td>
+      <td width="50%" align="right"><font color="red"><b>支出総額　　&yen;78,087</b></font></td>
     </tr>
   </table>
 </div>
@@ -356,14 +367,6 @@ makeTable();
 </div><!-- /target -->
 
 </div><!-- /accordion -->
-
-<div class="mb-0 total">
-  <table width="100%">
-    <tr align="right">
-      <td width="100%"><font color="red"><b>支出総額　　&yen;78,087</b></font></td>
-    </tr>
-  </table>
-</div>
 
 <div class="linkTest">
   <a>テスト</a>

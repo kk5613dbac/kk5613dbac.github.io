@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html lang="ja-JP">
 
 <head>
@@ -7,27 +7,25 @@
 <title></title>
 <script>
 
-/*  alert('1');
+/*  console.log('1');
   setTimeout(function () {
-    alert('2');
+    console.log('2');
   }, 5000);
-  alert('3');*/
+  console.log('3');*/
 
- function beforeFunc() {
-   alert('3');
- }
-  
-  alert('1');
-var cbFunc = alert('2');
+
+  console.log('1');
   function WithCallback (callback) {
     setTimeout(function () {
-      alert('2');
-    }, 10000, callback());
-}
+      console.log('2'), 5000}
+      callback());
+  }
 
-
+  function callbackFunc() {
+    console.log('3');
+  }
   
-  WithCallback(beforeFunc);
+  WithCallback(callbackFunc);
 
 </script>
 
