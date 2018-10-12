@@ -16,179 +16,232 @@
 document.addEventListener('DOMContentLoaded', function(){
 detectBrowserType();
 makeTable();
-    $('.accordion #target1').load('template.html');
-    $('.accordion #target2').load('template.html');
-    $('.accordion #target3').load('template.html');
-
-    $('.accordion #target4').load('template.html');
-    $('.accordion #target5').load('template.html');
-    $('.accordion #target6').load('template.html');
-    $('.accordion #target7').load('template.html');
-    $('.accordion #target8').load('template.html');
-    $('.accordion #target9').load('template.html');
-    $('.accordion #target10').load('template.html');
-    $('.accordion #target11').load('template.html');
-    $('.accordion #target12').load('template.html');
-    $('.accordion #target13').load('template.html');
-    $('.accordion #target14').load('template.html');
-    $('.accordion #target15').load('template.html');
-    $('.accordion #target16').load('template.html');
-    $('.accordion #target17').load('template.html');
-    $('.accordion #target18').load('template.html');
-    $('.accordion #target19').load('template.html');
-    $('.accordion #target20').load('template.html');
-    $('.accordion #target21').load('template.html');
-    $('.accordion #target22').load('template.html');
-    $('.accordion #target23').load('template.html');
-    $('.accordion #target24').load('template.html');
-    $('.accordion #target25').load('template.html');
-    $('.accordion #target26').load('template.html');
-    $('.accordion #target27').load('template.html');
-    $('.accordion #target28').load('template.html');
-    $('.accordion #target29').load('template.html');
-    $('.accordion #target30').load('template.html');
-    $('.accordion #target31').load('template.html');
-    $('.accordion #target32').load('template.html');
-    $('.accordion #target33').load('template.html');
-    $('.accordion #target34').load('template.html');
-    $('.accordion #target35').load('template.html');
-    $('.accordion #target36').load('template.html');
-    $('.accordion #target37').load('template.html');
-    $('.accordion #target38').load('template.html');
-    $('.accordion #target39').load('template.html');
-    $('.accordion #target40').load('template.html');
-    $('.accordion #target41').load('template.html');
-    $('.accordion #target42').load('template.html');
-    $('.accordion #target43').load('template.html');
-    $('.accordion #target44').load('template.html');
-    $('.accordion #target45').load('template.html');
-    $('.accordion #target46').load('template.html');
-    $('.accordion #target47').load('template.html');
-    $('.accordion #target48').load('template.html');
-    $('.accordion #target49').load('template.html');
-    $('.accordion #target50').load('template.html');
+    $('.accordion #target1').load('template.html', null, function(response, status) {
+      $(this).children('.card').attr('data-paymentsId', 'P00000001');
+      $(this).find('.card-header').attr('id', 'headingOne');
+      $(this).find('.collapse').attr('aria-labelledby', 'headingOne');
+      $(this).find('.text-body').attr('href', '#collapseOne');
+      $(this).find('.text-body').attr('aria-controls', 'collapseOne');
+      $(this).find('.collapse').attr('id', 'collapseOne');
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+      $(this).find('.details tr').eq(0).children('td').eq(0).children('b').text('分類');
+      $(this).find('.details tr').eq(0).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(0).children('td').eq(2).text('交通費');
+      $(this).find('.details tr').eq(1).children('td').eq(0).children('b').text('種類');
+      $(this).find('.details tr').eq(1).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(1).children('td').eq(2).text('支出');
+      $(this).find('.details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+      $(this).find('.details tr').eq(2).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(2).children('td').eq(2).text('交通費／バス');
+      $(this).find('.details tr').eq(3).children('td').eq(0).children('b').text('口座');
+      $(this).find('.details tr').eq(3).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(3).children('td').eq(2).text('Suica');
+    });
+    $('.accordion #target2').load('template.html', null, function(response, status) {
+      $(this).children('.card').attr('data-paymentsId', 'P00000002');
+      $(this).find('.card-header').attr('id', 'headingTwo');
+      $(this).find('.collapse').attr('aria-labelledby', 'headingTwo');
+      $(this).find('.text-body').attr('href', '#collapseTwo');
+      $(this).find('.text-body').attr('aria-controls', 'collapseTwo');
+      $(this).find('.collapse').attr('id', 'collapseTwo');
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('Edyチャージ　費目:口座引出、口座:現金、品名:その他');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA51,000');
+      $(this).find('.details tr').eq(0).children('td').eq(0).children('b').text('分類');
+      $(this).find('.details tr').eq(0).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(0).children('td').eq(2).text('クレジット');
+      $(this).find('.details tr').eq(1).children('td').eq(0).children('b').text('種類');
+      $(this).find('.details tr').eq(1).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(1).children('td').eq(2).text('出金');
+      $(this).find('.details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+      $(this).find('.details tr').eq(2).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(2).children('td').eq(2).text('その他／－');
+      $(this).find('.details tr').eq(3).children('td').eq(0).children('b').text('口座');
+      $(this).find('.details tr').eq(3).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(3).children('td').eq(2).text('現金');
+    });
+    $('.accordion #target3').load('template.html', null, function(response, status) {
+      $(this).children('.card').attr('data-paymentsId', 'P00000003');
+      $(this).find('.card-header').attr('id', 'headingThree');
+      $(this).find('.collapse').attr('aria-labelledby', 'headingThree');
+      $(this).find('.text-body').attr('href', '#collapseThree');
+      $(this).find('.text-body').attr('aria-controls', 'collapseThree');
+      $(this).find('.collapse').attr('id', 'collapseThree');
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('Edyチャージ　費目:口座預入、口座:電子マネー、品名:その他');
+      $(this).find('.card-header td').eq(2).children('b').text('\xA51,000');
+      $(this).find('.details tr').eq(0).children('td').eq(0).children('b').text('分類');
+      $(this).find('.details tr').eq(0).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(0).children('td').eq(2).text('クレジット');
+      $(this).find('.details tr').eq(1).children('td').eq(0).children('b').text('種類');
+      $(this).find('.details tr').eq(1).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(1).children('td').eq(2).text('入金');
+      $(this).find('.details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+      $(this).find('.details tr').eq(2).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(2).children('td').eq(2).text('その他／－');
+      $(this).find('.details tr').eq(3).children('td').eq(0).children('b').text('口座');
+      $(this).find('.details tr').eq(3).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(3).children('td').eq(2).text('Edy（再購入）');
+    });
+    $('.accordion #target4').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target5').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target6').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target7').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target8').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target9').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target10').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target11').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target12').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target13').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target14').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target15').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target16').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target17').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target18').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target19').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target20').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target21').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target22').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target23').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target24').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target25').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target26').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target27').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target28').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target29').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target30').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target31').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target32').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target33').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target34').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target35').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target36').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target37').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target38').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target39').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target40').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target41').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target42').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target43').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target44').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target45').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target46').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target47').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target48').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target49').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target50').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
 
     var visibleItem = $('.dropdown .card-header a[data-toggle="collapse"]');
     var selectItem = $('.dropdown .list-group-item:first');
     visibleItem.text(selectItem.attr('value'));
     selectItem.hide();
 }, false);
-
-  $(document).ready(function() {
-    $('.accordion #target1 .card').attr('data-paymentsId', 'P00000001');
-    $('.accordion #target1 .card-header').attr('id', 'headingOne');
-    $('.accordion #target1 .collapse').attr('aria-labelledby', 'headingOne');
-    $('.accordion #target1 .text-body').attr('href', '#collapseOne');
-    $('.accordion #target1 .text-body').attr('aria-controls', 'collapseOne');
-    $('.accordion #target1 .collapse').attr('id', 'collapseOne');
-    $('.accordion #target1 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target1 .card-header td').eq(1).text('バス行き（Suica）');
-    $('.accordion #target1 .card-header td').eq(2).children('b').text('-\xA5195');
-    $('.accordion #target1 .details tr').eq(0).children('td').eq(0).children('b').text('分類');
-    $('.accordion #target1 .details tr').eq(0).children('td').eq(1).children('b').text(':');
-    $('.accordion #target1 .details tr').eq(0).children('td').eq(2).text('交通費');
-    $('.accordion #target1 .details tr').eq(1).children('td').eq(0).children('b').text('種類');
-    $('.accordion #target1 .details tr').eq(1).children('td').eq(1).children('b').text(':');
-    $('.accordion #target1 .details tr').eq(1).children('td').eq(2).text('支出');
-    $('.accordion #target1 .details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
-    $('.accordion #target1 .details tr').eq(2).children('td').eq(1).children('b').text(':');
-    $('.accordion #target1 .details tr').eq(2).children('td').eq(2).text('交通費／バス');
-    $('.accordion #target1 .details tr').eq(3).children('td').eq(0).children('b').text('口座');
-    $('.accordion #target1 .details tr').eq(3).children('td').eq(1).children('b').text(':');
-    $('.accordion #target1 .details tr').eq(3).children('td').eq(2).text('Suica');
-
-    $('.accordion #target2 .card').attr('data-paymentsId', 'P00000002');
-    $('.accordion #target2 .card-header').attr('id', 'headingTwo');
-    $('.accordion #target2 .collapse').attr('aria-labelledby', 'headingTwo');
-    $('.accordion #target2 .text-body').attr('href', '#collapseTwo');
-    $('.accordion #target2 .text-body').attr('aria-controls', 'collapseTwo');
-    $('.accordion #target2 .collapse').attr('id', 'collapseTwo');
-    $('.accordion #target2 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target2 .card-header td').eq(1).text('Edyチャージ　費目:口座引出、口座:現金、品名:その他');
-    $('.accordion #target2 .card-header td').eq(2).children('b').text('-\xA51,000');
-    $('.accordion #target2 .details tr').eq(0).children('td').eq(0).children('b').text('分類');
-    $('.accordion #target2 .details tr').eq(0).children('td').eq(1).children('b').text(':');
-    $('.accordion #target2 .details tr').eq(0).children('td').eq(2).text('クレジット');
-    $('.accordion #target2 .details tr').eq(1).children('td').eq(0).children('b').text('種類');
-    $('.accordion #target2 .details tr').eq(1).children('td').eq(1).children('b').text(':');
-    $('.accordion #target2 .details tr').eq(1).children('td').eq(2).text('出金');
-    $('.accordion #target2 .details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
-    $('.accordion #target2 .details tr').eq(2).children('td').eq(1).children('b').text(':');
-    $('.accordion #target2 .details tr').eq(2).children('td').eq(2).text('その他／－');
-    $('.accordion #target2 .details tr').eq(3).children('td').eq(0).children('b').text('口座');
-    $('.accordion #target2 .details tr').eq(3).children('td').eq(1).children('b').text(':');
-    $('.accordion #target2 .details tr').eq(3).children('td').eq(2).text('現金');
-
-    $('.accordion #target3 .card').attr('data-paymentsId', 'P00000003');
-    $('.accordion #target3 .card-header').attr('id', 'headingThree');
-    $('.accordion #target3 .collapse').attr('aria-labelledby', 'headingThree');
-    $('.accordion #target3 .text-body').attr('href', '#collapseThree');
-    $('.accordion #target3 .text-body').attr('aria-controls', 'collapseThree');
-    $('.accordion #target3 .collapse').attr('id', 'collapseThree');
-    $('.accordion #target3 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target3 .card-header td').eq(1).text('Edyチャージ　費目:口座預入、口座:電子マネー、品名:その他');
-    $('.accordion #target3 .card-header td').eq(2).children('b').text('\xA51,000');
-    $('.accordion #target3 .details tr').eq(0).children('td').eq(0).children('b').text('分類');
-    $('.accordion #target3 .details tr').eq(0).children('td').eq(1).children('b').text(':');
-    $('.accordion #target3 .details tr').eq(0).children('td').eq(2).text('クレジット');
-    $('.accordion #target3 .details tr').eq(1).children('td').eq(0).children('b').text('種類');
-    $('.accordion #target3 .details tr').eq(1).children('td').eq(1).children('b').text(':');
-    $('.accordion #target3 .details tr').eq(1).children('td').eq(2).text('入金');
-    $('.accordion #target3 .details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
-    $('.accordion #target3 .details tr').eq(2).children('td').eq(1).children('b').text(':');
-    $('.accordion #target3 .details tr').eq(2).children('td').eq(2).text('その他／－');
-    $('.accordion #target3 .details tr').eq(3).children('td').eq(0).children('b').text('口座');
-    $('.accordion #target3 .details tr').eq(3).children('td').eq(1).children('b').text(':');
-    $('.accordion #target3 .details tr').eq(3).children('td').eq(2).text('Edy（再購入）');
-
-    $('.accordion #target4 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target5 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target6 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target7 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target8 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target9 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target10 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target11 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target12 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target13 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target14 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target15 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target16 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target17 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target18 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target19 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target20 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target21 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target22 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target23 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target24 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target25 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target26 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target27 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target28 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target29 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target30 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target31 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target32 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target33 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target34 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target35 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target36 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target37 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target38 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target39 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target40 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target41 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target42 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target43 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target44 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target45 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target46 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target47 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target48 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target49 .card-header td').eq(0).text('2017/10/10');
-    $('.accordion #target50 .card-header td').eq(0).text('2017/10/10');
-});
 
   $(function(){
     $('.dropdown .list-group-item').click(function(){
@@ -217,7 +270,8 @@ makeTable();
   });
 
   $(function(){
-    $('.btn').click(function(){
+    /* この記述でないと動的追加要素に作用しない */
+    $('#target').on('click', '.btn', function(){
     /*if (confirm('ページ遷移しますか？')) {
       window.location.href = '/';
     }*/
@@ -244,7 +298,8 @@ makeTable();
   });
 
   $(function(){
-    $('.btn-outline-secondary').click(function(){
+    /* この記述でないと動的追加要素に作用しない */
+    $('#target').on('click', '.btn-outline-secondary', function(){
       if ($(this).closest('.card-body').find('.edit-form').length == 0) {
         $(this).closest('.card-body').children('#target-addform').before('<hr>');
         $(this).closest('.card-body').children('#target-addform')
