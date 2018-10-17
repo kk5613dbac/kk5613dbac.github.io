@@ -236,7 +236,7 @@ for (var i=0; i<testArray1.length; i++) {
     if (testArray1[hiddenItemNo][1] < 0) {
       $('.balance-list td b').text("-\xA5" + String(testArray1[hiddenItemNo][1]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
     } else {
-      $('.balance-list td b').text("\xA5" + String(testArray1[hiddenItemNo][1]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+      $('.balance-list td b').text("\xA5" + String(testArray1[hiddenItemNo][1]).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
     }
 }, false);
 
@@ -260,7 +260,7 @@ for (var i=0; i<testArray1.length; i++) {
       if (testArray1[hiddenItemNo][1] < 0) {
         $('.balance-list td b').text("-\xA5" + String(testArray1[hiddenItemNo][1]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
       } else {
-        $('.balance-list td b').text("\xA5" + String(testArray1[hiddenItemNo][1]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+        $('.balance-list td b').text("\xA5" + String(testArray1[hiddenItemNo][1]).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
       }
     });
   });
@@ -326,44 +326,42 @@ for (var i=0; i<testArray1.length; i++) {
             });
       } else {
       $(this).closest('.card').map(function(){
-/* 日付 */
+        /* 【要検討】日付 */
         if (($(this).find('.edit-form tr').eq(0).find('input').val() != '')
           && ($(this).find('.edit-form tr').eq(0).find('input').val() != $(this).find('.card-header td').eq(0).text())) {
             $(this).find('.card-header td').eq(0).css({
               'font-weight': 'bold',
               'color': 'red'
             });
-            $(this).find('.card-header td').eq(0).text($(this).find('.edit-form tr').eq(0).find('input').val());
+          $(this).find('.card-header td').eq(0).text($(this).find('.edit-form tr').eq(0).find('input').val());
         }
-/*  */
-/* 分類 */
+        /*  */
+        /* 分類 */
         if (($(this).find('.edit-form tr').eq(1).find('input').val() != '')
-          && ($(this).find('.edit-form tr').eq(1).find('input').val() != $(this).find('.details td').eq(2).text())) {
-            $(this).find('.details td').eq(2).css({
+          && ($(this).find('.edit-form tr').eq(1).find('input').val() != $(this).find('.details tr').eq(0).children('td').eq(2).text())) {
+            $(this).find('.details tr').eq(0).children('td').eq(2).css({
               'font-weight': 'bold',
               'color': 'red'
             });
-            $(this).find('.details td').eq(2).text($(this).find('.edit-form tr').eq(1).find('input').val());
+          $(this).find('.details tr').eq(0).children('td').eq(2).text($(this).find('.edit-form tr').eq(1).find('input').val());
         }
-/*  */
-/* 分類 */
-/*  */
-/* 項目 */
-/*  */
-/* 支出／収入 */
-/*  */
-/* 種類 */
-/*  */
-/* 費目 */
-/*  */
-/* 内訳 */
-/*  */
-/* 口座 */
-/*  */
+        /*  */
+        /* 項目 */
+        /*  */
+        /* 【要検討】支出／収入 */
+        /*  */
+        /* 種類 */
+        /*  */
+        /* 【要検討】費目 */
+        /*  */
+        /* 【要検討】内訳 */
+        /*  */
+        /* 口座 */
+        /*  */
       });
-        $(this).closest('.card-body').find('hr').remove();
-        $(this).closest('.card-body').find('.edit-form').remove();
-      }
+      $(this).closest('.card-body').find('hr').remove();
+      $(this).closest('.card-body').find('.edit-form').remove();
+    }
 /*      $(this).closest('.card').map(function(){
         if ($(this).find('.edit-form').length == 0) {
           $(this).children('#target-addform').load('template2.html');

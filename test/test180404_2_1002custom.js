@@ -24,11 +24,13 @@ function makeTable() {
 				if (browserType == 'Internet Explorer') {
 					
 					parsedArray = JSON.parse(resultJSON);
-
+					alert(success);
+					return parsedArray;
 					
 				} else {
 					
-					parsedArray = resultJSON;
+					alert(failed);
+					return parsedArray;
 					
 				}
 				

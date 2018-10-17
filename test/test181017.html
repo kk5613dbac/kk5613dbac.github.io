@@ -80,6 +80,7 @@ makeTable();
 for (var i=0; i<testArray2.length; i++) {
   $('.accordion #target').append("<div id='#target'></div>");
   $('.accordion #target div').eq(i).attr('id', 'target' + String(i+1));
+  $('.accordion #target div').eq(i).attr('data-deleted', 'false');
   $('.accordion #target' + String(i+1)).load('template.html', null,
     /* クロージャーでラッピングしないとカウンターの制御がうまくいかない */
     /* →　コールバックの外側が回りきってから内側が実行される */
@@ -298,7 +299,25 @@ for (var i=0; i<testArray1.length; i++) {
       if(confirm('本当に削除しますか？')){
         $('.card-header', $(this).closest('.card')).addClass('bg-warning');
         $(this).closest('.card').parent().attr('data-deleted', 'true');
+        $(this).text('削除取消');
+        $(this).removeClass('btn-danger');
+        $(this).addClass('btn-success');
         alert('削除しました');
+      }else{
+        return 'false';
+      }
+    });
+  });
+
+  $(function(){
+    $('#target').on('click', '.btn-success', function(){
+      if(confirm('削除を取り消しますか？')){
+        $('.card-header', $(this).closest('.card')).removeClass('bg-warning');
+        $(this).closest('.card').parent().attr('data-deleted', 'false');
+        $(this).text('削除');
+        $(this).removeClass('btn-success');
+        $(this).addClass('btn-danger');
+        alert('削除を取り消しました');
       }else{
         return 'false';
       }
