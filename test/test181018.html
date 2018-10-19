@@ -21,11 +21,12 @@ var testArray1 = [
   ["現金", 210]
 ];
 
+var total = 0;
+
 document.addEventListener('DOMContentLoaded', function(){
 detectBrowserType();
 /* makeTableをコールバックにしないと取得したJSONオブジェクトを以下の処理へ渡せない */
 makeTable(function () {
-total = 0;
 for (var i=0; i<parsedArray.length; i++) {
   $('.accordion #target').append("<div id='#target'></div>");
   $('.accordion #target div').eq(i).attr('id', 'target' + String(i+1));
@@ -56,6 +57,13 @@ for (var i=0; i<parsedArray.length; i++) {
         $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text(parsedArray[i][7]);
         $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text(parsedArray[i][8]);
         $(this).find('.details tr').eq(3).children('td').eq(2).text(parsedArray[i][9]);
+        if (i == parsedArray.length - 1) {
+          if (total < 0) {
+            $('.total td').find('span').text("\xA5" + String(total).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+          } else {
+            $('.total td').find('span').text("+\xA5" + String(total).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+          }
+        }
       };
     })(i)
   );
