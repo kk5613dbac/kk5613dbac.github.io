@@ -1,5 +1,4 @@
-﻿var parsedArray;
-var browserType;
+﻿var parsedArray; /* デバッグ用 */
 
 var testArray1 = [
   ['みずほ普通（札幌）', 492132],
@@ -26,9 +25,12 @@ function DetectBrowserType() {
   } else {
     browserType = 'Unknown';
   }
+  return browserType;
 }
 
 function GetAjaxRequest(callback1, callback2) {
+  var browserType;
+  /* var parsedArray; */
   var resultJSON;
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'test180330_2_2_1002custom.php', true);
@@ -38,13 +40,13 @@ function GetAjaxRequest(callback1, callback2) {
     if (xhr.readyState === 4) {
       resultJSON = xhr.response;
       if (resultJSON) {
-        callback1();
+        browserType = callback1();
         if (browserType == 'Internet Explorer') {
           parsedArray = JSON.parse(resultJSON);
-          callback2();
+          callback2(parsedArray);
         } else {
           parsedArray = resultJSON;
-          callback2();
+          callback2(parsedArray);
         }
       } else {
         alert('Error');
@@ -55,9 +57,9 @@ function GetAjaxRequest(callback1, callback2) {
   xhr.send();
 }
 
-function CreateCardTable() {
+function CreateCardTable(JSONArray) {
   var total = 0;
-  for (var i=0; i<parsedArray.length; i++) {
+  for (var i=0; i<JSONArray.length; i++) {
     $('.accordion #target').append('<div id=\'#target\'></div>');
     $('.accordion #target div').eq(i).attr('id', 'target' + String(i+1));
     $('.accordion #target div').eq(i).attr('data-deleted', 'false');
@@ -66,27 +68,27 @@ function CreateCardTable() {
     /* →　コールバックの外側が回りきってから内側が実行される */
     $('.accordion #target' + String(i+1)).load('template_1017.html', null, (function(cnt) {
       return function(response, status) {
-        $(this).children('.card').attr('data-paymentsId', parsedArray[cnt][0]);
+        $(this).children('.card').attr('data-paymentsId', JSONArray[cnt][0]);
         $(this).find('.card-header').attr('id', 'heading' + String(cnt+1));
         $(this).find('.collapse').attr('aria-labelledby', 'heading' + String(cnt+1));
         $(this).find('.text-body').attr('href', '#collapse' + String(cnt+1));
         $(this).find('.text-body').attr('aria-controls', 'collapse' + String(cnt+1));
         $(this).find('.collapse').attr('id', 'collapse' + String(cnt+1));
-        $(this).find('.card-header td').eq(0).text(parsedArray[cnt][1].substring(0, parsedArray[cnt][1].indexOf(' ')).replace(/-/g, '/'));
-        $(this).find('.card-header td').eq(1).text(parsedArray[cnt][3]);
-        if ((parsedArray[cnt][4] >= 0) && (parsedArray[cnt][5] == 0)) {
-          $(this).find('.card-header td').eq(2).children('b').text('-\xA5' + String(parsedArray[cnt][4]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
-          total = total - Number(parsedArray[cnt][4]);
-        } else if ((parsedArray[cnt][4] == 0) && (parsedArray[cnt][5] >= 0)) {
-          $(this).find('.card-header td').eq(2).children('b').text('\xA5' + String(parsedArray[cnt][5]).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
-          total = total + Number(parsedArray[cnt][5]);
+        $(this).find('.card-header td').eq(0).text(JSONArray[cnt][1].substring(0, JSONArray[cnt][1].indexOf(' ')).replace(/-/g, '/'));
+        $(this).find('.card-header td').eq(1).text(JSONArray[cnt][3]);
+        if ((JSONArray[cnt][4] >= 0) && (JSONArray[cnt][5] == 0)) {
+          $(this).find('.card-header td').eq(2).children('b').text('-\xA5' + String(JSONArray[cnt][4]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+          total = total - Number(JSONArray[cnt][4]);
+        } else if ((JSONArray[cnt][4] == 0) && (JSONArray[cnt][5] >= 0)) {
+          $(this).find('.card-header td').eq(2).children('b').text('\xA5' + String(JSONArray[cnt][5]).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+          total = total + Number(JSONArray[cnt][5]);
         }
-        $(this).find('.details tr').eq(0).children('td').eq(2).text(parsedArray[cnt][2]);
-        $(this).find('.details tr').eq(1).children('td').eq(2).text(parsedArray[cnt][6]);
-        $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text(parsedArray[cnt][7]);
-        $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text(parsedArray[cnt][8]);
-        $(this).find('.details tr').eq(3).children('td').eq(2).text(parsedArray[cnt][9]);
-        if (cnt == parsedArray.length - 1) {
+        $(this).find('.details tr').eq(0).children('td').eq(2).text(JSONArray[cnt][2]);
+        $(this).find('.details tr').eq(1).children('td').eq(2).text(JSONArray[cnt][6]);
+        $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text(JSONArray[cnt][7]);
+        $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text(JSONArray[cnt][8]);
+        $(this).find('.details tr').eq(3).children('td').eq(2).text(JSONArray[cnt][9]);
+        if (cnt == JSONArray.length - 1) {
           if (total < 0) {
             $('.total td').find('span').text('\xA5' + String(total).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
           } else {
@@ -119,201 +121,16 @@ function CreatePaymentSourceTable() {
   }
 }
 
-function TogglePaymentSource() {
-  $('.list-group-item', $(this).closest('.dropdown')).show();
-  var hiddenItemNo = $('.list-group-item', $(this).closest('.dropdown')).index(this);
-  var visibleItem = $('.card .card-header a[data-toggle=\'collapse\']', $(this).closest('.dropdown'));
-  visibleItem.text($(this).attr('value'));
-  $(this).hide();
+function TogglePaymentSource(targetObj) {
+  $('.list-group-item', targetObj.closest('.dropdown')).show();
+  var hiddenItemNo = $('.list-group-item', targetObj.closest('.dropdown')).index(targetObj);
+  var visibleItem = $('.card .card-header a[data-toggle=\'collapse\']', targetObj.closest('.dropdown'));
+  visibleItem.text(targetObj.attr('value'));
+  targetObj.hide();
   if (testArray1[hiddenItemNo][1] < 0) {
     $('.balance-list td b').text('-\xA5' + String(testArray1[hiddenItemNo][1]).replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
   } else {
     $('.balance-list td b').text('\xA5' + String(testArray1[hiddenItemNo][1]).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
-  }
-}
-
-function DispEditDialog() {
-  $(this).closest('.card-body').children('#target-addform').before('<hr>');
-  $(this).closest('.card-body').children('#target-addform')
-    /* 引数として指定するコールバック関数は即時関数として記述しないこと */
-    .load('template2.html', null, function(){
-      /* 日付 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(0).find('input')
-        /* 複数個所へ反映させるには'<文字列>'ではなく/<文字列>/gで指定 */
-        .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(0).text().replace(/\//g, ''));
-      /* 分類 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(1).find('input')
-        .val($(this).closest('.card-body').find('.details tr').eq(0).children('td').eq(2).text());
-      /* 項目 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(2).find('input')
-        .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(1).text());
-      /* 支出／収入 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(3).find('input')
-        .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(2).text().replace('\xA5', '').replace(',', ''));
-      /* 種類 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(4).find('input')
-        .val($(this).closest('.card-body').find('.details tr').eq(1).children('td').eq(2).text());
-      /* 費目 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(5).find('input')
-        .val($(this).closest('.card-body').find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text());
-      /* 内訳 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(6).find('input')
-        .val($(this).closest('.card-body').find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text());
-      /* 口座 */
-      $(this).closest('.card-body').find('.edit-form tr').eq(7).find('input')
-        .val($(this).closest('.card-body').find('.details tr').eq(3).children('td').eq(2).text());
-    });
-  $(this).text('適用');
-  $(this).removeClass('btn-outline-secondary');
-  $(this).addClass('btn-secondary');
-}
-
-function ModifiedDetailsInfo() {
-  $(this).closest('.card').map(function(){
-    /* 日付 */
-    if (($(this).find('.edit-form tr').eq(0).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(0).find('input').val() != $(this).find('.card-header td').eq(0).text().replace(/\//g, ''))) {
-        $(this).find('.card-header td').eq(0).css({
-          'font-weight': 'bold',
-          'color': 'red'
-        });
-      $(this).find('.card-header td').eq(0).text($(this).find('.edit-form tr').eq(0).find('input').val()
-        .replace(/(\d{4})(\d{2})(\d{2})/g, '$1/$2/$3'));
-      if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-        $(this).closest('.card').parent().attr('data-modified', 'true');
-      }
-    }
-    /*  */
-    /* 分類 */
-    if (($(this).find('.edit-form tr').eq(1).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(1).find('input').val() != $(this).find('.details tr').eq(0).children('td').eq(2).text())) {
-        $(this).find('.details tr').eq(0).children('td').eq(2).css({
-          'font-weight': 'bold',
-          'color': 'red'
-        });
-      $(this).find('.details tr').eq(0).children('td').eq(2).text($(this).find('.edit-form tr').eq(1).find('input').val());
-      if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-        $(this).closest('.card').parent().attr('data-modified', 'true');
-      }
-    }
-    /*  */
-    /* 項目 */
-    if (($(this).find('.edit-form tr').eq(2).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(2).find('input').val() != $(this).find('.card-header td').eq(1).text())) {
-        $(this).find('.card-header td').eq(1).css({
-          'font-weight': 'bold',
-          'color': 'red'
-        });
-      $(this).find('.card-header td').eq(1).text($(this).find('.edit-form tr').eq(2).find('input').val());
-      if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-        $(this).closest('.card').parent().attr('data-modified', 'true');
-      }
-    }
-    /*  */
-    /* 支出／収入 */
-    if (($(this).find('.edit-form tr').eq(3).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(3).find('input').val() != $(this).find('.card-header td').eq(2).text().replace('\xA5', '').replace(',', ''))) {
-            $(this).find('.card-header td').eq(2).css({
-              'font-weight': 'bold',
-              'color': 'red'
-            });
-          if (Number($(this).find('.edit-form tr').eq(3).find('input').val()) < 0) {
-            $(this).find('.card-header td').eq(2).text("-\xA5" + $(this).find('.edit-form tr').eq(3).find('input').val()
-              .replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
-          } else {
-            $(this).find('.card-header td').eq(2).text("\xA5" + $(this).find('.edit-form tr').eq(3).find('input').val()
-              .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
-          }
-          if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-            $(this).closest('.card').parent().attr('data-modified', 'true');
-          }
-        }
-    /*  */
-    /* 種類 */
-    if (($(this).find('.edit-form tr').eq(4).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(4).find('input').val() != $(this).find('.details tr').eq(1).children('td').eq(2).text())) {
-            $(this).find('.details tr').eq(1).children('td').eq(2).css({
-              'font-weight': 'bold',
-              'color': 'red'
-            });
-          $(this).find('.details tr').eq(1).children('td').eq(2).text($(this).find('.edit-form tr').eq(4).find('input').val());
-          if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-            $(this).closest('.card').parent().attr('data-modified', 'true');
-          }
-        }
-    /*  */
-    /* 費目 */
-    if (($(this).find('.edit-form tr').eq(5).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(5).find('input').val() != $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text())) {
-            $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).css({
-              'font-weight': 'bold',
-              'color': 'red'
-            });
-          $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text($(this).find('.edit-form tr').eq(5).find('input').val());
-          if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-            $(this).closest('.card').parent().attr('data-modified', 'true');
-          }
-        }
-    /*  */
-    /* 内訳 */
-    if (($(this).find('.edit-form tr').eq(6).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(6).find('input').val() != $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text())) {
-        $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).css({
-          'font-weight': 'bold',
-          'color': 'red'
-        });
-      $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text($(this).find('.edit-form tr').eq(6).find('input').val());
-      if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-        $(this).closest('.card').parent().attr('data-modified', 'true');
-      }
-    }
-    /*  */
-    /* 口座 */
-    if (($(this).find('.edit-form tr').eq(7).find('input').val() != '')
-      && ($(this).find('.edit-form tr').eq(7).find('input').val() != $(this).find('.details tr').eq(3).children('td').eq(2).text())) {
-        $(this).find('.details tr').eq(3).children('td').eq(2).css({
-          'font-weight': 'bold',
-          'color': 'red'
-        });
-      $(this).find('.details tr').eq(3).children('td').eq(2).text($(this).find('.edit-form tr').eq(7).find('input').val());
-      if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
-        $(this).closest('.card').parent().attr('data-modified', 'true');
-      }
-    }
-    /*  */
-  });
-  $(this).closest('.card-body').find('hr').remove();
-  $(this).closest('.card-body').find('.edit-form').remove();
-  $(this).text('編集');
-  $(this).removeClass('btn-secondary');
-  $(this).addClass('btn-outline-secondary');
-}
-
-function ToggleDeleteFlagInfo(flag) {
-  switch (flag) {
-    case 'on':
-      if(confirm('本当に削除しますか？')){
-        $('.card-header', $(this).closest('.card')).addClass('bg-warning');
-        $(this).closest('.card').parent().attr('data-deleted', 'true');
-        $(this).text('削除取消');
-        $(this).removeClass('btn-danger');
-        $(this).addClass('btn-success');
-        alert('削除しました');
-      }else{
-        return 'false';
-      }
-      break;
-    case 'off':
-      if(confirm('削除を取り消しますか？')){
-        $('.card-header', $(this).closest('.card')).removeClass('bg-warning');
-        $(this).closest('.card').parent().attr('data-deleted', 'false');
-        $(this).text('削除');
-        $(this).removeClass('btn-success');
-        $(this).addClass('btn-danger');
-        alert('削除を取り消しました');
-      }else{
-        return 'false';
-      }
   }
 }
 
@@ -329,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
   CreatePaymentSourceTable();
 }, false);
 
+$(function(){
   $('.dropdown .list-group-item').click(function() {
     /* $( selector [ , context ] ) */
     /* セレクター文字列を指定して、マッチした要素群のjQueryオブジェクトを返します。 */
@@ -338,24 +156,204 @@ document.addEventListener('DOMContentLoaded', function() {
     /*   $('span', this).addClass('bar'); */
     /* }); */
     /* contextにthisを指定することで、this(div.foo)要素内のspanを対象としています。 */
-    TogglePaymentSource();
-  });
-
-  $('.dropdown .list-group-item').click(function() {
+    TogglePaymentSource($(this));
     var visibleItem = $('.collapse', $(this).closest('.dropdown'));
     visibleItem.collapse('hide');
   });
+});
 
   /* この記述でないと動的追加要素に作用しない */
-  $('#target').on('click', '.btn-outline-secondary', DispEditDialog);
+$(function(){
+  $('#target').on('click', '.btn-outline-secondary, .btn-secondary', function() {
+  if ($(this).hasClass('btn-outline-secondary')) {
+    $(this).closest('.card-body').children('#target-addform').before('<hr>');
+    $(this).closest('.card-body').children('#target-addform')
+      /* 引数として指定するコールバック関数は即時関数として記述しないこと */
+      .load('template2.html', null, function(){
+  /* 日付 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(0).find('input')
+    /* 複数個所へ反映させるには'<文字列>'ではなく/<文字列>/gで指定 */
+    .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(0).text().replace(/\//g, ''));
+  /* 分類 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(1).find('input')
+    .val($(this).closest('.card-body').find('.details tr').eq(0).children('td').eq(2).text());
+  /* 項目 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(2).find('input')
+    .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(1).text());
+  /* 支出／収入 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(3).find('input')
+    .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(2).text().replace('\xA5', '').replace(',', ''));
+  /* 種類 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(4).find('input')
+    .val($(this).closest('.card-body').find('.details tr').eq(1).children('td').eq(2).text());
+  /* 費目 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(5).find('input')
+    .val($(this).closest('.card-body').find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text());
+  /* 内訳 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(6).find('input')
+    .val($(this).closest('.card-body').find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text());
+  /* 口座 */
+  $(this).closest('.card-body').find('.edit-form tr').eq(7).find('input')
+    .val($(this).closest('.card-body').find('.details tr').eq(3).children('td').eq(2).text());
+      });
+    $(this).text('適用');
+    $(this).removeClass('btn-outline-secondary');
+    $(this).addClass('btn-secondary');
+  } else if ($(this).hasClass('btn-secondary')) {
+    $(this).closest('.card').map(function(){
+  /* 日付 */
+  if (($(this).find('.edit-form tr').eq(0).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(0).find('input').val() != $(this).find('.card-header td').eq(0).text().replace(/\//g, ''))) {
+      $(this).find('.card-header td').eq(0).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.card-header td').eq(0).text($(this).find('.edit-form tr').eq(0).find('input').val()
+      .replace(/(\d{4})(\d{2})(\d{2})/g, '$1/$2/$3'));
+    if (targetObj.closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 分類 */
+  if (($(this).find('.edit-form tr').eq(1).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(1).find('input').val() != $(this).find('.details tr').eq(0).children('td').eq(2).text())) {
+      $(this).find('.details tr').eq(0).children('td').eq(2).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.details tr').eq(0).children('td').eq(2).text($(this).find('.edit-form tr').eq(1).find('input').val());
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 項目 */
+  if (($(this).find('.edit-form tr').eq(2).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(2).find('input').val() != $(this).find('.card-header td').eq(1).text())) {
+      $(this).find('.card-header td').eq(1).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.card-header td').eq(1).text($(this).find('.edit-form tr').eq(2).find('input').val());
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 支出／収入 */
+  if (($(this).find('.edit-form tr').eq(3).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(3).find('input').val() != $(this).find('.card-header td').eq(2).text().replace('\xA5', '').replace(',', ''))) {
+      $(this).find('.card-header td').eq(2).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    if (Number(targetObj.find('.edit-form tr').eq(3).find('input').val()) < 0) {
+      $(this).find('.card-header td').eq(2).text("-\xA5" + $(this).find('.edit-form tr').eq(3).find('input').val()
+        .replace('-', '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+    } else {
+      $(this).find('.card-header td').eq(2).text("\xA5" + $(this).find('.edit-form tr').eq(3).find('input').val()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+    }
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 種類 */
+  if (($(this).find('.edit-form tr').eq(4).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(4).find('input').val() != $(this).find('.details tr').eq(1).children('td').eq(2).text())) {
+      $(this).find('.details tr').eq(1).children('td').eq(2).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.details tr').eq(1).children('td').eq(2).text($(this).find('.edit-form tr').eq(4).find('input').val());
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 費目 */
+  if (($(this).find('.edit-form tr').eq(5).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(5).find('input').val() != $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text())) {
+      $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(0).text($(this).find('.edit-form tr').eq(5).find('input').val());
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 内訳 */
+  if (($(this).find('.edit-form tr').eq(6).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(6).find('input').val() != $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text())) {
+      $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.details tr').eq(2).children('td').eq(2).children('span').eq(1).text($(this).find('.edit-form tr').eq(6).find('input').val());
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+  /* 口座 */
+  if (($(this).find('.edit-form tr').eq(7).find('input').val() != '')
+    && ($(this).find('.edit-form tr').eq(7).find('input').val() != $(this).find('.details tr').eq(3).children('td').eq(2).text())) {
+      $(this).find('.details tr').eq(3).children('td').eq(2).css({
+        'font-weight': 'bold',
+        'color': 'red'
+      });
+    $(this).find('.details tr').eq(3).children('td').eq(2).text($(this).find('.edit-form tr').eq(7).find('input').val());
+    if ($(this).closest('.card').parent().attr('data-modified') == 'false') {
+      $(this).closest('.card').parent().attr('data-modified', 'true');
+    }
+  }
+  /*  */
+    });
+    $(this).closest('.card-body').find('hr').remove();
+    $(this).closest('.card-body').find('.edit-form').remove();
+    $(this).text('編集');
+    $(this).removeClass('btn-secondary');
+    $(this).addClass('btn-outline-secondary');
+  }
+}
 
-  /* この記述でないと動的追加要素に作用しない */
-  $('#target').on('click', '.btn-secondary', ModifiedDetailsInfo);
+$(function(){
+  $('#target').on('click', '.btn-danger, .btn-success', function() {
+  var deletedFlag = $(this).closest('.card').parent().attr('data-deleted');
+  switch (deletedFlag) {
+    case 'false':
+      if(confirm('本当に削除しますか？')){
+        $('.card-header', $(this).closest('.card')).addClass('bg-warning');
+        $(this).closest('.card').parent().attr('data-deleted', 'true');
+        $(this).html('削除<br>取消');
+        $(this).removeClass('btn-danger');
+        $(this).addClass('btn-success');
+        alert('削除しました');
+      }else{
+        return 'false';
+      }
+      break;
+    case 'true':
+      if(confirm('削除を取り消しますか？')){
+        $('.card-header', $(this).closest('.card')).removeClass('bg-warning');
+        $(this).closest('.card').parent().attr('data-deleted', 'false');
+        $(this).html('削除');
+        $(this).removeClass('btn-success');
+        $(this).addClass('btn-danger');
+        alert('削除を取り消しました');
+      }else{
+        return 'false';
+      }
+  }
+  });
+});
 
-  $('#target').on('click', '.btn-danger', ToggleDeleteFlagInfo('on'));
-
-  $('#target').on('click', '.btn-success', ToggleDeleteFlagInfo('off'));
-
+$(function(){
   $('.linkTest').click(function() {
     getJSON();
   });
+});

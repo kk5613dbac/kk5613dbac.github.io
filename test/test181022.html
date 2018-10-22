@@ -1,0 +1,209 @@
+﻿<!DOCTYPE HTML>
+<html lang="ja-JP">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>【修正状況確認用】カードコンポーネントによるアコーディオン(Ver.4系)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="test180404_2_1020custom.js"></script>
+
+<style type="text/css">
+<!--
+
+/* 先にインラインテーブル化必須 */
+.accordion .card .card-body .details,
+.accordion .card .card-body .btn-grp {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.accordion .card .card-header,
+.accordion .card .card-body,
+.dropdown .card .card-header,
+.dropdown .card .list-group-item {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.accordion .card .card-header td,
+.accordion .card .card-body td,
+.accordion .card .card-body td .btn,
+.dropdown .card .card-header,
+.dropdown .card .list-group-item,
+.accordion .category td,
+.accordion .category.total td,
+.balance-list td,
+.balance-list th,
+.searchForm .card .card-header,
+.linkTest {
+  font-size: 14px;
+}
+
+.accordion .td-03 {
+  background: #cfe6ff;
+}
+
+.accordion,
+.dropdown .card a[data-toggle="collapse"],
+.searchForm .card a[data-toggle="collapse"],
+.linkTest {
+  display: block;
+}
+
+.accordion .card .card-header a[data-toggle="collapse"]:active,
+.accordion .card .card-header a[data-toggle="collapse"]:hover,
+.accordion .card .card-header a[data-toggle="collapse"]:focus,
+.dropdown .card a[data-toggle="collapse"]:active,
+.dropdown .card a[data-toggle="collapse"]:hover,
+.dropdown .card a[data-toggle="collapse"]:focus,
+.searchForm .card a[data-toggle="collapse"]:active,
+.searchForm .card a[data-toggle="collapse"]:hover,
+.searchForm .card a[data-toggle="collapse"]:focus {
+  text-decoration: none; //リンクテキストの下線を消す
+}
+
+.dropdown .card .list-group .custom {
+  border: none;
+}
+
+.balance-list table {
+  width:100%;
+}
+
+.balance-list td,
+.balance-list th {
+  border-left: solid 1px #bbb;
+  border-top: solid 1px #bbb;
+  border-right: solid 1px #bbb;
+  border-bottom: solid 1px #bbb;
+}
+
+.balance-list .td-03 {
+  background: #cfe6ff;
+  text-align:center;
+}
+
+/* 先にfixed指定がないと次が効かない */
+#target .text-body table {
+  table-layout: fixed;
+}
+
+#target .text-body td:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accordion .category,
+.balance-list td {
+  background-color: #ffffff;
+}
+
+-->
+</style>
+
+</head>
+
+<body>
+
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+<div class="sticky-top">
+
+<div class="mb-0 category">
+  <table width="100%">
+    <tr>
+      <td width="100%"><b>口座</b></td>
+    </tr>
+  </table>
+</div>
+
+<div class="dropdown" id="dropdown" role="tablist" aria-multiselectable="true">
+<div class="card">
+  <div class="card-header" role="tab" id="collapseListGroupHeading1">
+    <div class="mb-0">
+      <a href="#collapseListGroup1" class="text-body" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1">
+        項目を選択してください
+      </a>
+    </div>
+  </div>
+  <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+    <ul class="list-group list-group-flush">
+    </ul>
+    </div>
+</div>
+</div>
+
+<div class="balance-list">
+ <table>
+    <tbody>
+    <tr>
+    <th class="td-03">現在の残高</th>
+    </tr>
+    <tr>
+    <td align="right"><b></b></td>
+    </tr>
+    </tbody>
+ </table>
+
+</div>
+
+<div class="searchForm" id="searchForm" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="collapseListGroupHeading2">
+      <div class="mb-0">
+        <a href="#collapseListGroup2" class="text-body" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup2">
+          詳細検索
+        </a>
+      </div>
+    </div>
+    <div id="collapseListGroup2" class="collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+      <div class="card-body">
+        【検索フォームを置く】
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+</div>
+
+<div class="mb-0 category total">
+  <table width="100%">
+    <tr>
+      <td width="50%"><b>支出一覧</b></td>
+      <td width="50%" align="right"><font color="red"><b>支出総額　　<span></span></b></font></td>
+    </tr>
+  </table>
+</div>
+
+  <div class="card td-03">
+    <div class="card-header">
+      <div class="mb-0">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="30%"><b>日付</b></td>
+              <td width="40%"><b>項目</b></td>
+              <td><b>支出／収入</b></td>
+            </tr>
+          </table>
+      </div>
+    </div><!-- /.card-header -->
+  </div><!-- /.card -->
+
+</div><!-- /.sticky-top -->
+
+<div id="target">
+
+</div><!-- /target -->
+
+</div><!-- /accordion -->
+
+<div class="linkTest">
+  <a>テスト</a>
+</div>
+
+</body>
+
+</html>
