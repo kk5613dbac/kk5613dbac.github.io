@@ -185,11 +185,6 @@ for (var i=0; i<testArray1.length; i++) {
       } else {
         $('.balance-list td b').text("\xA5" + String(testArray1[hiddenItemNo][1]).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
       }
-    });
-  });
-
-  $(function(){
-    $('.dropdown .list-group-item').click(function(){
       var visibleItem = $('.collapse', $(this).closest('.dropdown'));
       visibleItem.collapse('hide');
     });
@@ -197,9 +192,11 @@ for (var i=0; i<testArray1.length; i++) {
 
   $(function(){
     /* この記述でないと動的追加要素に作用しない */
-    $('#target').on('click', '.btn-outline-secondary', function(){
+    $('#target').on('click', '.btn-outline-secondary, .btn-secondary', function(){
+      if ($(this).hasClass('btn-outline-secondary')) {
       $(this).closest('.card-body').children('#target-addform').before('<hr>');
       $(this).closest('.card-body').children('#target-addform')
+      /* 引数として指定するコールバック関数は即時関数として記述しないこと */
         .load('template2.html', null, function(){
         /* 日付 */
           $(this).closest('.card-body').find('.edit-form tr').eq(0).find('input')
@@ -230,12 +227,7 @@ for (var i=0; i<testArray1.length; i++) {
       $(this).text('適用');
       $(this).removeClass('btn-outline-secondary');
       $(this).addClass('btn-secondary');
-    });
-  });
-
-  $(function(){
-    /* この記述でないと動的追加要素に作用しない */
-    $('#target').on('click', '.btn-secondary', function(){
+      } else if ($(this).hasClass('btn-secondary')) {
       $(this).closest('.card').map(function(){
         /* 日付 */
         if (($(this).find('.edit-form tr').eq(0).find('input').val() != '')
@@ -357,6 +349,7 @@ for (var i=0; i<testArray1.length; i++) {
       $(this).text('編集');
       $(this).removeClass('btn-secondary');
       $(this).addClass('btn-outline-secondary');
+      }
     });
   });
 
@@ -367,22 +360,22 @@ for (var i=0; i<testArray1.length; i++) {
   });
 
   $(function(){
-    $('#target').on('click', '.btn-danger', function(){
+    $('#target').on('click', '.btn-danger, .btn-success', function(){
+      var deletedFlag = $(this).closest('.card').parent().attr('data-deleted');
+      switch (deletedFlag) {
+        case 'false':
       if(confirm('本当に削除しますか？')){
         $('.card-header', $(this).closest('.card')).addClass('bg-warning');
         $(this).closest('.card').parent().attr('data-deleted', 'true');
-        $(this).text('削除取消');
+        $(this).html('削除<br>取消');
         $(this).removeClass('btn-danger');
         $(this).addClass('btn-success');
         alert('削除しました');
       }else{
         return 'false';
       }
-    });
-  });
-
-  $(function(){
-    $('#target').on('click', '.btn-success', function(){
+          break;
+        case 'true':
       if(confirm('削除を取り消しますか？')){
         $('.card-header', $(this).closest('.card')).removeClass('bg-warning');
         $(this).closest('.card').parent().attr('data-deleted', 'false');
@@ -392,6 +385,7 @@ for (var i=0; i<testArray1.length; i++) {
         alert('削除を取り消しました');
       }else{
         return 'false';
+      }
       }
     });
   });
