@@ -270,7 +270,7 @@ function ToggleMenu(obj){
   var mode_val = obj.getElementsByTagName('label');
   
   for( var i=0; i<mode_val.length; i++) {
-    if( mode_val[i].children[0].checked ) {
+    if( mode_val[i].children[0].checked == true ) {
       document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='none';
     } else {
       document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='';
