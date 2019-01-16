@@ -26,12 +26,12 @@
               </div><!-- label -->
               <div class="row">
                 <div class="col-md-4">
-                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons" onClick="ToggleMenu(this)">
                     <label class="btn btn-secondary active">
-                      <input type="radio" name="options" id="original" autocomplete="off" checked onChange="ToggleMenu(this)"> オリジナル
+                      <input type="radio" name="options" id="original" autocomplete="off" checked> オリジナル
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="chronicle" autocomplete="off" onChange="ToggleMenu(this)"> クロニクル
+                      <input type="radio" name="options" id="chronicle" autocomplete="off"> クロニクル
                     </label>
                   </div><!-- btn-group -->
                 </div><!-- col-md-4 -->
@@ -270,16 +270,12 @@ function ToggleMenu(obj){
   var mode_val = obj.getElementsByTagName('label');
   
   for( var i=0; i<mode_val.length; i++) {
-    if( mode_val[i].children[0].checked == false ) {
+    if( mode_val[i].children[0].checked ) {
       document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='none';
     } else {
       document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='';
     }
   }
-  
-}
-
-function ToggleTextBox(obj){
   
 }
 
