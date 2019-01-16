@@ -271,11 +271,9 @@ function ToggleMenu(obj){
   
   for( var i=0; i<mode_val.length; i++) {
     if( mode_val[i].children[0].checked == false ) {
-  //    document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='none';
-alert(mode_val[i].children[0].style.display);
+      document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).setAttribute('display', 'none');
     } else {
-  //    document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='block';
-alert(mode_val[i].children[0].style.display);
+      document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).setAttribute('display', 'block');
     }
   }
   
