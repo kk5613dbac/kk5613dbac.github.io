@@ -6,7 +6,7 @@ html { font-size: 62.5%; }
 
 @media screen and (max-width: 767px) {
   .insert-space { display:none; }
-h1 {font-size:75%;}
+h1 {font-size:2rem;}
 }
 
 .custom-file-label::after {
