@@ -13,163 +13,171 @@
     <div class="container">
 
       <div class="text-center">
-        <h2>ダライアスバーストAC<span class="insert-space">&nbsp;&nbsp;</span><br class="br-sp">ハイスコア申請フォーム</h2>
+        <h1>ダライアスバーストAC<span class="insert-space">&nbsp;&nbsp;</span><br class="br-sp">ハイスコア申請フォーム</h1>
       </div><!-- text-center -->
 
       <div class="row">
         <div class="col-md-12">
 
           <form novalidate>
-            <div>
-              <label>モード</label>
-            </div><!-- label -->
-            <div class="row">
-              <div class="col-md-4">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> オリジナル
-                  </label>
-                  <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> クロニクル
-                  </label>
-                </div><!-- btn-group -->
-              </div><!-- col-md-4 -->
-            </div><!-- row -->
+            <div id="mode">
+              <div>
+                <label>モード</label>
+              </div><!-- label -->
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons" onChange="ToggleMenu(this)">
+                    <label class="btn btn-secondary active">
+                      <input type="radio" name="options" id="original" autocomplete="off" checked> オリジナル
+                    </label>
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="options" id="chronicle" autocomplete="off"> クロニクル
+                    </label>
+                  </div><!-- btn-group -->
+                </div><!-- col-md-4 -->
+              </div><!-- row -->
+            </div><!-- mode -->
 
-            <div class="row">
-              <div class="col">
-                <div>
-                  <label for="route">ルート</label>
-                </div>
-                <div>
-                  <select class="custom-select" id="route">
-                    <option value="">選択してください...</option>
-                    <optgroup label="オリジナル">
-                      <option>ADH</option>
-                      <option>ADI</option>
-                      <option>AEI</option>
-                      <option>AEJ</option>
-                      <option>BEI</option>
-                      <option>BEJ</option>
-                      <option>BFJ</option>
-                      <option>BFK</option>
-                      <option>CFJ</option>
-                      <option>CFK</option>
-                      <option>CGK</option>
-                      <option>CGL</option>
-                    </optgroup>
-                    <optgroup label="オリジナルEX">
-                      <option>ORV</option>
-                      <option>ORW</option>
-                      <option>OSW</option>
-                      <option>OSX</option>
-                      <option>PSW</option>
-                      <option>PSX</option>
-                      <option>PTX</option>
-                      <option>PTY</option>
-                      <option>QTX</option>
-                      <option>QTY</option>
-                      <option>QUY</option>
-                      <option>QUZ</option>
-                    </optgroup>
-                  </select>
-                </div>
-              </div><!-- col -->
-              <div class="col">
-                <div>
-                  <label for="ship_ori">機体</label>
-                </div>
-                <div>
-                  <select class="custom-select" id="ship_ori">
-                    <option value="">選択してください...</option>
-                    <option>レジェンド</option>
-                    <option>ネクスト</option>
-                    <option>オリジン</option>
-                    <option>フォーミュラ</option>
-                    <option>外伝</option>
-                    <option>セカンド</option>
-                    <option>アサルト</option>
-                    <option>ジェネシス</option>
-                  </select>
-                </div>
-              </div><!-- col -->
-            </div><!-- row -->
+            <div id="original">
+              <div class="row">
+                <div class="col">
+                  <div>
+                    <label for="route">ルート</label>
+                  </div>
+                  <div>
+                    <select class="custom-select" id="route">
+                      <option value="">選択してください...</option>
+                      <optgroup label="オリジナル">
+                        <option>ADH</option>
+                        <option>ADI</option>
+                        <option>AEI</option>
+                        <option>AEJ</option>
+                        <option>BEI</option>
+                        <option>BEJ</option>
+                        <option>BFJ</option>
+                        <option>BFK</option>
+                        <option>CFJ</option>
+                        <option>CFK</option>
+                        <option>CGK</option>
+                        <option>CGL</option>
+                      </optgroup>
+                      <optgroup label="オリジナルEX">
+                        <option>ORV</option>
+                        <option>ORW</option>
+                        <option>OSW</option>
+                        <option>OSX</option>
+                        <option>PSW</option>
+                        <option>PSX</option>
+                        <option>PTX</option>
+                        <option>PTY</option>
+                        <option>QTX</option>
+                        <option>QTY</option>
+                        <option>QUY</option>
+                        <option>QUZ</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div><!-- col -->
+                <div class="col">
+                  <div>
+                    <label for="ship_ori">機体</label>
+                  </div>
+                  <div>
+                    <select class="custom-select" id="ship_ori">
+                      <option value="">選択してください...</option>
+                      <option>レジェンド</option>
+                      <option>ネクスト</option>
+                      <option>オリジン</option>
+                      <option>フォーミュラ</option>
+                      <option>外伝</option>
+                      <option>セカンド</option>
+                      <option>アサルト</option>
+                      <option>ジェネシス</option>
+                    </select>
+                  </div>
+                </div><!-- col -->
+              </div><!-- row -->
+            </div><!-- menu_ori -->
 
-            <div class="row">
-              <div class="col-sm">
-                <div>
-                  <label for="planet">星系</label>
-                </div>
-                <div>
-                  <select class="custom-select" id="planet">
-                    <option value="">選択してください...</option>
-                    <optgroup label="レベル0">
-                      <option>ジュクンシ</option>
-                      <option>ヤブシ</option>
-                    </optgroup>
-                    <optgroup label="レベル5">
-                      <option>アジンアウトナ</option>
-                    </optgroup>
-                  </select>
-                </div>
-              </div><!-- col-sm -->
-              <div class="col-sm">
-                <div>
-                  <label for="area">エリア</label>
-                </div>
-                <div>
-                  <select class="custom-select" id="area">
-                    <option value="">選択してください...</option>
-                    <option>イズアミ</option>
-                    <option>バアゲ</option>
-                    <option>ダルンスガワリンバブ</option>
-                  </select>
-                </div>
-              </div><!-- col-sm -->
-              <div class="col-md">
-                <div>
-                  <label for="ship_chr">機体</label>
-                </div>
-                <div>
-                  <select class="custom-select id="ship_chr">
-                    <option value="">選択してください...</option>
-                    <option>レジェンド</option>
-                    <option>ネクスト</option>
-                    <option>オリジン</option>
-                    <option>フォーミュラ</option>
-                    <option>外伝</option>
-                    <option>セカンド</option>
-                    <option>アサルト</option>
-                    <option>ジェネシス</option>
-                  </select>
-                </div>
-              </div><!-- col-md -->
-            </div><!-- row -->
+            <div id="chronicle" style="display:none">
+              <div class="row">
+                <div class="col-sm">
+                  <div>
+                    <label for="planet">星系</label>
+                  </div>
+                  <div>
+                    <select class="custom-select" id="planet">
+                      <option value="">選択してください...</option>
+                      <optgroup label="レベル0">
+                        <option>ジュクンシ</option>
+                        <option>ヤブシ</option>
+                      </optgroup>
+                      <optgroup label="レベル5">
+                        <option>アジンアウトナ</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div><!-- col-sm -->
+                <div class="col-sm">
+                  <div>
+                    <label for="area">エリア</label>
+                  </div>
+                  <div>
+                    <select class="custom-select" id="area">
+                      <option value="">選択してください...</option>
+                      <option>イズアミ</option>
+                      <option>バアゲ</option>
+                      <option>ダルンスガワリンバブ</option>
+                    </select>
+                  </div>
+                </div><!-- col-sm -->
+                <div class="col-md">
+                  <div>
+                    <label for="ship_chr">機体</label>
+                  </div>
+                  <div>
+                    <select class="custom-select id="ship_chr">
+                      <option value="">選択してください...</option>
+                      <option>レジェンド</option>
+                      <option>ネクスト</option>
+                      <option>オリジン</option>
+                      <option>フォーミュラ</option>
+                      <option>外伝</option>
+                      <option>セカンド</option>
+                      <option>アサルト</option>
+                      <option>ジェネシス</option>
+                    </select>
+                  </div>
+                </div><!-- col-md -->
+              </div><!-- row -->
+            </div><!-- menu_chr -->
 
-            <div class="row">
-              <div class="col">
-                <div>
-                  <label for="score_name">スコアネーム</label>
-                </div>
-                <div>
-                  <input type="text" class="form-control" id="score_name" placeholder="" value="">
-                </div>
-              </div><!-- col -->
-              <div class="col">
-                <div>
-                  <label for="score_value">獲得スコア</label>
-                </div>
-                <div>
-                  <input type="number" class="form-control" id="score_value" placeholder="" value="">
-                </div>
-              </div><!-- col -->
-            </div><!-- row -->
+            <div id="score">
+              <div class="row">
+                <div class="col">
+                  <div>
+                    <label for="score_name">スコアネーム</label>
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" id="score_name" placeholder="" value="">
+                  </div>
+                </div><!-- col -->
+                <div class="col">
+                  <div>
+                    <label for="score_value">獲得スコア</label>
+                  </div>
+                  <div>
+                    <input type="number" class="form-control" id="score_value" placeholder="" value="">
+                  </div>
+                </div><!-- col -->
+              </div><!-- row -->
+            </div><!-- score -->
 
             <div>
               <label for="shop">店舗名</label>
             </div>
             <div>
-              <select class="custom-select" id="shop">
+              <select class="custom-select" id="shop" onChange="ToggleTextBox(this)">
                 <option value="">選択してください...</option>
                 <option value="other">その他</option>
                 <optgroup label="北海道">
@@ -188,56 +196,60 @@
               <input type="text" class="form-control" id="shop_other" placeholder="" value="">
             </div>
 
-            <div>
-              <label>獲得年月日</label>
-            </div>
-            <div class="row">
-              <div class="col-3">
-                <select class="custom-select" id="year">
-                  <option value="">年</option>
-                  <option>2019</option>
-                  <option>2020</option>
-                </select>
-              </div><!-- col-3 -->
-              <div class="col-3">
-                <select class="custom-select" id="month">
-                  <option value="">月</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
-              </div><!-- col-3 -->
-              <div class="col-3">
-                <select class="custom-select" id="day">
-                  <option value="">日</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>31</option>
-                </select>
-              </div><!-- col-3 -->
-            </div><!-- row -->
+            <div id="date">
+              <div>
+                <label>獲得年月日</label>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <select class="custom-select" id="year">
+                    <option value="">年</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                  </select>
+                </div><!-- col-3 -->
+                <div class="col-3">
+                  <select class="custom-select" id="month">
+                    <option value="">月</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                </div><!-- col-3 -->
+                <div class="col-3">
+                  <select class="custom-select" id="day">
+                    <option value="">日</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>31</option>
+                  </select>
+                </div><!-- col-3 -->
+              </div><!-- row -->
+            </div><!-- date -->
 
-            <div>
-              <label for="customFile">画像添付</label>
-            </div>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" lang="ja">
-              <label class="custom-file-label" for="customFile">ファイルを指定してください...</label>
-            </div>
+            <div id="misc">
+              <div>
+                <label for="customFile">画像添付</label>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" lang="ja">
+                <label class="custom-file-label" for="customFile">ファイルを指定してください...</label>
+              </div>
 
-            <div>
-              <label for="comment">その他要望事項、コメント等</label>
-            </div>
-            <textarea class="form-control" id="comment" placeholder="" minlength="0" maxlength="200"></textarea>
+              <div>
+                <label for="comment">その他要望事項、コメント等</label>
+              </div>
+              <textarea class="form-control" id="comment" placeholder="" minlength="0" maxlength="200"></textarea>
+            </div><!-- misc -->
 
             <button class="btn btn-primary btn-lg btn-block" type="submit">確認画面へ</button>
           </form>
@@ -250,6 +262,28 @@
       </div><!-- row -->
 
     </div><!-- container -->
+
+<script>
+
+function ToggleMenu(obj){
+  
+  var mode_val = obj.getElementsByTagName('label');
+  
+  for( var i=0; i<mode_val.length; i++) {
+    if( mode_val[i].children[0].checked == false ) {
+      document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='none';
+    } else {
+      document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='block';
+    }
+  }
+  
+}
+
+function ToggleTextBox(obj){
+  
+}
+
+</script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
