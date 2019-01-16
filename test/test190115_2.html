@@ -26,7 +26,7 @@
               </div><!-- label -->
               <div class="row">
                 <div class="col-md-4">
-                  <div class="btn-group btn-group-toggle" data-toggle="buttons" onClick="ToggleMenu(this)">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons" onChange="ToggleMenu(this)">
                     <label class="btn btn-secondary active">
                       <input type="radio" name="options" id="original" autocomplete="off" checked> オリジナル
                     </label>
@@ -266,16 +266,16 @@
 <script>
 
 function ToggleMenu(obj){
+  alert('onChange');
+  //var mode_val = obj.getElementsByTagName('label');
   
-  var mode_val = obj.getElementsByTagName('label');
-  
-  for( var i=0; i<mode_val.length; i++) {
-    if( mode_val[i].children[0].checked == true ) {
-      document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='none';
-    } else {
-      document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='';
-    }
-  }
+  //for( var i=0; i<mode_val.length; i++) {
+  //  if( mode_val[i].children[0].checked == false ) {
+  //    document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='none';
+  //  } else {
+  //    document.getElementsByTagName('form')[0].children(mode_val[i].children[0].id).style.display='block';
+  //  }
+  //}
   
 }
 
