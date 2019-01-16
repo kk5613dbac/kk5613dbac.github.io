@@ -1,4 +1,4 @@
-﻿html { font-size: 62.5%; }
+html { font-size: 62.5%; }
 
 @media screen and (min-width: 768px) {
   .br-sp { display:none; }
@@ -6,6 +6,7 @@
 
 @media screen and (max-width: 767px) {
   .insert-space { display:none; }
+h1 {font-size:1.6rem}
 }
 
 .custom-file-label::after {
