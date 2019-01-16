@@ -7,3 +7,7 @@
 @media screen and (max-width: 767px) {
   .insert-space { display:none; }
 }
+
+.custom-file-label::after {
+  content: "ファイル参照";
+}
