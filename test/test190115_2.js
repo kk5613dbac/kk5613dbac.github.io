@@ -12,7 +12,7 @@
   
 }
 
-function ToggleTextBoxLock(obj){
+/*function ToggleTextBoxLock(obj){
   
   for( var i=0; i<obj.length; i++) {
     if( obj[i].value == 'other' ) {
@@ -26,3 +26,13 @@ function ToggleTextBoxLock(obj){
   }
   
 }
+
+function PreviewInputFile(obj){
+  
+  var file_obj = obj.getElementsByTagName('input')[0].files[0];
+
+  var label_obj = obj.getElementsByTagName('label')[0];
+
+  label_obj.innerText = '1個のファイルを選択しました'
+  
+}*/

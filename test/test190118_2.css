@@ -2,16 +2,32 @@
 
 body { font-size: 1.4rem; }
 
-h1 { font-size: 3.6rem; }
+h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
 
 label {
   font-weight: 700;
 }
 
-.form-control, .custom-select, .custom-file, .custom-file-input, .custom-file-label  {
+.form-control, .custom-select, .custom-file, .custom-file-label  {
   height: 3.4rem;
   padding: 0.6rem 1.2rem;
   font-size: 1.4rem;
+}
+
+.custom-file {
+  overflow: hidden;
+}
+
+.custom-file-label::after {
+  height: 3.2rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.custom-file-input:lang(ja) ~ .custom-file-label::after {
+  content: "参照";
 }
 
 .btn {
@@ -20,17 +36,7 @@ label {
 }
 
 @media screen and (min-width: 768px) {
-  .br-sp { display: none; }
-
   .col-md-2.col-form-label {
     text-align: right;
   }
-}
-
-@media screen and (max-width: 767px) {
-  .insert-space { display: none; }
-}
-
-.custom-file-label::after {
-  content: "参照";
 }
