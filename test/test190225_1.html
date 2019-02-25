@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="test190118_2.css">
+
+  <title>【申請情報入力】ダライアスバーストAC ハイスコア申請フォーム</title>
+
+  <!-- <script src="test190115_2.js"></script> -->
+
+</head>
+<body class="bg-light">
+
+  <div class="container">
+
+    <div class="navbar justify-content-center">
+      <h1>DBAC クロニクルモード<br><span class="halfspace">&nbsp;</span>ハイスコア申請フォーム</h1>
+    </div>
+
+    <form>
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">星系 <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-6">
+            <select class="custom-select" id="route" autocomplete="" required>
+              <option>選択してください...</option>
+              <optgroup label="レベル0">
+                <option>ジュクンシ</option>
+                <option>ヤブシ</option>
+              </optgroup>
+              <optgroup label="レベル5">
+                <option>アジンアウトナ</option>
+              </optgroup>
+            </select>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">エリア <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-6">
+            <select class="custom-select" id="route" autocomplete="" required>
+              <option>選択してください...</option>
+              <option>イズアミ</option>
+              <option>バアゲ</option>
+              <option>ダルンスガワリンバブ</option>
+            </select>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">機体 <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-6">
+            <select class="custom-select" id="ship_ori" autocomplete="" required>
+              <option>選択してください...</option>
+              <option>レジェンド</option>
+              <option>ネクスト</option>
+              <option>オリジン</option>
+              <option>フォーミュラ</option>
+              <option>外伝</option>
+              <option>セカンド</option>
+              <option>アサルト</option>
+              <option>ジェネシス</option>
+            </select>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label" for="score_name">スコアネーム <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="score_name" autocomplete="" placeholder="" required/>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">獲得スコア <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="score_value" autocomplete="" placeholder="" required/>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">店舗名 <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-6">
+            <select class="custom-select" id="shop" autocomplete="" required>
+              <option>選択してください...</option>
+              <option value="other">その他</option>
+              <optgroup label="北海道">
+                <option>ディノスパーク札幌中央店</option>
+              </optgroup>
+              <optgroup label="青森県">
+                <option>スペースインＡ</option>
+                <option>スペースインＢ</option>
+              </optgroup>
+              <optgroup label="群馬県">
+                <option>群馬レジャーランド高崎駅東口店Ａ</option>
+              </optgroup>
+            </select>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label"></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" autocomplete="" placeholder="" required/>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+
+          <label class="offset-md-1 col-md-2 col-form-label">獲得年月日 <span class="badge badge-danger">必須</span></label>
+
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <select class="custom-select" id="year">
+                <option>年</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+              </select>
+              <label class="col-form-label">年</label>
+            </div><!-- .input-group -->
+          </div><!-- .form-group -->
+
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <select class="custom-select" id="month">
+                <option>月</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <label class="col-form-label">月</label>
+            </div><!-- .input-group -->
+          </div><!-- .form-group -->
+
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <select class="custom-select" id="day">
+                <option >日</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="31">31</option>
+              </select>
+              <label class="col-form-label">日</label>
+            </div><!-- .input-group -->
+          </div><!-- .form-group -->
+
+        </div><!-- input-group -->
+      </div><!-- form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+
+          <label class="offset-md-1 col-md-2 col-form-label">画像添付 <span class="badge badge-danger">必須</span></label>
+          <div class="col-md-5">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile" lang="ja">
+              <label class="custom-file-label" for="customFile">ファイル選択...</label>
+            </div><!-- .custom-file -->
+          </div><!-- .col-md-5 -->
+          <div class="col-md-1">
+            <button type="button" class="btn btn-outline-secondary reset">取消</button>
+          </div><!-- .col-md-1 -->
+
+        </div><!-- input-group -->
+      </div><!-- form-group -->
+
+      <div class="form-group">
+        <div class="offset-md-3 col-md-9">
+          <button type="submit" class="btn btn-secondary">確認する (どこにも送信しません)</button>
+        </div>
+      </div>
+
+      <footer class="text-muted text-center text-small">
+        <p>&copy; 2019 K.K</p>
+      </footer>
+
+    </form>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+</html>
