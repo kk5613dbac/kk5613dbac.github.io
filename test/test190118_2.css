@@ -6,21 +6,17 @@ body {
   font-weight: bold;
 }
 
-h1 {
-  font-weight: bold;
-}
+h1 { font-weight: bold; }
 
 .form-control, .custom-select, .custom-file, .custom-file-label {
   height: 3.4rem;
 }
 
-.custom-file {
-  overflow: hidden;
-}
+.form-group:nth-child(8) { margin-bottom: 0;}
 
-.custom-file-label::after {
-  height: 3.2rem;
-}
+.custom-file { overflow: hidden; }
+
+.custom-file-label::after { height: 3.2rem; }
 
 .custom-file-input:lang(ja) ~ .custom-file-label::after {
   content: "参照";
@@ -36,21 +32,13 @@ h1 {
     text-align: right;
   }
   
-  h1 {
-    font-size: 2.8rem;
-  }
+  h1 { font-size: 2.8rem; }
   
-  .navbar br {
-    display: none;
-  }
+  .navbar br { display: none; }
 }
 
 @media screen and (max-width: 767px) {
-  h1 {
-    font-size: 2.4rem;
-  }
+  h1 { font-size: 2.4rem; }
   
-  .halfspace {
-    display: none;
-  }
+  .halfspace { display: none; }
 }
