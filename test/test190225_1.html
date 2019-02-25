@@ -10,7 +10,7 @@
 
   <title>【申請情報入力】ダライアスバーストAC ハイスコア申請フォーム</title>
 
-  <!-- <script src="test190115_2.js"></script> -->
+  <script src="test190225_1.js"></script>
 
 </head>
 <body class="bg-light">
@@ -33,7 +33,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">星系</label>
           <div class="col-md-6">
-            <select class="custom-select" id="route" autocomplete="" required>
+            <select class="custom-select" id="route" autocomplete="">
               <option>選択してください...</option>
               <optgroup label="レベル0">
                 <option>ジュクンシ</option>
@@ -51,7 +51,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">エリア</label>
           <div class="col-md-6">
-            <select class="custom-select" id="route" autocomplete="" required>
+            <select class="custom-select" id="route" autocomplete="">
               <option>選択してください...</option>
               <option>イズアミ</option>
               <option>バアゲ</option>
@@ -66,7 +66,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">機体</label>
           <div class="col-md-6">
-            <select class="custom-select" id="ship_ori" autocomplete="" required>
+            <select class="custom-select" id="ship_ori" autocomplete="">
               <option>選択してください...</option>
               <option>レジェンド</option>
               <option>ネクスト</option>
@@ -85,7 +85,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label" for="score_name">スコアネーム</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="score_name" autocomplete="" placeholder="" required/>
+            <input type="text" class="form-control" id="score_name" autocomplete="" placeholder="">
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -94,7 +94,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">獲得スコア</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="score_value" autocomplete="" placeholder="" required/>
+            <input type="text" class="form-control" id="score_value" autocomplete="" placeholder="">
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -103,7 +103,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">店舗名</label>
           <div class="col-md-6">
-            <select class="custom-select" id="shop" autocomplete="" required>
+            <select class="custom-select" id="shop" autocomplete="" onchange="ToggleTextBoxLock(this)">
               <option>選択してください...</option>
               <option value="other">その他</option>
               <optgroup label="北海道">
@@ -122,7 +122,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label"></label>
           <div class="col-md-6">
-            <input type="text" class="form-control" autocomplete="" placeholder="" required/>
+            <input type="text" class="form-control" id="shop_other" autocomplete placeholder="" disabled>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
