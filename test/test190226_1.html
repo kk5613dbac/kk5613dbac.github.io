@@ -10,7 +10,7 @@
 
   <title>【申請情報入力】ダライアスバーストAC ハイスコア申請フォーム</title>
 
-  <script src="test190225_1.js"></script>
+  <script src="test190226_1.js"></script>
 
 </head>
 <body class="bg-light">
@@ -21,7 +21,7 @@
       <h1>DBAC クロニクルモード<br><span class="halfspace">&nbsp;</span>ハイスコア申請フォーム</h1>
     </div>
 
-    <form>
+    <form class="needs-validation" novalidate>
 
       <div class="form-group">
         <div class="offset-lg-3 col-lg-9">
@@ -33,7 +33,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">星系</label>
           <div class="col-md-6">
-            <select class="custom-select" id="route" autocomplete="">
+            <select class="custom-select" id="route" autocomplete="" required>
               <option value="">選択してください...</option>
               <optgroup label="レベル0">
                 <option value="ジュクンシ">ジュクンシ</option>
@@ -43,6 +43,9 @@
                 <option value="アジンアウトナ">アジンアウトナ</option>
               </optgroup>
             </select>
+            <div class="invalid-feedback">
+              星系名を選択してください．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -51,12 +54,15 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">エリア</label>
           <div class="col-md-6">
-            <select class="custom-select" id="route" autocomplete="">
+            <select class="custom-select" id="route" autocomplete="" required>
               <option value="">選択してください...</option>
               <option value="イズアミ">イズアミ</option>
               <option value="バアゲ">バアゲ</option>
               <option value="ダルンスガワリンバブ">ダルンスガワリンバブ</option>
             </select>
+            <div class="invalid-feedback">
+              エリア名を選択してください．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -66,7 +72,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">機体</label>
           <div class="col-md-6">
-            <select class="custom-select" id="ship_ori" autocomplete="">
+            <select class="custom-select" id="ship_ori" autocomplete="" required>
               <option value="">選択してください...</option>
               <option value="レジェンド">レジェンド</option>
               <option value="ネクスト">ネクスト</option>
@@ -77,6 +83,9 @@
               <option value="アサルト">アサルト</option>
               <option value="ジェネシス">ジェネシス</option>
             </select>
+            <div class="invalid-feedback">
+              機体名を選択してください．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -85,7 +94,10 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label" for="score_name">スコアネーム</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="score_name" autocomplete="" placeholder="">
+            <input type="text" class="form-control" id="score_name" autocomplete="" placeholder="" required>
+            <div class="invalid-feedback">
+              スコアネームを入力してください．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -94,7 +106,10 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">獲得スコア</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="score_value" autocomplete="" placeholder="">
+            <input type="text" class="form-control" id="score_value" autocomplete="" placeholder="" required>
+            <div class="invalid-feedback">
+              スコアを入力してください．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -103,7 +118,7 @@
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label">店舗名</label>
           <div class="col-md-6">
-            <select class="custom-select" id="shop" autocomplete="" onchange="ToggleTextBoxLock(this)">
+            <select class="custom-select" id="shop" autocomplete="" onchange="ToggleTextBoxLock(this)" required>
               <option value="">選択してください...</option>
               <option value="その他">その他</option>
               <optgroup label="北海道">
@@ -117,12 +132,18 @@
                 <option value="群馬レジャーランド高崎駅東口店Ａ">群馬レジャーランド高崎駅東口店Ａ</option>
               </optgroup>
             </select>
+            <div class="invalid-feedback">
+              スコアを獲得した店舗名を選択してください．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
         <div class="input-group">
           <label class="offset-md-1 col-md-2 col-form-label"></label>
           <div class="col-md-6">
             <input type="text" class="form-control" id="shop_other" autocomplete placeholder="" disabled>
+            <div class="invalid-feedback">
+              [店舗名]で"その他"を選択した場合は、手動での店舗名入力が必須です．
+            </div>
           </div><!-- .col-md-6 -->
         </div><!-- .input-group -->
       </div><!-- .form-group -->
@@ -133,18 +154,21 @@
 
           <div class="form-group col-md-2">
             <div class="input-group">
-              <select class="custom-select" id="year">
+              <select class="custom-select" id="year" required>
                 <option value="">年</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
               </select>
               <label class="col-form-label">年</label>
+              <div class="invalid-feedback">
+                年を選択してください．
+              </div>
             </div><!-- .input-group -->
           </div><!-- .form-group -->
 
           <div class="form-group col-md-2">
             <div class="input-group">
-              <select class="custom-select" id="month">
+              <select class="custom-select" id="month" required>
                 <option value="">月</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -160,18 +184,24 @@
                 <option value="12">12</option>
               </select>
               <label class="col-form-label">月</label>
+              <div class="invalid-feedback">
+                月を選択してください．
+              </div>
             </div><!-- .input-group -->
           </div><!-- .form-group -->
 
           <div class="form-group col-md-2">
             <div class="input-group">
-              <select class="custom-select" id="day">
+              <select class="custom-select" id="day" required>
                 <option value="">日</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="31">31</option>
               </select>
               <label class="col-form-label">日</label>
+              <div class="invalid-feedback">
+                日を選択してください．
+              </div>
             </div><!-- .input-group -->
           </div><!-- .form-group -->
 
@@ -180,15 +210,13 @@
 
       <div class="form-group">
         <div class="input-group">
-
           <label class="offset-md-1 col-md-2 col-form-label">画像添付</label>
           <div class="col-md-6">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" lang="ja">
+              <input type="file" class="custom-file-input" id="customFile" lang="ja" required>
               <label class="custom-file-label" for="customFile">ファイル選択...</label>
             </div><!-- .custom-file -->
           </div><!-- .col-md-6 -->
-
         </div><!-- input-group -->
       </div><!-- form-group -->
 

@@ -14,8 +14,6 @@ h1 { font-weight: bold; }
 
 .form-group:nth-child(8) { margin-bottom: 0;}
 
-.custom-file { overflow: hidden; }
-
 .custom-file-label::after { height: 3.2rem; }
 
 .custom-file-input:lang(ja) ~ .custom-file-label::after {
