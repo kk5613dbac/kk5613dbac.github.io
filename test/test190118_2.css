@@ -12,13 +12,15 @@ h1 { font-weight: bold; }
   height: 3.4rem;
 }
 
-.form-group:nth-child(8) { margin-bottom: 0;}
+.form-group:nth-child(8) { margin-bottom: 0rem;}
 
 .custom-file-label::after { height: 3.2rem; }
 
 .custom-file-input:lang(ja) ~ .custom-file-label::after {
   content: "参照";
 }
+
+.custom-file .invalid-feedback { margin-top: 1.25rem; }
 
 .btn {
   font-size: 1.4rem;

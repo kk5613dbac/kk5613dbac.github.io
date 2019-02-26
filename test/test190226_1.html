@@ -213,8 +213,11 @@
           <label class="offset-md-1 col-md-2 col-form-label">画像添付</label>
           <div class="col-md-6">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" lang="ja" required>
+              <input type="file" class="custom-file-input" id="customFile" lang="ja" onchange="DispPictureFileName(this)" required>
               <label class="custom-file-label" for="customFile">ファイル選択...</label>
+              <div class="invalid-feedback">
+                エビデンス確認のため、スコア獲得時レザルト画面の撮影ファイルを添付してください．
+              </div>
             </div><!-- .custom-file -->
           </div><!-- .col-md-6 -->
         </div><!-- input-group -->

@@ -38,3 +38,9 @@ function ToggleTextBoxLock(obj){
   }, false);	// addEventListener
   
 })();		// function
+
+function DispPictureFileName(obj){
+  
+  obj.parentNode.getElementsByClassName('custom-file-label')[0].textContent = obj.files[0].name;
+  
+}
