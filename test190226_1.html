@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="test190118_2.css">
+
+  <title>【申請情報入力】ダライアスバーストAC ハイスコア申請フォーム</title>
+
+  <script src="test190226_1.js"></script>
+
+</head>
+<body class="bg-light">
+
+  <div class="container">
+
+    <div class="navbar justify-content-center">
+      <h1>DBAC クロニクルモード<br><span class="halfspace">&nbsp;</span>ハイスコア申請フォーム</h1>
+    </div>
+
+    <div class="alert alert-info">  
+      <strong>【お願い】</strong> エビデンス確認のため、スコア獲得時レザルト画面の撮影ファイルを準備してください．
+    </div>
+
+    <form class="needs-validation" novalidate>
+
+      <div class="form-group">
+        <div class="offset-lg-3 col-lg-9">
+          <label class="badge badge-danger">※全項目必須</label>
+        </div>
+      </div>
+
+      
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">星系</label>
+          <div class="col-md-6">
+            <select class="custom-select" id="route" autocomplete="" required>
+              <option value="">選択してください...</option>
+              <optgroup label="レベル0">
+                <option value="ジュクンシ">ジュクンシ</option>
+                <option value="ヤブシ">ヤブシ</option>
+              </optgroup>
+              <optgroup label="レベル5">
+                <option value="アジンアウトナ">アジンアウトナ</option>
+              </optgroup>
+            </select>
+            <div class="invalid-feedback">
+              星系名を選択してください．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">エリア</label>
+          <div class="col-md-6">
+            <select class="custom-select" id="route" autocomplete="" required>
+              <option value="">選択してください...</option>
+              <option value="イズアミ">イズアミ</option>
+              <option value="バアゲ">バアゲ</option>
+              <option value="ダルンスガワリンバブ">ダルンスガワリンバブ</option>
+            </select>
+            <div class="invalid-feedback">
+              エリア名を選択してください．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">機体</label>
+          <div class="col-md-6">
+            <select class="custom-select" id="ship_ori" autocomplete="" required>
+              <option value="">選択してください...</option>
+              <option value="レジェンド">レジェンド</option>
+              <option value="ネクスト">ネクスト</option>
+              <option value="オリジン">オリジン</option>
+              <option value="フォーミュラ">フォーミュラ</option>
+              <option value="外伝">外伝</option>
+              <option value="セカンド">セカンド</option>
+              <option value="アサルト">アサルト</option>
+              <option value="ジェネシス">ジェネシス</option>
+            </select>
+            <div class="invalid-feedback">
+              機体名を選択してください．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label" for="score_name">スコアネーム</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="score_name" autocomplete="" placeholder="" required>
+            <div class="invalid-feedback">
+              スコアネームを入力してください．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">獲得スコア</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="score_value" autocomplete="" placeholder="" required>
+            <div class="invalid-feedback">
+              スコアを入力してください．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">店舗名</label>
+          <div class="col-md-6">
+            <select class="custom-select" id="shop" autocomplete="" onchange="ToggleTextBoxLock(this)" required>
+              <option value="">選択してください...</option>
+              <option value="その他">その他</option>
+              <optgroup label="北海道">
+                <option value="ディノスパーク札幌中央店">ディノスパーク札幌中央店</option>
+              </optgroup>
+              <optgroup label="青森県">
+                <option value="スペースインＡ">スペースインＡ</option>
+                <option value="スペースインＢ">スペースインＢ</option>
+              </optgroup>
+              <optgroup label="群馬県">
+                <option value="群馬レジャーランド高崎駅東口店Ａ">群馬レジャーランド高崎駅東口店Ａ</option>
+              </optgroup>
+            </select>
+            <div class="invalid-feedback">
+              スコアを獲得した店舗名を選択してください．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label"></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="shop_other" autocomplete placeholder="" disabled>
+            <div class="invalid-feedback">
+              [店舗名]で"その他"を選択した場合は、手動での店舗名入力が必須です．
+            </div>
+          </div><!-- .col-md-6 -->
+        </div><!-- .input-group -->
+      </div><!-- .form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">獲得年月日</label>
+
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <select class="custom-select" id="year" required>
+                <option value="">年</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+              </select>
+              <label class="col-form-label">年</label>
+              <div class="invalid-feedback">
+                年を選択してください．
+              </div>
+            </div><!-- .input-group -->
+          </div><!-- .form-group -->
+
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <select class="custom-select" id="month" required>
+                <option value="">月</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <label class="col-form-label">月</label>
+              <div class="invalid-feedback">
+                月を選択してください．
+              </div>
+            </div><!-- .input-group -->
+          </div><!-- .form-group -->
+
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <select class="custom-select" id="day" required>
+                <option value="">日</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="31">31</option>
+              </select>
+              <label class="col-form-label">日</label>
+              <div class="invalid-feedback">
+                日を選択してください．
+              </div>
+            </div><!-- .input-group -->
+          </div><!-- .form-group -->
+
+        </div><!-- input-group -->
+      </div><!-- form-group -->
+
+      <div class="form-group">
+        <div class="input-group">
+          <label class="offset-md-1 col-md-2 col-form-label">画像添付</label>
+          <div class="col-md-6">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile" lang="ja" onchange="DispPictureFileName(this)" required>
+              <label class="custom-file-label" for="customFile">ファイル選択...</label>
+              <div class="invalid-feedback">
+                レザルト画面の撮影ファイルを添付してください．
+              </div>
+            </div><!-- .custom-file -->
+          </div><!-- .col-md-6 -->
+        </div><!-- input-group -->
+      </div><!-- form-group -->
+
+      <div class="form-group">
+        <div class="offset-md-3 col-md-9">
+          <button type="submit" class="btn btn-secondary">確認する (どこにも送信しません)</button>
+        </div>
+      </div>
+
+      <footer class="text-muted text-center text-small">
+        <p>&copy; 2019 K.K</p>
+      </footer>
+
+    </form>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+</html>
