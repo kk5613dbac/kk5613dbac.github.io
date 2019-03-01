@@ -41,9 +41,18 @@ function ToggleTextBoxLock(obj){
 
 function PrevPictureFile(obj){
   
-  obj.parentNode.getElementsByClassName('custom-file-label')[0].textContent = obj.files[0].name;
+  var customFile = obj.parentNode;
   
-  obj.parentNode.insertAdjacentHTML('afterend','<div class="preview"><div class="d-inline-block">\
-    <img class="img-thumbnail" src="' + window.URL.createObjectURL(obj.files[0]) + '"></div></div>');
+  if (document.getElementsByClassName("preview")[0] != null) {
+    document.getElementsByClassName("preview")[0].parentElement.removeChild(document.getElementsByClassName("preview")[0]);
+  }
+  
+  if (obj.files.length > 0) {
+    customFile.getElementsByClassName('custom-file-label')[0].textContent = obj.files[0].name;
+    customFile.parentNode.insertAdjacentHTML('afterend','<div class="preview"><div class="d-inline-block">\
+      <img class="img-thumbnail" src="' + window.URL.createObjectURL(obj.files[0]) + '"></div></div>');
+  } else {
+    customFile.getElementsByClassName('custom-file-label')[0].textContent = "ファイル選択...";
+  }
   
 }

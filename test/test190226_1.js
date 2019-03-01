@@ -41,6 +41,12 @@ function ToggleTextBoxLock(obj){
 
 function DispPictureFileName(obj){
   
-  obj.parentNode.getElementsByClassName('custom-file-label')[0].textContent = obj.files[0].name;
+  var customFile = obj.parentNode;
+  
+  if (obj.files.length > 0) {
+    customFile.getElementsByClassName('custom-file-label')[0].textContent = obj.files[0].name;
+  } else {
+    customFile.getElementsByClassName('custom-file-label')[0].textContent = "ファイル選択...";
+  }
   
 }

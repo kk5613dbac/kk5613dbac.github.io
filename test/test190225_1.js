@@ -1,4 +1,6 @@
-﻿function ToggleTextBoxLock(obj){
+﻿"use strict";	// strictモード：VBでの"Option Explicit"とほぼ同義
+
+function ToggleTextBoxLock(obj){
   
   for( var i=0; i<obj.length; i++) {
     if( obj[i].value == 'その他' ) {
