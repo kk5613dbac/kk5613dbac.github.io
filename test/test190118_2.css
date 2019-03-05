@@ -1,9 +1,10 @@
-﻿html { font-size: 62.5%; }
+html { font-size: 62.5%; }
 /* 1em=10px */
 
 body {
   font-size: 1.4rem;
   font-weight: bold;
+-webkit-text-size-adjust:100%;
 }
 
 h1 { font-weight: bold; }
