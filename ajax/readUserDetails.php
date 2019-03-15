@@ -32,4 +32,3 @@ else
     $response['status'] = 200;
     $response['message'] = "Invalid Request!";
 }
-?>

@@ -17,4 +17,3 @@ if(isset($_POST))
         exit(mysqli_error($con));
     }
 }
-?>
