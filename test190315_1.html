@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>CodePen - Native JavaScript - fade-In&amp;Out</title>
+  
+      <style>
+      body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+.clearfix {
+  display: table;
+  clear: both;
+}
+
+.container {
+  width: 250px;
+  margin: 0 auto;
+  padding: 50px 0;
+  background: #fff;
+}
+
+.fade_square {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: #008000;
+  opacity: 0;
+}
+.fade_switch {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.fade_switch_item {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 40px;
+}
+.fade_switch_item a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  background: green;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 5px 0 darkgreen;
+  opacity: 0.6;
+  transition: all 0.2s;
+  cursor: default;
+}
+.fade_switch_item a:active {
+  top: 5px;
+  box-shadow: none;
+}
+.fade_switch_item:first-child {
+  margin-right: 10px;
+}
+
+.fade_switch_item.is-active a {
+  opacity: 1;
+}
+.fade_switch_item.is-active a:hover {
+  cursor: pointer;
+}
+
+.fade_switch_item:not(.is-active) a:active {
+  top: 0 !important;
+  box-shadow: 0 5px 0 darkgreen !important;
+}
+
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+
+  <div class="container">
+	<div class="fade">
+		<div class="fade_switch">
+			<p class="fade_switch_item is-active" id="fade_switch_item-in"><a href="#">Fade in!</a></p>
+			<p class="fade_switch_item" id="fade_switch_item-out"><a href="#">Fade out!</a></p>
+		</div>
+		<p class="fade_square" id="fade_obj"></p>
+	</div>
+</div>
+    <script src="test190315_1.js"></script>
+
+    <script id="rendered-js" >
+      (function () {
+  'use strict';
+
+  // マッチしたid・class名を持つ要素を取得、フラグ変数の定義
+  var fadeObj,
+  fadeSwitches,
+  fadeInSwitch,
+  fadeOutSwitch,
+  flag;
+
+  fadeObj = document.getElementById('fade_obj');
+  fadeSwitches = document.querySelectorAll('.fade_switch_item');
+  fadeInSwitch = document.getElementById('fade_switch_item-in');
+  fadeOutSwitch = document.getElementById('fade_switch_item-out');
+  flag = true;
+
+  // フェードイン
+  function fadeIn() {
+    for (var i = 0; i < fadeSwitches.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+      fadeSwitches[i].classList.remove('is-active');
+    }window.CP.exitedLoop(0);
+    fadeOutSwitch.classList.add('is-active');
+    fadeObj.style.transition = 'opacity 0.5s';
+    fadeObj.style.opacity = '1';
+  }
+
+  // フェードアウト
+  function fadeOut() {
+    for (var i = 0; i < fadeSwitches.length; i++) {if (window.CP.shouldStopExecution(1)) break;
+      fadeSwitches[i].classList.remove('is-active');
+    }window.CP.exitedLoop(1);
+    fadeInSwitch.classList.add('is-active');
+    fadeObj.style.transition = 'opacity 0.5s';
+    fadeObj.style.opacity = '0';
+  }
+
+  // フェードインボタンクリック
+  fadeInSwitch.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (this.classList.contains('is-active')) {
+      if (!flag) return false;
+      flag = false;
+      fadeIn();
+    }
+  });
+
+  // フェードアウトボタンクリック
+  fadeOutSwitch.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (this.classList.contains('is-active')) {
+      if (flag) return false;
+      flag = true;
+      fadeOut();
+    }
+  });
+})();
+      //# sourceURL=pen.js
+    </script>
+</body>
+
+</html>

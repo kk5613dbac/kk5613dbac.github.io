@@ -1,0 +1,128 @@
+﻿"use strict";
+
+function GetXMLHttpRequest(url) {
+
+  //長めの文字列となる戻り値は、必ず変数経由にする
+  var resultText;
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.open("GET", url, true);
+
+  //キャッシュ無効化の方法：setRequestHeader()でキャッシュ制御のためのヘッダを送信する
+  xhr.setRequestHeader("Pragma", "no-cache");					//HTTP1.0における汎用のヘッダフィールド
+  xhr.setRequestHeader("Cache-Control", "no-cache");				//HTTP1.1におけるキャッシュ制御のヘッダフィールド
+  xhr.setRequestHeader("If-Modified-Since", "Thu, 01 Jun 1970 00:00:00 GMT");	//指定日時以降に更新があれば内容を返し、更新がなければ304ステータスを返すヘッダフィールド
+                                                                           	//古い日時を指定する
+
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState === 4) {
+
+        resultText = "テスト";
+
+        return resultText;
+
+      xhr.abort();
+
+    }
+
+  }
+
+  xhr.send();
+
+}
+
+function addRecord() {
+
+  var first_name = $("#first_name").val();
+  var last_name = $("#last_name").val();
+  var email = $("#email").val();
+
+  $.post("ajax/addRecord.php",
+    { first_name: first_name, last_name: last_name, email: email },
+
+      function (data, status) {
+        $("#add_new_record_modal").modal("hide");
+
+        readRecords();
+
+        $("#first_name").val("");
+        $("#last_name").val("");
+        $("#email").val("");
+      }
+
+  );
+
+}
+
+function readRecords() {
+alert(GetXMLHttpRequest("ajax/readRecords.php"));
+//var ret = GetXMLHttpRequest("ajax/readRecords.php");
+//  document.getElementsByClassName('records_content')[0].innerHTML = ret;
+
+}
+
+function DeleteUser(id) {
+
+  var conf = confirm("Are you sure, do you really want to delete User?");
+
+  if (conf == true) {
+    $.post("ajax/deleteUser.php", { id: id },
+
+      function (data, status) {
+        readRecords();
+      }
+
+    );
+
+  }
+
+}
+
+function GetUserDetails(id) {
+
+  $("#hidden_user_id").val(id);
+
+  $.post("ajax/readUserDetails.php", { id: id },
+
+    function (data, status) {
+      var user = JSON.parse(data);
+
+      $("#update_first_name").val(user.first_name);
+      $("#update_last_name").val(user.last_name);
+      $("#update_email").val(user.email);
+    }
+
+  );
+
+  $("#update_user_modal").modal("show");
+
+}
+
+function UpdateUserDetails() {
+
+  var first_name = $("#update_first_name").val();
+  var last_name = $("#update_last_name").val();
+  var email = $("#update_email").val();
+
+  var id = $("#hidden_user_id").val();
+
+  $.post("ajax/updateUserDetails.php",
+    { id: id, first_name: first_name, last_name: last_name, email: email },
+
+      function (data, status) {
+        $("#update_user_modal").modal("hide");
+
+        readRecords();
+      }
+
+  );
+
+}
+
+$(document).ready(function () {
+
+  readRecords();
+
+});
+
