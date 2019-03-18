@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 function addRecord() {
 
@@ -159,7 +159,6 @@ function ToggleModalDispStatus(modalId, status) {
 
       var modalBackdrop = document.createElement('div');
       modalBackdrop.classList.add("modal-backdrop");
-      modalBackdrop.classList.add("fade");
       modalBackdrop.classList.add("show");
       document.body.appendChild(modalBackdrop);
 
