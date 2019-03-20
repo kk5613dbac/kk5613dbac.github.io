@@ -1,0 +1,48 @@
+﻿body {
+  background: #EEE;
+  margin: 0;
+}
+
+/* jQuery List Swipe Example CSS */
+
+.item-list { overflow: hidden; }
+
+.item-list .item {
+  position: relative;
+  display: table;
+  width: 100%;
+  background: #FFF;
+  margin-top: 5px;
+}
+
+/*.item-list .item > div {
+  padding: 10px;
+}*/
+
+.item-list .item .action {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  top: 0;
+  border: 0;
+  color: #FFF;
+  outline: none;
+}
+
+.item-list .item .action:first-child::before, .item-list .item .action:last-child::before {
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 2000px;
+  height: 100%;
+}
+
+/*.item-list .item .action:first-child { left: -80px; }
+
+.item-list .item .action:first-child::before { right: 80px; }
+
+.item-list .item .action:last-child { right: -80px; }
+
+.item-list .item .action:last-child::before { left: 80px; }
+
+.item-list .item .action, .item-list .item .action::before { background: #E74C3C; }*/
