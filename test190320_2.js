@@ -14,7 +14,7 @@ window.addEventListener("load", function(event) {
         x = event.pageX - this.offsetLeft;
         y = event.pageY - this.offsetTop;
 
-        this.addEventListener("touchmove", tmove, { passive: false });
+        this.addEventListener("touchmove", tmove, { passive: true });
     }
 
     function tmove(e) {
