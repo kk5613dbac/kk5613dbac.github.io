@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8">
+<style>
+
+/* flex: [flex-grow] [flex-basis] */
+/* flexコンテナ内のflex-glowの合計数分、残った余白を配分 */
+/* app__info内は全3つとも均等に150px指定なので、全体幅930pxのうち余白は930-150x3=480px */
+/* 余白を1x3分割するので、480/3=160px、よって各150pxに160pxずつ上乗せするので310pxが3つ並んだ状態 */
+
+body {
+    margin: 0;
+}
+
+.app {
+  background: #f5f5f5;
+}
+
+.app__header {
+  background: #369ac9;
+  padding: 25px;
+}
+
+.app__info {
+
+  background: #FFFDFD;
+
+  display: flex;
+
+}
+
+.app__info > div {
+
+  flex: 1 150px;
+
+  text-align: center;
+  padding: 20px;
+
+  height: 120px;
+
+}
+
+.app__info p {
+  margin: 0;
+}
+
+.date {
+  background: linear-gradient(-155deg, #5883d3 0%, #3953a8 100%);
+  height: 100%;
+  color: white;
+}
+
+.date__num {
+  font-size: 45px;
+}
+
+.date__month {
+  font-size: 20px;
+}
+
+.display__title {
+  text-transform: uppercase;
+  color: #7C7C7C;
+}
+
+.display__total {
+  color: #0ad1b9;
+  font-size: 30px;
+  padding: 10px 0;
+}
+.display__total--exp {
+  color: #dd1839;
+}
+.display__total small {
+  display: block;
+  background: rgba(221, 24, 57, 0.5);
+  font-size: 12px;
+  padding: 5px;
+  color: #FFFDFD;
+}
+
+/* app__formは全体幅980px */
+/* app__form内は全4つとも均等に150px指定なので、全体幅のうち余白は980-350x4=-420px */
+/* 余白を1x4分割するので、-420/4=-105px、よって各150pxから105pxずつ差し引くので245pxが4つ並んだ状態 */
+
+/* FlexBox幅の合計が全体幅を超える場合、flex-wrapが有効ならば改行されるので、上の行は収まる3つのみで均等に3分割、 */
+/* 残りの1つは下の行で余白980-246x1=734pxを1x1分割するので、734/1=734px、よって各246pxに734px上乗せして980px1つでフィルした状態 */
+
+/* 2:2としたい場合は980/3=326.66...をわずかに超えればよいので、327を指定すればよい。 */
+/* ただし、メンテナンス性維持のため、正確に980/2=490とした方が好ましい。 */
+
+/* 最終的には全体幅はapp__formのパッディングを加味して980-25x2=930pxとして計算。各行のマージンやパッディングを省いて930-10x2-10-10x2=880pxおよびを930-10=920pxを2等分。 */
+/* それぞれ440px、460pxを指定するのが正解。 */
+
+.app__form {
+
+  margin: 10px 0;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  padding: 0 25px;
+
+}
+
+.app__form input {
+
+  display: block;
+
+  padding: 10px;
+
+  width: 100%;
+
+  border: none;
+
+  flex: 1 440px;
+
+  margin-bottom: 10px;
+
+}
+
+.app__form input:first-child {
+  margin-right: 10px;
+}
+.app__form input:focus {
+  outline: none;
+}
+.app__form button {
+
+  flex: 1 460px;
+
+  background: #0ad1b9;
+
+  border: none;
+
+  padding: 10px 0;
+
+  color: #FFFDFD;
+
+}
+
+.app__form button:not(:last-child) {
+  margin-right: 10px;
+}
+.app__form button:last-child {
+  background: #dd1839;
+}
+.app__form button:hover {
+  box-shadow: 0 5px 10px -2px rgba(19, 17, 18, 0.35);
+}
+.app__form button:focus {
+  outline: none;
+}
+
+.app__items {
+  padding: 10px 0;
+}
+.app__items--inner {
+  overflow-x: scroll;
+  height: 415px;
+}
+
+.item {
+  padding: 25px;
+  border-bottom: 1px solid #7C7C7C;
+  position: relative;
+}
+.item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.item:first-child {
+  border-top: 1px solid #7C7C7C;
+}
+.item:nth-child(even) {
+  background: #FFFDFD;
+}
+.item:before {
+  content: '';
+  width: 5px;
+  height: 100%;
+  background: #0ad1b9;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.item--exp:before {
+  background: #dd1839;
+}
+.item:hover .item__action button {
+  opacity: 1;
+}
+.item:hover .item__value,
+.item:hover .item__percentage {
+  -webkit-transform: translate(-25px);
+          transform: translate(-25px);
+}
+
+.item__desc {
+  float: left;
+}
+
+.item__right {
+  float: right;
+  text-align: right;
+  width: 150px;
+}
+
+.item__value {
+  float: right;
+  transition: -webkit-transform .35s ease;
+  transition: transform .35s ease;
+  transition: transform .35s ease, -webkit-transform .35s ease;
+  color: #0ad1b9;
+}
+.item--exp .item__value {
+  color: #dd1839;
+}
+
+.item__action button {
+  transition: all .25s ease;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1;
+  opacity: 0;
+  position: absolute;
+  right: 25px;
+}
+.item__action button:hover {
+  color: #dd1839;
+}
+.item__action button:focus {
+  outline: none;
+}
+
+.item__percentage {
+  float: left;
+  margin-left: 20px;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  font-size: 11px;
+  background-color: #FFDAD9;
+  padding: 3px;
+  border-radius: 3px;
+  width: 32px;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+  <div id="budgetApp" class="app">
+  <div class="app__header">
+    <div class="app__info">
+      <div class="date">
+        <p class="date__num">13</p>
+        <p class="date__month">May</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Income</p>
+        <p class="display__total display__total--inc">$4245.55</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Expense</p>
+        <p class="display__total display__total--exp">$540.00 <small>13%</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="app__form">
+    <input type="number" placeholder="$0.00">
+    <input type="text" placeholder="Description">
+    <button>Add Income</button>
+    <button>Add Expense</button>
+  </div>
+  <div class="app__items">
+    <div class="app__items--inner">
+
+      <div id="inc-0" class="item item--inc">
+        <div class="item__desc">Salary</div>
+        <div class="item__right">
+          <div class="item__value">4000</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-1" class="item item--exp">
+        <div class="item__desc">Car Payment</div>
+        <div class="item__right">
+          <div class="item__value">390</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-2" class="item item--inc">
+        <div class="item__desc">Garage Sale</div>
+        <div class="item__right">
+          <div class="item__value">245.55</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-3" class="item item--exp">
+        <div class="item__desc">Entertainment</div>
+        <div class="item__right">
+          <div class="item__value">150</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-3" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-4" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-5" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<template id="item">
+<div class="item" v-bind:id="type + '-' + id" v-bind:class="'item--' + type">
+<div class="item__desc">{{desc}}</div>
+<div class="item__right">
+<div class="item__value">{{value}}</div>
+<div class="item__action">
+<button class="item__delete" @click="$emit('remove')"><i class="fa fa-times-circle"></i></button>
+</div>
+</div>
+</div>
+</template>
+</body></html>
