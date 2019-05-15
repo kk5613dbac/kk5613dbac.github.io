@@ -1,17 +1,58 @@
 ﻿<!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
 <style>
-
-/* flex: [flex-grow] [flex-basis] */
-/* flexコンテナ内のflex-glowの合計数分、残った余白を配分 */
-/* app__info内は全3つとも均等に150px指定なので、全体幅930pxのうち余白は930-150x3=480px */
-/* 余白を1x3分割するので、480/3=160px、よって各150pxに160pxずつ上乗せするので310pxが3つ並んだ状態 */
+html {
+  height: 568px;
+}
 
 body {
-    margin: 0;
+  margin: 0;
 }
+
+#navbar {
+  background-color: #333;
+  position: fixed;
+
+  bottom:  0;
+
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+#navbar .buttongroup input {
+  display: none;
+}
+
+#navbar .buttongroup {
+  display: table-cell;
+  color: #f2f2f2;
+  text-align: center;
+}
+
+#navbar .buttongroup label {
+  display: block;
+  padding: 14px 16px;
+}
+
+#navbar .buttongroup input:checked + label {
+  background-color: #ed6b06;
+}
+
+.content {
+  padding: 0px 16px;
+  overflow-y: scroll;
+  height: 516px;
+}
+
+/* bodyから見て2番目のdivにcontentクラスが指定されている場合に適用 */
+.content:not(:nth-of-type(2)) {
+  display: none;
+}
+
+/* ************************************************** */
 
 .app {
   background: #f5f5f5;
@@ -145,7 +186,7 @@ body {
 }
 .app__items--inner {
   overflow-x: scroll;
-  height: 229px;
+  height: 361px;
 }
 
 .item {
@@ -243,7 +284,24 @@ body {
 </style>
 </head>
 <body>
-  <div id="budgetApp" class="app">
+
+<div id="navbar">
+  <div class="buttongroup">
+  <input id="budgetApp1" type="radio" name="buttongroup" checked="">
+  <label for="budgetApp1">Budget1</label>
+  </div>
+  <div class="buttongroup">
+  <input id="budgetApp2" type="radio" name="buttongroup">
+  <label for="budgetApp2">Budget2</label>
+  </div>
+  <div class="buttongroup">
+  <input id="contact" type="radio" name="buttongroup">
+  <label for="contact">Contact</label>
+  </div>
+  </div>
+</div>
+
+<div id="budgetApp1" class="content app">
   <div class="app__header">
     <div class="app__info">
       <div class="date">
@@ -259,12 +317,6 @@ body {
         <p class="display__total display__total--exp">$540.00 <small>13%</small></p>
       </div>
     </div>
-  </div>
-  <div class="app__form">
-    <input type="number" placeholder="$0.00">
-    <input type="text" placeholder="Description">
-    <button>Add Income</button>
-    <button>Add Expense</button>
   </div>
   <div class="app__items">
     <div class="app__items--inner">
@@ -339,18 +391,92 @@ body {
         </div>
       </div>
 
+      <div id="inc-6" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-7" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-8" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-9" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </div>
+      </div>
+
+      </div>
     </div>
   </div>
+</div>
 
-<template id="item">
-<div class="item" v-bind:id="type + '-' + id" v-bind:class="'item--' + type">
-<div class="item__desc">{{desc}}</div>
-<div class="item__right">
-<div class="item__value">{{value}}</div>
-<div class="item__action">
-<button class="item__delete" @click="$emit('remove')"><i class="fa fa-times-circle"></i></button>
+<div id="budgetApp2" class="content app">
+  <div class="app__form">
+    <input type="number" placeholder="$0.00">
+    <input type="text" placeholder="Description">
+    <button>Add Income</button>
+    <button>Add Expense</button>
+  </div>
 </div>
+
+<div id="contact" class="content">
+  <h3>Contact</h3>
+  <p>The navbar will stick to the top when you reach its scroll position.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
 </div>
-</div>
-</template>
-</body></html>
+
+<script>
+var radio = document.getElementById('navbar').getElementsByTagName('input');
+var len1 = radio.length;
+
+for (var i = 0; i < len1; i ++) {
+  radio[i].addEventListener('change', function() {
+    if (this.checked) {
+      var content = document.getElementsByClassName('content');
+      var len2 = content.length;
+
+      for (var j = 0; j < len2; j ++) {
+        if (content[j].id == this.id) {
+          content[j].style.display = 'block';
+        } else {
+          content[j].style.display = 'none';
+        }
+      }
+    }
+  }, false);
+}
+</script>
+
+</body>
+</html>
