@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,9 +64,18 @@ body {
 
   display: flex;
 
+  overflow-x: hidden;
+
 }
 
-.app__info > div {flex: 1 150px;text-align: center;padding: 20px;}
+.app__info > div {
+
+  flex: 1 150px;
+
+  text-align: center;
+  padding: 20px;
+
+}
 
 .app__info p {
   margin: 0;
@@ -179,7 +188,7 @@ body {
 }
 .app__items--inner {
   overflow-x: scroll;
-  height: 361px;
+  height: 272px;
 }
 
 .item {
@@ -274,6 +283,77 @@ body {
   text-align: center;
 }
 
+/*  */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel > ul {
+  width: 864px;
+  display: table;
+  table-layout: fixed;
+}
+
+.carousel > ul > li {
+  display: table-cell;
+  text-align: center;
+  height: 200px;
+  vertical-align: middle;
+  width: 288px;
+}
+
+.carousel > ul > li:nth-child(1) {
+  padding-right: 16px;
+  background: #cff;
+}
+
+.carousel > ul > li:nth-child(2) {
+  padding: 0 16px;
+  background: #ffc;
+}
+
+.carousel > ul > li:nth-child(3) {
+  padding-left: 16px;
+  background: #fcf;
+}
+
+.nav {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.nav > li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.nav > li.active {
+  background: #999;
+}
+
+.carousel > ul {
+  transition: transform 0.3s;
+}
+ 
+.carousel > ul.pos1 {
+  transform: translateX(0);
+}
+ 
+.carousel > ul.pos2 {
+  transform: translateX(-320px);
+}
+ 
+.carousel > ul.pos3 {
+  transform: translateX(-640px);
+}
 </style>
 </head>
 <body>
@@ -295,22 +375,17 @@ body {
 </div>
 
 <div id="budgetApp1" class="content app">
+
   <div class="app__header">
-    <div class="app__info">
-      <div class="date">
-        <p class="date__num">13</p>
-        <p class="date__month">May</p>
-      </div>
-      <div class="display">
-        <p class="display__title">Income</p>
-        <p class="display__total display__total--inc">$4245.55</p>
-      </div>
-      <div class="display">
-        <p class="display__title">Expense</p>
-        <p class="display__total display__total--exp">$540.00 <small>13%</small></p>
-      </div>
+    <div class="app__info carousel">
+  <ul>
+    <li>swipe 1</li>
+    <li>swipe 2</li>
+    <li>swipe 3</li>
+  </ul>
     </div>
   </div>
+
   <div class="app__items">
     <div class="app__items--inner">
 
@@ -469,6 +544,55 @@ for (var i = 0; i < len1; i ++) {
     }
   }, false);
 }
+
+function setSwipe(elem) {
+  var t = document.querySelector(elem);
+  var tc = document.querySelector(elem + '> ul');
+  var len = document.querySelectorAll(elem + '> ul > li').length;
+  var startX;
+  var startY;
+  var moveX;
+  var moveY;
+  var dist = 30;
+  var pos = 1;
+  var nav = document.createElement('ul');
+  nav.className = 'nav';
+  for (var i = 0; i < len; i++) {
+    var li = document.createElement('li');
+    if (i === 0) {
+      li.className = 'active';
+    }
+    nav.appendChild(li);
+  }
+  t.parentNode.insertBefore(nav, t.nextElementSibling);
+  var navLi = document.querySelectorAll('.nav > li');
+
+  /* ************************************************** */
+
+  t.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    startX = e.touches[0].pageX;
+    startY = e.touches[0].pageY;
+  });
+
+  t.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    moveX = e.changedTouches[0].pageX;
+    moveY = e.changedTouches[0].pageY;
+  });
+
+  t.addEventListener('touchend', function(e) {
+    navLi[pos - 1].classList.remove('active');
+    if (moveX - startX < -dist && pos < len) {
+      pos++;
+    } else if (moveX - startX > dist && pos > 1) {
+      pos--;
+    }
+    tc.className = 'pos' + pos;
+    navLi[pos - 1].classList.add('active');
+  });
+}
+setSwipe('.carousel');
 </script>
 
 </body>
