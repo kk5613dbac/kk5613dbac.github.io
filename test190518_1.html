@@ -643,6 +643,7 @@ function setSwipe(elem) {
   });
 }
 setSwipe('.carousel');
+function test() {
   document.addEventListener('click', function(e) {
     if (!(e.target.closest('.app__items--inner'))) {
       alert('click領域外');
@@ -657,6 +658,8 @@ setSwipe('.carousel');
       alert('touch領域内');
     }
   });
+}
+test();
 </script>
 
 </body>
