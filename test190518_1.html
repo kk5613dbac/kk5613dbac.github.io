@@ -1,0 +1,663 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  height: 568px;
+}
+
+body {
+  margin: 0;
+}
+
+#navbar {
+  background-color: #333;
+  position: fixed;
+  bottom:  0;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+#navbar .buttongroup input {
+  display: none;
+}
+
+#navbar .buttongroup {
+  display: table-cell;
+  color: #f2f2f2;
+  text-align: center;
+}
+
+#navbar .buttongroup label {
+  display: block;
+  padding: 14px 16px;
+}
+
+#navbar .buttongroup input:checked + label {
+  background-color: #ed6b06;
+}
+
+.content {
+  padding: 0px 16px;
+  overflow-y: scroll;
+  height: 516px;
+}
+
+/* bodyから見て2番目のdivにcontentクラスが指定されている場合に適用 */
+.content:not(:nth-of-type(2)) {
+  display: none;
+}
+
+/* ************************************************** */
+
+.app {
+  background: #f5f5f5;
+}
+
+.app__info {
+
+  background: #FFFDFD;
+
+  overflow-x: hidden;
+
+}
+
+.app__info .slide {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app__info .slide > div:first-of-type {
+  flex: 1 268px;
+}
+
+.app__info .slide > div:not(:first-of-type) {
+  flex: 1 124px;
+}
+
+.app__info .slide > div {
+
+  text-align: center;
+  padding: 10px;
+
+}
+
+.app__info .slide p {
+  margin: 0;
+}
+
+.date {
+  background: linear-gradient(-155deg, #5883d3 0%, #3953a8 100%);
+  height: 100%;
+  color: white;
+}
+
+.date__num {
+  font-size: 22.5px;
+}
+
+.date__month {
+  font-size: 10px;
+}
+
+.display__title {
+  color: #7C7C7C;
+}
+
+.display__total {
+  color: #0ad1b9;
+  font-size: 15px;
+  padding: 10px 0;
+}
+.display__total--exp {
+  color: #dd1839;
+}
+.display__total small {
+  display: block;
+  background: rgba(221, 24, 57, 0.5);
+  font-size: 12px;
+  padding: 5px;
+  color: #FFFDFD;
+}
+
+/* app__formは全体幅980px */
+/* app__form内は全4つとも均等に150px指定なので、全体幅のうち余白は980-350x4=-420px */
+/* 余白を1x4分割するので、-420/4=-105px、よって各150pxから105pxずつ差し引くので245pxが4つ並んだ状態 */
+
+/* FlexBox幅の合計が全体幅を超える場合、flex-wrapが有効ならば改行されるので、上の行は収まる3つのみで均等に3分割、 */
+/* 残りの1つは下の行で余白980-246x1=734pxを1x1分割するので、734/1=734px、よって各246pxに734px上乗せして980px1つでフィルした状態 */
+
+/* 2:2としたい場合は980/3=326.66...をわずかに超えればよいので、327を指定すればよい。 */
+/* ただし、メンテナンス性維持のため、正確に980/2=490とした方が好ましい。 */
+
+/* 最終的には全体幅はapp__formのパッディングを加味して980-25x2=930pxとして計算。各行のマージンやパッディングを省いて930-10x2-10-10x2=880pxおよびを930-10=920pxを2等分。 */
+/* それぞれ440px、460pxを指定するのが正解。 */
+
+.app__form {
+
+  margin: 10px 0;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  padding: 0 25px;
+
+}
+
+.app__form input {
+
+  display: block;
+
+  padding: 10px;
+
+  width: 100%;
+
+  border: none;
+
+  flex: 1 440px;
+
+  margin-bottom: 10px;
+
+}
+
+.app__form input:focus {
+  outline: none;
+}
+.app__form button {
+
+  flex: 1 460px;
+
+  background: #0ad1b9;
+
+  border: none;
+
+  padding: 10px 0;
+
+  color: #FFFDFD;
+
+}
+
+.app__form button:last-child {
+  background: #dd1839;
+}
+.app__form button:hover {
+  box-shadow: 0 5px 10px -2px rgba(19, 17, 18, 0.35);
+}
+.app__form button:focus {
+  outline: none;
+}
+
+.app__items {
+  padding: 10px 0;
+}
+.app__items--inner {
+  overflow-x: scroll;
+  height: 272px;
+}
+
+.item {
+  padding: 12.5px;
+  border-bottom: 1px solid #7C7C7C;
+  position: relative;
+}
+.item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.item:first-child {
+  border-top: 1px solid #7C7C7C;
+}
+.item:nth-child(even) {
+  background: #FFFDFD;
+}
+.item:before {
+  content: '';
+  width: 5px;
+  height: 100%;
+  background: #0ad1b9;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.item--exp:before {
+  background: #dd1839;
+}
+.item:hover .item__action button {
+  opacity: 1;
+}
+.item:hover .item__value,
+.item:hover .item__percentage {
+  -webkit-transform: translate(-70px);
+          transform: translate(-70px);
+}
+
+.item__desc {
+  float: left;
+}
+
+.item__right {
+  float: right;
+  text-align: right;
+  width: 150px;
+}
+
+.item__value {
+  float: right;
+  transition: -webkit-transform .35s ease;
+  transition: transform .35s ease;
+  transition: transform .35s ease, -webkit-transform .35s ease;
+  color: #0ad1b9;
+}
+.item--exp .item__value {
+  color: #dd1839;
+}
+.item__action button {
+  transition: all .25s ease;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1;
+  opacity: 0;
+  position: absolute;
+  padding: 1px 0;
+  right: 12.5px;
+  background-color: #ff0000;
+}
+.item__action button:hover {
+  color: #dd1839;
+}
+.item__action button:focus {
+  outline: none;
+}
+
+.item__percentage {
+  float: left;
+  margin-left: 20px;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  font-size: 11px;
+  background-color: #FFDAD9;
+  padding: 3px;
+  border-radius: 3px;
+  width: 32px;
+  text-align: center;
+}
+
+/*  */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel > ul {
+  width: 864px;
+  display: table;
+  table-layout: fixed;
+}
+
+.carousel > ul > li {
+  display: table-cell;
+  text-align: center;
+  height: 135px;
+  vertical-align: middle;
+  width: 288px;
+}
+
+.carousel > ul > li:nth-child(1) {
+  background: #cff;
+}
+
+.carousel > ul > li:nth-child(2) {
+  background: #ffc;
+}
+
+.carousel > ul > li:nth-child(3) {
+  background: #fcf;
+}
+
+.nav {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.nav > li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.nav > li.active {
+  background: #999;
+}
+
+.carousel > ul {
+  transition: transform 0.3s;
+}
+ 
+.carousel > ul.pos1 {
+  transform: translateX(0);
+}
+ 
+.carousel > ul.pos2 {
+  transform: translateX(-288px);
+}
+ 
+.carousel > ul.pos3 {
+  transform: translateX(-576px);
+}
+</style>
+</head>
+<body>
+
+<div id="navbar">
+  <div class="buttongroup">
+  <input id="budgetApp1" type="radio" name="buttongroup" checked="">
+  <label for="budgetApp1">Budget1</label>
+  </div>
+  <div class="buttongroup">
+  <input id="budgetApp2" type="radio" name="buttongroup">
+  <label for="budgetApp2">Budget2</label>
+  </div>
+  <div class="buttongroup">
+  <input id="contact" type="radio" name="buttongroup">
+  <label for="contact">Contact</label>
+  </div>
+  </div>
+</div>
+
+<div id="budgetApp1" class="content app">
+
+  <div class="app__header">
+    <div class="app__info carousel">
+  <ul>
+    <li>
+    <div class="slide">
+      <div class="date">
+        <p class="date__num">13</p>
+        <p class="date__month">May</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Income</p>
+        <p class="display__total display__total--inc">$4245.55</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Expense</p>
+        <p class="display__total display__total--exp">$540.00 <small>13%</small></p>
+      </div>
+    </div>
+    </li>
+    <li>
+    <div class="slide">
+      <div class="date">
+        <p class="date__num">13</p>
+        <p class="date__month">May</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Income</p>
+        <p class="display__total display__total--inc">$4245.55</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Expense</p>
+        <p class="display__total display__total--exp">$540.00 <small>13%</small></p>
+      </div>
+    </div>
+    </li>
+    <li>
+    <div class="slide">
+      <div class="date">
+        <p class="date__num">13</p>
+        <p class="date__month">May</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Income</p>
+        <p class="display__total display__total--inc">$4245.55</p>
+      </div>
+      <div class="display">
+        <p class="display__title">Expense</p>
+        <p class="display__total display__total--exp">$540.00 <small>13%</small></p>
+      </div>
+    </div>
+    </li>
+  </ul>
+    </div>
+  </div>
+
+  <div class="app__items">
+    <div class="app__items--inner">
+
+      <div id="inc-0" class="item item--inc">
+        <div class="item__desc">Salary</div>
+        <div class="item__right">
+          <div class="item__value">4000</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-1" class="item item--exp">
+        <div class="item__desc">Car Payment</div>
+        <div class="item__right">
+          <div class="item__value">390</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-2" class="item item--inc">
+        <div class="item__desc">Garage Sale</div>
+        <div class="item__right">
+          <div class="item__value">245.55</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-3" class="item item--exp">
+        <div class="item__desc">Entertainment</div>
+        <div class="item__right">
+          <div class="item__value">150</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-3" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-4" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-5" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-6" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-7" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-8" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inc-9" class="item item--inc">
+        <div class="item__desc">Dummy</div>
+        <div class="item__right">
+          <div class="item__value">0</div>
+          <div class="item__action">
+            <button class="item__delete">DELETE</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="budgetApp2" class="content app">
+  <div class="app__form">
+    <input type="number" placeholder="$0.00">
+    <input type="text" placeholder="Description">
+    <button>Add Income</button>
+    <button>Add Expense</button>
+  </div>
+</div>
+
+<div id="contact" class="content">
+  <h3>Contact</h3>
+  <p>The navbar will stick to the top when you reach its scroll position.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
+
+<script>
+var radio = document.getElementById('navbar').getElementsByTagName('input');
+var len1 = radio.length;
+
+for (var i = 0; i < len1; i ++) {
+  radio[i].addEventListener('change', function() {
+    if (this.checked) {
+      var content = document.getElementsByClassName('content');
+      var len2 = content.length;
+
+      for (var j = 0; j < len2; j ++) {
+        if (content[j].id == this.id) {
+          content[j].style.display = 'block';
+        } else {
+          content[j].style.display = 'none';
+        }
+      }
+    }
+  }, false);
+}
+
+function setSwipe(elem) {
+  var t = document.querySelector(elem);
+  var tc = document.querySelector(elem + '> ul');
+  var len = document.querySelectorAll(elem + '> ul > li').length;
+  var startX;
+  var startY;
+  var moveX;
+  var moveY;
+  var dist = 30;
+  var pos = 1;
+  var nav = document.createElement('ul');
+  nav.className = 'nav';
+  for (var i = 0; i < len; i++) {
+    var li = document.createElement('li');
+    if (i === 0) {
+      li.className = 'active';
+    }
+    nav.appendChild(li);
+  }
+  t.parentNode.insertBefore(nav, t.nextElementSibling);
+  var navLi = document.querySelectorAll('.nav > li');
+
+  /* ************************************************** */
+
+  t.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    startX = e.touches[0].pageX;
+    startY = e.touches[0].pageY;
+  });
+
+  t.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    moveX = e.changedTouches[0].pageX;
+    moveY = e.changedTouches[0].pageY;
+  });
+
+  t.addEventListener('touchend', function(e) {
+    navLi[pos - 1].classList.remove('active');
+    if (moveX - startX < -dist && pos < len) {
+      pos++;
+    } else if (moveX - startX > dist && pos > 1) {
+      pos--;
+    }
+    tc.className = 'pos' + pos;
+    navLi[pos - 1].classList.add('active');
+  });
+}
+setSwipe('.carousel');
+  document.body.addEventListener('click', function(e) {
+    if (!(e.target.closest('.app__items--inner'))) {
+      alert('click領域外');
+    } else {
+      alert('click領域内');
+    }
+  });
+  document.body.addEventListener('touchend', function(e) {
+    if (!(e.target.closest('.app__items--inner'))) {
+      alert('touchend領域外');
+    } else {
+      alert('touchend領域内');
+    }
+  });
+</script>
+
+</body>
+</html>
