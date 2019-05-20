@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -650,7 +650,7 @@ setSwipe('.carousel');
       alert('click領域内');
     }
   });
-  document.body.addEventListener('touchend', function(e) {
+  document.body.addEventListener('touchstart', function(e) {
     if (!(e.target.closest('.app__items--inner'))) {
       alert('touchend領域外');
     } else {
