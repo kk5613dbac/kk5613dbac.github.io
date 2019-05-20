@@ -652,6 +652,7 @@ function test() {
     }
   },false);
   document.addEventListener('touchstart', function(e) {
+e.preventDefault();
     if (!(e.target.closest('.app__items--inner'))) {
       alert('touch領域外');
     } else {
