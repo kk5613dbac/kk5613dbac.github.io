@@ -650,7 +650,7 @@ function test() {
     } else {
       alert('click領域内');
     }
-  },false);
+  },true);
   document.addEventListener('touchstart', function(e) {
 e.preventDefault();
     if (!(e.target.closest('.app__items--inner'))) {
@@ -658,7 +658,7 @@ e.preventDefault();
     } else {
       alert('touch領域内');
     }
-  },false);
+  },true);
 }
 test();
 </script>
