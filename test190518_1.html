@@ -652,7 +652,7 @@ function testSwipe(elem) {
     } else {
       alert('touch領域内');
     }*/
-alert('touched');
+setTimeout(function(){ alert('touched'); }, 0);
   }, false);
 }
 testSwipe('.content');
