@@ -595,7 +595,7 @@ for (var i = 0; i < len1; i ++) {
   }, false);
 }
 
-function setSwipe(elem) {
+/*function setSwipe(elem) {
   var t = document.querySelector(elem);
   var tc = document.querySelector(elem + '> ul');
   var len = document.querySelectorAll(elem + '> ul > li').length;
@@ -615,11 +615,11 @@ function setSwipe(elem) {
     nav.appendChild(li);
   }
   t.parentNode.insertBefore(nav, t.nextElementSibling);
-  var navLi = document.querySelectorAll('.nav > li');
+  var navLi = document.querySelectorAll('.nav > li');*/
 
   /* ************************************************** */
 
-  t.addEventListener('touchstart', function(e) {
+/*  t.addEventListener('touchstart', function(e) {
     e.preventDefault();
     startX = e.touches[0].pageX;
     startY = e.touches[0].pageY;
@@ -642,7 +642,7 @@ function setSwipe(elem) {
     navLi[pos - 1].classList.add('active');
   });
 }
-setSwipe('.carousel');
+setSwipe('.carousel');*/
 function testSwipe(elem) {
   var t = document.querySelector(elem);
   t.addEventListener('touchend', function(e) {
