@@ -676,6 +676,9 @@ function testSwipe(elem) {
   }, true);
 }
 testSwipe('.content');
+  window.addEventListener('resize', function(e) {
+alert('resize');
+  }, true);
 </script>
 
 </body>
