@@ -644,8 +644,8 @@ for (var i = 0; i < len1; i ++) {
 }
 setSwipe('.carousel');*/
 function testSwipe(elem) {
-/*  var t = document.querySelector(elem);*/
-  document.getElementById('budgetApp1').addEventListener('touchend', function(e) {
+  var t = document.querySelector(elem);
+  t.addEventListener('touchend', function(e) {
     e.preventDefault();
 /*    if (!(e.target.closest('.item'))) {
       alert('touch領域外');
