@@ -619,17 +619,17 @@ for (var i = 0; i < len1; i ++) {
 
   /* ************************************************** */
 
-/*  t.addEventListener('touchstart', function(e) {
+  t.addEventListener('touchstart', function(e) {
     e.preventDefault();
     startX = e.touches[0].pageX;
     startY = e.touches[0].pageY;
-  });
+  }, false);
 
   t.addEventListener('touchmove', function(e) {
     e.preventDefault();
     moveX = e.changedTouches[0].pageX;
     moveY = e.changedTouches[0].pageY;
-  });
+  }, false);
 
   t.addEventListener('touchend', function(e) {
     navLi[pos - 1].classList.remove('active');
@@ -640,19 +640,23 @@ for (var i = 0; i < len1; i ++) {
     }
     tc.className = 'pos' + pos;
     navLi[pos - 1].classList.add('active');
-  });
+  }, false);
 }
-setSwipe('.carousel');*/
+setSwipe('.carousel');
 function testSwipe(elem) {
   var t = document.querySelector(elem);
   t.addEventListener('touchend', function(e) {
     e.preventDefault();
-/*    if (!(e.target.closest('.item'))) {
-      alert('touch領域外');
+    if (!(e.target.closest('.app__items--inner'))) {
+      /* touchendでのalertは干渉で遅延するので、setTimeoutでの非同期化が必要（0s指定） */
+      setTimeout(function() {
+                   alert('touch領域外');
+                 }, 0);
     } else {
-      alert('touch領域内');
-    }*/
-setTimeout(function(){ alert('touched'); }, 0);
+      setTimeout(function(){
+                   alert('touch領域内');
+                 }, 0);
+    }
   }, false);
 }
 testSwipe('.content');
