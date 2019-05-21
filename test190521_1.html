@@ -653,19 +653,16 @@ function testSwipe(elem) {
   var d;
   /* touchstartでmoveX、Yを初期化 */
   t.addEventListener('touchstart', function(e) {
-    e.preventDefault();
     moveX=undefined;
     moveY=undefined;
   }, true);
   /* touchmoveはスワイプ時のみ値を変更 */
   t.addEventListener('touchmove', function(e) {
-    e.preventDefault();
     moveX = e.changedTouches[0].pageX;
     moveY = e.changedTouches[0].pageY;
   }, true);
   /* touchendで値がある場合のみ処理 */
   t.addEventListener('touchend', function(e) {
-    e.preventDefault();
     if (moveX == undefined && moveY == undefined) {
       if (!(e.target.closest('.app__items--inner'))) {
         /* touchendでのalertは干渉で遅延するので、setTimeoutでの非同期化が必要（0s指定） */
