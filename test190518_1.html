@@ -644,16 +644,16 @@ function setSwipe(elem) {
 }
 setSwipe('.carousel');
 function testSwipe(elem) {
-/*  var t = document.querySelector(elem);
+/*  var t = document.querySelector(elem);*/
   t.addEventListener('touchend', function(e) {
     e.preventDefault();
-    if (!(e.target.closest('.item'))) {
+/*    if (!(e.target.closest('.item'))) {
       alert('touch領域外');
     } else {
       alert('touch領域内');
-    }
+    }*/
+    alert('touched');
   });*/
-  alert('touched');
 }
 testSwipe('.content');
 </script>
