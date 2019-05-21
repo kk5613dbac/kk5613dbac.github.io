@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 html {
-  height: 568px;
+  height: 100vh;/* 568px */
 }
 
 body {
@@ -42,7 +42,7 @@ body {
 .content {
   padding: 0px 16px;
   overflow-y: scroll;
-  height: 516px;
+  height: calc(100vh - 52px);
 }
 
 /* bodyから見て2番目のdivにcontentクラスが指定されている場合に適用 */
@@ -195,7 +195,7 @@ body {
 }
 .app__items--inner {
   overflow-x: scroll;
-  height: 272px;
+  height: calc(100vh - 280px);/* 208px - 10px -10px -52px = 280px */
 }
 
 .item {
@@ -677,7 +677,6 @@ function testSwipe(elem) {
 }
 testSwipe('.content');
   window.addEventListener('resize', function(e) {
-alert(window.innerHeight);
   }, true);
 </script>
 
