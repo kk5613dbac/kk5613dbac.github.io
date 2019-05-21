@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -643,24 +643,18 @@ function setSwipe(elem) {
   });
 }
 setSwipe('.carousel');
-function test() {
-  document.addEventListener('click', function(e) {
-    if (!(e.target.closest('.app__items--inner'))) {
-      alert('click領域外');
-    } else {
-      alert('click領域内');
-    }
-  },true);
-  document.addEventListener('touchstart', function(e) {
-e.preventDefault();
-    if (!(e.target.closest('.app__items--inner'))) {
+function testSwipe(elem) {
+  var t = document.querySelector(elem);
+  t.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    if (!(e.target.closest('.item'))) {
       alert('touch領域外');
     } else {
       alert('touch領域内');
     }
-  },true);
+  });
 }
-test();
+testSwipe('.content');
 </script>
 
 </body>
