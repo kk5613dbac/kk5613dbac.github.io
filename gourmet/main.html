@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>【9/16 - 9/18】食事候補一覧</title>
+<title>【11/22 - 11/25】食事候補一覧</title>
 <script src="js/jquery.min.js"></script>
 <link rel="stylesheet" href="css/styles-acd5.css">
 <script src="js/acd4.js"></script>
@@ -13,6 +13,8 @@
 // shopNameURL = 店名に付加されたURL
 // shopName = 店名のテキスト
 // shopDescription = 店の紹介文テキスト
+// 構文テンプレート：
+//								<li><a href="javascript:changeContents('画像ファイル名','URL','URL(同値)','店名','概要文');">【地名】店名</a></li>
 
 function changeContents(imageName,imgURL,shopNameURL,shopName,shopDescription) {
   if(document.getElementById("img_link_id01").hasAttribute("href") == false) {
@@ -36,7 +38,7 @@ function changeContents(imageName,imgURL,shopNameURL,shopName,shopDescription) {
 
 <div id="wrap">
 	<header id="header">
-		<h1 class="site-title">【9/16 - 9/18】食事候補一覧</h1>
+		<h1 class="site-title">【11/22 - 11/25】食事候補一覧</h1>
 	</header>
 	<div id="contents">
 		<div>
@@ -46,10 +48,10 @@ function changeContents(imageName,imgURL,shopNameURL,shopName,shopDescription) {
 						<dt>ステーキ系</dt>
 						<dd>
 							<ul>
-								<li><a href="javascript:changeContents('gubs.png','https://s.tabelog.com/tokyo/A1323/A132301/13193644/','https://s.tabelog.com/tokyo/A1323/A132301/13193644/','TOKYO ステーキ丼 ガブス','¥1,000以下のステーキ丼');">【本駒込】TOKYO ステーキ丼 ガブス</a></li>
-								<li><a href="javascript:changeContents('steaktei.png','https://s.tabelog.com/tokyo/A1301/A130103/13130315/','https://s.tabelog.com/tokyo/A1301/A130103/13130315/','すてーき亭','120g ¥500台のステーキ。400gにしても¥1,500前後のコスパ高な店。');">【新橋】すてーき亭</a></li>
-								<li><a href="javascript:changeContents('denver.jpg','https://s.tabelog.com/tokyo/A1304/A130404/13155924/','https://s.tabelog.com/tokyo/A1304/A130404/13155924/','デンバープレミアム','ガブスと類似だが、サラダとスープが付くので多少おトク。50g ¥200単位で自由に肉増し可。');">【西新宿】デンバープレミアム</a></li>
-								<li><a href="javascript:changeContents('oono.jpg','https://s.tabelog.com/tokyo/A1310/A131001/13187964/','https://s.tabelog.com/tokyo/A1310/A131001/13187964/','ローストビーフ 大野','塔状に盛り付けた米飯にローストビーフを巻きつけるように被せた丼が人気。');">【秋葉原】ローストビーフ 大野</a></li><li><a href="javascript:changeContents('gutsgr.jpg','https://s.tabelog.com/tokyo/A1304/A130401/13011990/','https://s.tabelog.com/tokyo/A1304/A130401/13011990/','ガッツ・グリル','ランチ限定の弾丸ステーキ（ハラミ）200g ¥950はコスパ高。300gでも¥1,250。写真は300g。');">【西新宿】ガッツ・グリル</a></li><li><a href="javascript:changeContents('tokyotonteki.jpg','https://s.tabelog.com/tokyo/A1310/A131001/13189418/','https://s.tabelog.com/tokyo/A1310/A131001/13189418/','東京トンテキ','極厚なのに柔らかく食べ応えのあるトンテキを定食でいただける。ニンニクベースの濃いめのタレがポイント。');">【秋葉原】東京トンテキ</a></li>
+								<li><a href="javascript:changeContents('gubs.png','https://s.tabelog.com/tokyo/A1323/A132301/13193644/','https://s.tabelog.com/tokyo/A1323/A132301/13193644/','TOKYO ステーキ丼 ガブス','\1,000以下のステーキ丼');">【本駒込】TOKYO ステーキ丼 ガブス</a></li>
+								<li><a href="javascript:changeContents('steaktei.png','https://s.tabelog.com/tokyo/A1301/A130103/13130315/','https://s.tabelog.com/tokyo/A1301/A130103/13130315/','すてーき亭','120g \500台のステーキ。400gにしても\1,500前後のコスパ高な店。');">【新橋】すてーき亭</a></li>
+								<li><a href="javascript:changeContents('denver.jpg','https://s.tabelog.com/tokyo/A1304/A130404/13155924/','https://s.tabelog.com/tokyo/A1304/A130404/13155924/','デンバープレミアム','ガブスと類似だが、サラダとスープが付くので多少おトク。50g \200単位で自由に肉増し可。');">【西新宿】デンバープレミアム</a></li>
+								<li><a href="javascript:changeContents('oono.jpg','https://s.tabelog.com/tokyo/A1310/A131001/13187964/','https://s.tabelog.com/tokyo/A1310/A131001/13187964/','ローストビーフ 大野','塔状に盛り付けた米飯にローストビーフを巻きつけるように被せた丼が人気。');">【秋葉原】ローストビーフ 大野</a></li><li><a href="javascript:changeContents('gutsgr.jpg','https://s.tabelog.com/tokyo/A1304/A130401/13011990/','https://s.tabelog.com/tokyo/A1304/A130401/13011990/','ガッツ・グリル','ランチ限定の弾丸ステーキ（ハラミ）200g \950はコスパ高。300gでも\1,250。写真は300g。');">【西新宿】ガッツ・グリル</a></li><li><a href="javascript:changeContents('tokyotonteki.jpg','https://s.tabelog.com/tokyo/A1310/A131001/13189418/','https://s.tabelog.com/tokyo/A1310/A131001/13189418/','東京トンテキ','極厚なのに柔らかく食べ応えのあるトンテキを定食でいただける。ニンニクベースの濃いめのタレがポイント。');">【秋葉原】東京トンテキ</a></li>
 							</ul>
 						</dd>
 					</dl>
@@ -75,9 +77,27 @@ function changeContents(imageName,imgURL,shopNameURL,shopName,shopDescription) {
 						<dt>海鮮丼系</dt>
 						<dd>
 							<ul>
-								<li><a href="javascript:changeContents('noguchisengyoten.png','https://s.tabelog.com/tokyo/A1312/A131203/13103727/','https://s.tabelog.com/tokyo/A1312/A131203/13103727/','野口鮮魚店','¥1,400〜¥2,000の範囲で特盛りはみ出しレベルの海鮮丼を堪能出来る。');">【本所吾妻橋】野口鮮魚店</a></li>
-								<li><a href="javascript:changeContents('takamarusengyo.png','https://s.tabelog.com/tokyo/A1304/A130401/13100664/','https://s.tabelog.com/tokyo/A1304/A130401/13100664/','タカマル鮮魚店','ランチの¥1,000定食を始め、大盛り海鮮丼も種類豊富。');">【西新宿】タカマル鮮魚店</a></li>
-								<li><a href="javascript:changeContents('taikochaya.jpg','https://s.tabelog.com/tokyo/A1311/A131103/13008008/','https://s.tabelog.com/tokyo/A1311/A131103/13008008/','たいこ茶屋','ランチ限定の刺身食い放題50分¥1,200がある。半沢直樹のロケ地で有名');">【浅草橋／馬喰町】たいこ茶屋</a></li><li><a href="javascript:changeContents('tsujihan.png','https://s.tabelog.com/tokyo/A1302/A130202/13146590/','https://s.tabelog.com/tokyo/A1302/A130202/13146590/','つじ半','ランチ限定のぜいたく丼¥1,000が絶品。付け合わせの刺身を数切れ残して上に乗せ、鯛ダシをかけて雑炊にして〆る。料亭のまかない的なメニューなのでハイレベル。');">【日本橋】つじ半</a></li><li><a href="javascript:changeContents('saitou.png','https://www.google.co.jp/amp/s/s.tabelog.com/tokyo/A1311/A131104/13022559/top_amp/','https://www.google.co.jp/amp/s/s.tabelog.com/tokyo/A1311/A131104/13022559/top_amp/','さいとう','ランチ限定の海鮮丼 ¥1,050は具が多過ぎるため丼ぶりが平皿となっており、コスパという点では最強と思われる。具は何故か寿司が数カン含まれている。');">【入谷】さいとう</a></li>
+								<li><a href="javascript:changeContents('noguchisengyoten.png','https://s.tabelog.com/tokyo/A1312/A131203/13103727/','https://s.tabelog.com/tokyo/A1312/A131203/13103727/','野口鮮魚店','\1,400?\2,000の範囲で特盛りはみ出しレベルの海鮮丼を堪能出来る。');">【本所吾妻橋】野口鮮魚店</a></li>
+								<li><a href="javascript:changeContents('takamarusengyo.png','https://s.tabelog.com/tokyo/A1304/A130401/13100664/','https://s.tabelog.com/tokyo/A1304/A130401/13100664/','タカマル鮮魚店','ランチの\1,000定食を始め、大盛り海鮮丼も種類豊富。');">【西新宿】タカマル鮮魚店</a></li>
+								<li><a href="javascript:changeContents('taikochaya.jpg','https://s.tabelog.com/tokyo/A1311/A131103/13008008/','https://s.tabelog.com/tokyo/A1311/A131103/13008008/','たいこ茶屋','ランチ限定の刺身食い放題50分\1,200がある。半沢直樹のロケ地で有名');">【浅草橋／馬喰町】たいこ茶屋</a></li><li><a href="javascript:changeContents('tsujihan.png','https://s.tabelog.com/tokyo/A1302/A130202/13146590/','https://s.tabelog.com/tokyo/A1302/A130202/13146590/','つじ半','ランチ限定のぜいたく丼\1,000が絶品。付け合わせの刺身を数切れ残して上に乗せ、鯛ダシをかけて雑炊にして〆る。料亭のまかない的なメニューなのでハイレベル。');">【日本橋】つじ半</a></li><li><a href="javascript:changeContents('saitou.png','https://www.google.co.jp/amp/s/s.tabelog.com/tokyo/A1311/A131104/13022559/top_amp/','https://www.google.co.jp/amp/s/s.tabelog.com/tokyo/A1311/A131104/13022559/top_amp/','さいとう','ランチ限定の海鮮丼 \1,050は具が多過ぎるため丼ぶりが平皿となっており、コスパという点では最強と思われる。具は何故か寿司が数カン含まれている。');">【入谷】さいとう</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>カレー系</dt>
+						<dd>
+							<ul>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>パスタ系</dt>
+						<dd>
+							<ul>
 							</ul>
 						</dd>
 					</dl>
