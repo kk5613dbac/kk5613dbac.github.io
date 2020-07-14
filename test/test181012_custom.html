@@ -1,0 +1,715 @@
+﻿<!DOCTYPE HTML>
+<html lang="ja-JP">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>カードコンポーネントによるアコーディオン(Ver.4系)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function(){
+detectBrowserType();
+makeTable();
+    $('.accordion #target1').load('template.html', null, function(response, status) {
+      $(this).children('.card').attr('data-paymentsId', 'P00000001');
+      $(this).find('.card-header').attr('id', 'headingOne');
+      $(this).find('.collapse').attr('aria-labelledby', 'headingOne');
+      $(this).find('.text-body').attr('href', '#collapseOne');
+      $(this).find('.text-body').attr('aria-controls', 'collapseOne');
+      $(this).find('.collapse').attr('id', 'collapseOne');
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+      $(this).find('.details tr').eq(0).children('td').eq(0).children('b').text('分類');
+      $(this).find('.details tr').eq(0).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(0).children('td').eq(2).text('交通費');
+      $(this).find('.details tr').eq(1).children('td').eq(0).children('b').text('種類');
+      $(this).find('.details tr').eq(1).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(1).children('td').eq(2).text('支出');
+      $(this).find('.details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+      $(this).find('.details tr').eq(2).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(2).children('td').eq(2).text('交通費／バス');
+      $(this).find('.details tr').eq(3).children('td').eq(0).children('b').text('口座');
+      $(this).find('.details tr').eq(3).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(3).children('td').eq(2).text('Suica');
+    });
+    $('.accordion #target2').load('template.html', null, function(response, status) {
+      $(this).children('.card').attr('data-paymentsId', 'P00000002');
+      $(this).find('.card-header').attr('id', 'headingTwo');
+      $(this).find('.collapse').attr('aria-labelledby', 'headingTwo');
+      $(this).find('.text-body').attr('href', '#collapseTwo');
+      $(this).find('.text-body').attr('aria-controls', 'collapseTwo');
+      $(this).find('.collapse').attr('id', 'collapseTwo');
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('Edyチャージ　費目:口座引出、口座:現金、品名:その他');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA51,000');
+      $(this).find('.details tr').eq(0).children('td').eq(0).children('b').text('分類');
+      $(this).find('.details tr').eq(0).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(0).children('td').eq(2).text('クレジット');
+      $(this).find('.details tr').eq(1).children('td').eq(0).children('b').text('種類');
+      $(this).find('.details tr').eq(1).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(1).children('td').eq(2).text('出金');
+      $(this).find('.details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+      $(this).find('.details tr').eq(2).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(2).children('td').eq(2).text('その他／－');
+      $(this).find('.details tr').eq(3).children('td').eq(0).children('b').text('口座');
+      $(this).find('.details tr').eq(3).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(3).children('td').eq(2).text('現金');
+    });
+    $('.accordion #target3').load('template.html', null, function(response, status) {
+      $(this).children('.card').attr('data-paymentsId', 'P00000003');
+      $(this).find('.card-header').attr('id', 'headingThree');
+      $(this).find('.collapse').attr('aria-labelledby', 'headingThree');
+      $(this).find('.text-body').attr('href', '#collapseThree');
+      $(this).find('.text-body').attr('aria-controls', 'collapseThree');
+      $(this).find('.collapse').attr('id', 'collapseThree');
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('Edyチャージ　費目:口座預入、口座:電子マネー、品名:その他');
+      $(this).find('.card-header td').eq(2).children('b').text('\xA51,000');
+      $(this).find('.details tr').eq(0).children('td').eq(0).children('b').text('分類');
+      $(this).find('.details tr').eq(0).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(0).children('td').eq(2).text('クレジット');
+      $(this).find('.details tr').eq(1).children('td').eq(0).children('b').text('種類');
+      $(this).find('.details tr').eq(1).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(1).children('td').eq(2).text('入金');
+      $(this).find('.details tr').eq(2).children('td').eq(0).children('b').text('費目／内訳');
+      $(this).find('.details tr').eq(2).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(2).children('td').eq(2).text('その他／－');
+      $(this).find('.details tr').eq(3).children('td').eq(0).children('b').text('口座');
+      $(this).find('.details tr').eq(3).children('td').eq(1).children('b').text(':');
+      $(this).find('.details tr').eq(3).children('td').eq(2).text('Edy（再購入）');
+    });
+    $('.accordion #target4').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target5').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target6').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target7').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target8').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+      $(this).find('.card-header td').eq(1).text('バス行き（Suica）');
+      $(this).find('.card-header td').eq(2).children('b').text('-\xA5195');
+    });
+    $('.accordion #target9').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target10').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target11').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target12').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target13').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target14').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target15').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target16').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target17').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target18').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target19').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target20').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target21').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target22').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target23').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target24').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target25').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target26').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target27').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target28').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target29').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target30').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target31').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target32').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target33').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target34').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target35').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target36').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target37').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target38').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target39').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target40').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target41').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target42').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target43').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target44').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target45').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target46').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target47').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target48').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target49').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+    $('.accordion #target50').load('template.html', null, function(response, status) {
+      $(this).find('.card-header td').eq(0).text('2017/10/10');
+    });
+
+    var visibleItem = $('.dropdown .card-header a[data-toggle="collapse"]');
+    var selectItem = $('.dropdown .list-group-item:first');
+    visibleItem.text(selectItem.attr('value'));
+    selectItem.hide();
+}, false);
+
+  $(function(){
+    $('.dropdown .list-group-item').click(function(){
+
+/* $( selector [ , context ] ) */
+/* セレクター文字列を指定して、マッチした要素群のjQueryオブジェクトを返します。 */
+/* selector 要素を特定するセレクター文字列を指定します。 */
+/* context contextにDOM要素、document、jQueryオブジェクト等を指定することで、selectorはcontexに指定されたものの中から、要素を特定するようになります。 */
+/* $('div.foo').click(function() { */
+/*   $('span', this).addClass('bar'); */
+/* }); */
+/* contextにthisを指定することで、this(div.foo)要素内のspanを対象としています。 */
+
+      $('.list-group-item', $(this).closest('.dropdown')).show();
+      var visibleItem = $('.card .card-header a[data-toggle="collapse"]', $(this).closest('.dropdown'));
+      visibleItem.text($(this).attr('value'));
+      $(this).hide();
+    });
+  });
+
+  $(function(){
+    $('.dropdown .list-group-item').click(function(){
+      var visibleItem = $('.collapse', $(this).closest('.dropdown'));
+      visibleItem.collapse('hide');
+    });
+  });
+
+  $(function(){
+    /* この記述でないと動的追加要素に作用しない */
+    $('#target').on('click', '.btn', function(){
+    /*if (confirm('ページ遷移しますか？')) {
+      window.location.href = '/';
+    }*/
+      $('.card-header tr', $(this).closest('.card')).map(function(){
+        alert($(this).children('td').eq(0).text() + '\n'
+          + $(this).children('td').eq(1).text() + '\n'
+          + $(this).children('td').eq(2).text() + '\n');
+      });
+      $('.card-body .details tbody', $(this).closest('.card')).map(function(){
+        alert($(this).children('tr').eq(0).children('td').eq(0).text()
+          + $(this).children('tr').eq(0).children('td').eq(1).text()
+          + $(this).children('tr').eq(0).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(1).children('td').eq(0).text()
+          + $(this).children('tr').eq(1).children('td').eq(1).text()
+          + $(this).children('tr').eq(1).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(2).children('td').eq(0).text()
+          + $(this).children('tr').eq(2).children('td').eq(1).text()
+          + $(this).children('tr').eq(2).children('td').eq(2).text() + '\n'
+          + $(this).children('tr').eq(3).children('td').eq(0).text()
+          + $(this).children('tr').eq(3).children('td').eq(1).text()
+          + $(this).children('tr').eq(3).children('td').eq(2).text() + '\n');
+      });
+    });
+  });
+
+  $(function(){
+    /* この記述でないと動的追加要素に作用しない */
+    $('#target').on('click', '.btn-outline-secondary', function(){
+      if ($(this).closest('.card-body').find('.edit-form').length == 0) {
+        $(this).closest('.card-body').children('#target-addform').before('<hr>');
+        $(this).closest('.card-body').children('#target-addform')
+          .load('template2.html', null, function(){
+              $(this).closest('.card-body').find('.edit-form tr').eq(0).find('input')
+                .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(0).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(1).find('input')
+                .val($(this).closest('.card-body').find('.details tr').eq(0).children('td').eq(2).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(2).find('input')
+                .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(1).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(3).find('input')
+                .val($(('.card-header'), $(this).closest('.card')).find('.text-body td').eq(2).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(4).find('input')
+                .val($(this).closest('.card-body').find('.details tr').eq(1).children('td').eq(2).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(5).find('input')
+                .val($(this).closest('.card-body').find('.details tr').eq(2).children('td').eq(2).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(6).find('input')
+                .val($(this).closest('.card-body').find('.details tr').eq(2).children('td').eq(2).text());
+              $(this).closest('.card-body').find('.edit-form tr').eq(7).find('input')
+                .val($(this).closest('.card-body').find('.details tr').eq(3).children('td').eq(2).text());
+            });
+      } else {
+      $(this).closest('.card').map(function(){
+/* 日付 */
+        if (($(this).find('.edit-form tr').eq(0).find('input').val() != '')
+          && ($(this).find('.edit-form tr').eq(0).find('input').val() != $(this).find('.card-header td').eq(0).text())) {
+            $(this).find('.card-header td').eq(0).css({
+              'font-weight': 'bold',
+              'color': 'red'
+            });
+            $(this).find('.card-header td').eq(0).text($(this).find('.edit-form tr').eq(0).find('input').val());
+        }
+/*  */
+/* 分類 */
+        if (($(this).find('.edit-form tr').eq(1).find('input').val() != '')
+          && ($(this).find('.edit-form tr').eq(1).find('input').val() != $(this).find('.details td').eq(2).text())) {
+            $(this).find('.details td').eq(2).css({
+              'font-weight': 'bold',
+              'color': 'red'
+            });
+            $(this).find('.details td').eq(2).text($(this).find('.edit-form tr').eq(1).find('input').val());
+        }
+/*  */
+/* 分類 */
+/*  */
+/* 項目 */
+/*  */
+/* 支出／収入 */
+/*  */
+/* 種類 */
+/*  */
+/* 費目 */
+/*  */
+/* 内訳 */
+/*  */
+/* 口座 */
+/*  */
+      });
+        $(this).closest('.card-body').find('hr').remove();
+        $(this).closest('.card-body').find('.edit-form').remove();
+      }
+/*      $(this).closest('.card').map(function(){
+        if ($(this).find('.edit-form').length == 0) {
+          $(this).children('#target-addform').load('template2.html');
+        } else {
+          $(this).find('.edit-form').remove();
+          if (($(this).children('tr').eq(0).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(0).children('td').eq(2).children('input').val() != $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(0).text())) {
+              $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(0).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(0).text($(this).children('tr').eq(0).children('td').eq(2).children('input').val());
+          }
+          if (($(this).children('tr').eq(1).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(1).children('td').eq(2).children('input').val() != $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(1).text())) {
+              $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(1).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(1).text($(this).children('tr').eq(1).children('td').eq(2).children('input').val());
+          }
+          if (($(this).children('tr').eq(2).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(2).children('td').eq(2).children('input').val() != $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(2).text())) {
+              $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(2).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $('.card-header .text-body tbody', $(this).closest('.card')).children('tr').eq(0).children('td').eq(2).text($(this).children('tr').eq(2).children('td').eq(2).children('input').val());
+          }
+
+          if (($(this).children('tr').eq(4).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(4).children('td').eq(2).children('input').val() != $(this).children('tr').eq(3).children('td').eq(2).text())) {
+              $(this).children('tr').eq(3).children('td').eq(2).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $(this).children('tr').eq(3).children('td').eq(2).text($(this).children('tr').eq(4).children('td').eq(2).children('input').val());
+          }
+          if (($(this).children('tr').eq(6).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(6).children('td').eq(2).children('input').val() != $(this).children('tr').eq(5).children('td').eq(2).text())) {
+              $(this).children('tr').eq(5).children('td').eq(2).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $(this).children('tr').eq(5).children('td').eq(2).text($(this).children('tr').eq(6).children('td').eq(2).children('input').val());
+          }
+          if (($(this).children('tr').eq(8).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(8).children('td').eq(2).children('input').val() != $(this).children('tr').eq(7).children('td').eq(2).text())) {
+              $(this).children('tr').eq(7).children('td').eq(2).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $(this).children('tr').eq(7).children('td').eq(2).text($(this).children('tr').eq(8).children('td').eq(2).children('input').val());
+          }
+          if (($(this).children('tr').eq(10).children('td').eq(2).children('input').val() != '')
+            && ($(this).children('tr').eq(10).children('td').eq(2).children('input').val() != $(this).children('tr').eq(9).children('td').eq(2).text())) {
+              $(this).children('tr').eq(9).children('td').eq(2).css({
+                'font-weight': 'bold',
+                'color': 'red'
+              });
+              $(this).children('tr').eq(9).children('td').eq(2).text($(this).children('tr').eq(10).children('td').eq(2).children('input').val());
+          }
+        }
+      });*/
+    });
+  });
+
+  $(function(){
+    $('.linkTest').click(function(){
+	getJSON();
+    });
+  });
+
+</script>
+
+<style type="text/css">
+<!--
+
+/* 先にインラインテーブル化必須 */
+.accordion .card .card-body .details,
+.accordion .card .card-body .btn-grp {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.accordion .card .card-header,
+.accordion .card .card-body,
+.dropdown .card .card-header,
+.dropdown .card .list-group-item {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.accordion .card .card-header td,
+.accordion .card .card-body td,
+.accordion .card .card-body td .btn,
+.dropdown .card .card-header,
+.dropdown .card .list-group-item,
+.accordion .category td,
+.accordion .category.total td,
+.balance-list td,
+.balance-list th,
+.searchForm .card .card-header,
+.linkTest {
+  font-size: 14px;
+}
+
+.accordion .td-03 {
+  background: #cfe6ff;
+}
+
+.accordion,
+.dropdown .card a[data-toggle="collapse"],
+.searchForm .card a[data-toggle="collapse"],
+.linkTest {
+  display: block;
+}
+
+.accordion .card .card-header a[data-toggle="collapse"]:active,
+.accordion .card .card-header a[data-toggle="collapse"]:hover,
+.accordion .card .card-header a[data-toggle="collapse"]:focus,
+.dropdown .card a[data-toggle="collapse"]:active,
+.dropdown .card a[data-toggle="collapse"]:hover,
+.dropdown .card a[data-toggle="collapse"]:focus,
+.searchForm .card a[data-toggle="collapse"]:active,
+.searchForm .card a[data-toggle="collapse"]:hover,
+.searchForm .card a[data-toggle="collapse"]:focus {
+  text-decoration: none; //リンクテキストの下線を消す
+}
+
+.dropdown .card .list-group .custom {
+  border: none;
+}
+
+.balance-list table {
+  width:100%;
+}
+
+.balance-list td,
+.balance-list th {
+  border-left: solid 1px #bbb;
+  border-top: solid 1px #bbb;
+  border-right: solid 1px #bbb;
+  border-bottom: solid 1px #bbb;
+}
+
+.balance-list .td-03 {
+  background: #cfe6ff;
+  text-align:center;
+}
+
+/* 先にfixed指定がないと次が効かない */
+#target .text-body table {
+  table-layout: fixed;
+}
+
+#target .text-body td:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accordion .category,
+.balance-list td {
+  background-color: #ffffff;
+}
+
+-->
+</style>
+
+</head>
+
+<body>
+
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+<div class="sticky-top">
+
+<div class="mb-0 category">
+  <table width="100%">
+    <tr>
+      <td width="100%"><b>口座</b></td>
+    </tr>
+  </table>
+</div>
+
+<div class="dropdown" id="dropdown" role="tablist" aria-multiselectable="true">
+<div class="card">
+  <div class="card-header" role="tab" id="collapseListGroupHeading1">
+    <div class="mb-0">
+      <a href="#collapseListGroup1" class="text-body" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1">
+        項目を選択してください
+      </a>
+    </div>
+  </div>
+  <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item custom" value="みずほ普通（札幌）">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDOne" role="button" aria-expanded="false" aria-controls="collapseDDOne">
+          みずほ普通（札幌）
+        </a>
+      </li>
+      <li class="list-group-item custom" value="みずほ普通（辻堂）">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDTwo" role="button" aria-expanded="false" aria-controls="collapseDDTwo">
+          みずほ普通（辻堂）
+        </a>
+      </li>
+      <li class="list-group-item custom" value="みずほ定期（札幌）">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDThree" role="button" aria-expanded="false" aria-controls="collapseDDThree">
+          みずほ定期（札幌）
+        </a>
+      </li>
+      <li class="list-group-item custom" value="みずほ積立（札幌）">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDFour" role="button" aria-expanded="false" aria-controls="collapseDDFour">
+          みずほ積立（札幌）
+        </a>
+      </li>
+      <li class="list-group-item custom" value="現金">
+        <a class="collapsed text-body" data-toggle="collapse" href="#collapseDDFive" role="button" aria-expanded="false" aria-controls="collapseDDFive">
+          現金
+        </a>
+      </li>
+    </ul>
+    </div>
+</div>
+</div>
+
+<div class="balance-list">
+ <table>
+    <tbody>
+    <tr>
+    <th class="td-03">現在の残高</th>
+    </tr>
+    <tr>
+    <td align="right"><b>&yen;140,626</b></td>
+    </tr>
+    </tbody>
+ </table>
+
+</div>
+
+<div class="searchForm" id="searchForm" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="collapseListGroupHeading2">
+      <div class="mb-0">
+        <a href="#collapseListGroup2" class="text-body" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup2">
+          詳細検索
+        </a>
+      </div>
+    </div>
+    <div id="collapseListGroup2" class="collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+      <div class="card-body">
+        【検索フォームを置く】
+      </div><!-- /.card-body -->
+    </div><!-- /.collapse -->
+  </div><!-- /.card -->
+</div>
+
+<div class="mb-0 category total">
+  <table width="100%">
+    <tr>
+      <td width="50%"><b>支出一覧</b></td>
+      <td width="50%" align="right"><font color="red"><b>支出総額　　&yen;78,087</b></font></td>
+    </tr>
+  </table>
+</div>
+
+  <div class="card td-03">
+    <div class="card-header">
+      <div class="mb-0">
+          <table class="btn01" width="100%">
+            <tr>
+              <td width="30%"><b>日付</b></td>
+              <td width="40%"><b>項目</b></td>
+              <td><b>支出／収入</b></td>
+            </tr>
+          </table>
+      </div>
+    </div><!-- /.card-header -->
+  </div><!-- /.card -->
+
+</div><!-- /.sticky-top -->
+
+<div id="target">
+
+<div id="target1">
+</div><!-- /target1 -->
+
+<div id="target2">
+</div><!-- /target2 -->
+
+<div id="target3">
+</div><!-- /target3 -->
+
+<div id="target4"></div>
+<div id="target5"></div>
+<div id="target6"></div>
+<div id="target7"></div>
+<div id="target8"></div>
+<div id="target9"></div>
+<div id="target10"></div>
+<div id="target11"></div>
+<div id="target12"></div>
+<div id="target13"></div>
+<div id="target14"></div>
+<div id="target15"></div>
+<div id="target16"></div>
+<div id="target17"></div>
+<div id="target18"></div>
+<div id="target19"></div>
+<div id="target20"></div>
+<div id="target21"></div>
+<div id="target22"></div>
+<div id="target23"></div>
+<div id="target24"></div>
+<div id="target25"></div>
+<div id="target26"></div>
+<div id="target27"></div>
+<div id="target28"></div>
+<div id="target29"></div>
+<div id="target30"></div>
+<div id="target31"></div>
+<div id="target32"></div>
+<div id="target33"></div>
+<div id="target34"></div>
+<div id="target35"></div>
+<div id="target36"></div>
+<div id="target37"></div>
+<div id="target38"></div>
+<div id="target39"></div>
+<div id="target40"></div>
+<div id="target41"></div>
+<div id="target42"></div>
+<div id="target43"></div>
+<div id="target44"></div>
+<div id="target45"></div>
+<div id="target46"></div>
+<div id="target47"></div>
+<div id="target48"></div>
+<div id="target49"></div>
+<div id="target50"></div>
+
+</div><!-- /target -->
+
+</div><!-- /accordion -->
+
+<div class="linkTest">
+  <a>テスト</a>
+</div>
+
+</body>
+
+</html>
