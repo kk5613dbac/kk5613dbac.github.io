@@ -1,0 +1,88 @@
+/* 先にインラインテーブル化必須 */
+.accordion .card .card-body .details,
+.accordion .card .card-body .btn-grp {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.accordion .card .card-header,
+.accordion .card .card-body,
+.dropdown .card .card-header,
+.dropdown .card .list-group-item {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.accordion .card .card-header td,
+.accordion .card .card-body td,
+.accordion .card .card-body td .btn,
+.dropdown .card .card-header,
+.dropdown .card .list-group-item,
+.accordion .category td,
+.accordion .category.total td,
+.balance-list td,
+.balance-list th,
+.searchForm .card .card-header,
+.linkTest {
+  font-size: 14px;
+}
+
+.accordion .td-03 {
+  background: #cfe6ff;
+}
+
+.accordion,
+.dropdown .card a[data-toggle="collapse"],
+.searchForm .card a[data-toggle="collapse"],
+.linkTest {
+  display: block;
+}
+
+.accordion .card .card-header a[data-toggle="collapse"]:active,
+.accordion .card .card-header a[data-toggle="collapse"]:hover,
+.accordion .card .card-header a[data-toggle="collapse"]:focus,
+.dropdown .card a[data-toggle="collapse"]:active,
+.dropdown .card a[data-toggle="collapse"]:hover,
+.dropdown .card a[data-toggle="collapse"]:focus,
+.searchForm .card a[data-toggle="collapse"]:active,
+.searchForm .card a[data-toggle="collapse"]:hover,
+.searchForm .card a[data-toggle="collapse"]:focus {
+  text-decoration: none; //リンクテキストの下線を消す
+}
+
+.dropdown .card .list-group .custom {
+  border: none;
+}
+
+.balance-list table {
+  width:100%;
+}
+
+.balance-list td,
+.balance-list th {
+  border-left: solid 1px #bbb;
+  border-top: solid 1px #bbb;
+  border-right: solid 1px #bbb;
+  border-bottom: solid 1px #bbb;
+}
+
+.balance-list .td-03 {
+  background: #cfe6ff;
+  text-align:center;
+}
+
+/* 先にfixed指定がないと次が効かない */
+#target .text-body table {
+  table-layout: fixed;
+}
+
+#target .text-body td:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accordion .category,
+.balance-list td {
+  background-color: #ffffff;
+}
